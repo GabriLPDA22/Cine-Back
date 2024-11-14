@@ -36,15 +36,44 @@ namespace cine_web_app.back_end.Controllers
                             { "2024-11-11", new List<Sesion>
                                 {
                                     new Sesion { Hora = "16:30", Sala = "10", EsISense = true, EsVOSE = false },
-                                    new Sesion { Hora = "18:05", Sala = "8", EsISense = false, EsVOSE = true },
-                                    new Sesion { Hora = "20:15", Sala = "7", EsISense = false, EsVOSE = false },
-                                    new Sesion { Hora = "22:30", Sala = "5", EsISense = true, EsVOSE = true }
+                                    new Sesion { Hora = "18:05", Sala = "8", EsISense = false, EsVOSE = true }
                                 }
                             },
-                            // ... (agrega más fechas y sesiones si lo deseas)
+                            { "2024-11-12", new List<Sesion>
+                                {
+                                    new Sesion { Hora = "14:00", Sala = "12", EsISense = false, EsVOSE = false },
+                                    new Sesion { Hora = "17:30", Sala = "6", EsISense = true, EsVOSE = true }
+                                }
+                            }
                         }
                     },
-                    // Puedes agregar más películas si es necesario
+                    new Pelicula
+                    {
+                        Id = 2,
+                        Titulo = "The Batman",
+                        Descripcion = "Bruce Wayne, en sus primeros años como el Caballero Oscuro, enfrenta a un asesino en serie conocido como el Riddler. Mientras investiga los crímenes, descubre secretos oscuros sobre su familia y la corrupción en Gotham. Con la ayuda de Catwoman, busca hacer justicia en una ciudad sumida en el caos.",
+                        FechaEstreno = new DateTime(2022, 3, 4),
+                        Genero = "Acción, Crimen, Drama",
+                        Director = "Matt Reeves",
+                        Actores = "Robert Pattinson, Zoë Kravitz, Colin Farrell",
+                        Calificacion = 7.9,
+                        Imagen = "/cine_web_app/front-end/images/Banner-The-Batman.jpg",
+                        Cartel = "/cine_web_app/front-end/images/The-Batman-Cartel.jpg",
+                        Sesiones = new Dictionary<string, List<Sesion>>
+                        {
+                            { "2024-11-11", new List<Sesion>
+                                {
+                                    new Sesion { Hora = "19:00", Sala = "7", EsISense = false, EsVOSE = true },
+                                    new Sesion { Hora = "21:30", Sala = "9", EsISense = true, EsVOSE = false }
+                                }
+                            },
+                            { "2024-11-12", new List<Sesion>
+                                {
+                                    new Sesion { Hora = "15:00", Sala = "3", EsISense = false, EsVOSE = false }
+                                }
+                            }
+                        }
+                    }
                 }
             },
             new Cine
@@ -55,9 +84,9 @@ namespace cine_web_app.back_end.Controllers
                 {
                     new Pelicula
                     {
-                        Id = 2,
+                        Id = 3,
                         Titulo = "X-Men Apocalypse",
-                        Descripcion = "Apocalypse, el primer y más poderoso mutante, despierta tras miles de años y, decepcionado con el mundo actual, decide acabar con la humanidad para instaurar un nuevo orden. Reuniendo a un grupo de mutantes poderosos, incluidos Magneto, Psylocke, Storm y Angel, planea destruir el mundo como lo conocemos. ",
+                        Descripcion = "Apocalypse, el primer y más poderoso mutante...",
                         FechaEstreno = new DateTime(2016, 5, 27),
                         Genero = "Sci-fi",
                         Director = "Bryan Singer",
@@ -73,10 +102,39 @@ namespace cine_web_app.back_end.Controllers
                                     new Sesion { Hora = "17:30", Sala = "3", EsISense = false, EsVOSE = true }
                                 }
                             },
-                            // ... (agrega más fechas y sesiones si lo deseas)
+                            { "2024-11-13", new List<Sesion>
+                                {
+                                    new Sesion { Hora = "12:45", Sala = "4", EsISense = false, EsVOSE = true }
+                                }
+                            }
                         }
                     },
-                    // Puedes agregar más películas si es necesario
+                    new Pelicula
+                    {
+                        Id = 4,
+                        Titulo = "Avatar: The Way of Water",
+                        Descripcion = "Jake Sully y Neytiri enfrentan nuevos desafíos en Pandora...",
+                        FechaEstreno = new DateTime(2022, 12, 16),
+                        Genero = "Acción, Aventura, Fantasía",
+                        Director = "James Cameron",
+                        Actores = "Sam Worthington, Zoe Saldana, Sigourney Weaver",
+                        Calificacion = 7.8,
+                        Imagen = "/cine_web_app/front-end/images/Avatar2-Banner.jpg",
+                        Cartel = "/cine_web_app/front-end/images/Avatar2-Cartel.jpg",
+                        Sesiones = new Dictionary<string, List<Sesion>>
+                        {
+                            { "2024-11-12", new List<Sesion>
+                                {
+                                    new Sesion { Hora = "18:00", Sala = "8", EsISense = true, EsVOSE = false }
+                                }
+                            },
+                            { "2024-11-13", new List<Sesion>
+                                {
+                                    new Sesion { Hora = "13:30", Sala = "5", EsISense = false, EsVOSE = true }
+                                }
+                            }
+                        }
+                    }
                 }
             },
             new Cine
@@ -87,9 +145,9 @@ namespace cine_web_app.back_end.Controllers
                 {
                     new Pelicula
                     {
-                        Id = 3,
+                        Id = 5,
                         Titulo = "Venom: El Último Baile",
-                        Descripcion = "Eddie Brock intenta reavivar su carrera entrevistando al asesino en serie Cletus Kasady, quien se convierte en el anfitrión del simbionte Carnage y escapa de prisión después de una fallida ejecución.",
+                        Descripcion = "Eddie Brock intenta reavivar su carrera...",
                         FechaEstreno = new DateTime(2024, 10, 25),
                         Genero = "Acción, Aventura, Ciencia ficción",
                         Director = "Kelly Marcel",
@@ -101,14 +159,16 @@ namespace cine_web_app.back_end.Controllers
                         {
                             { "2024-11-13", new List<Sesion>
                                 {
-                                    new Sesion { Hora = "14:30", Sala = "6", EsISense = false, EsVOSE = false },
-                                    new Sesion { Hora = "17:00", Sala = "3", EsISense = true, EsVOSE = true }
+                                    new Sesion { Hora = "14:30", Sala = "6", EsISense = false, EsVOSE = false }
                                 }
                             },
-                            // ... (agrega más fechas y sesiones si lo deseas)
+                            { "2024-11-14", new List<Sesion>
+                                {
+                                    new Sesion { Hora = "17:00", Sala = "3", EsISense = true, EsVOSE = true }
+                                }
+                            }
                         }
-                    },
-                    // Puedes agregar más películas si es necesario
+                    }
                 }
             },
             new Cine
@@ -117,20 +177,43 @@ namespace cine_web_app.back_end.Controllers
                 Nombre = "Casco Antiguo",
                 Peliculas = new List<Pelicula>
                 {
-                    // Agrega las películas correspondientes
+                    new Pelicula
+                    {
+                        Id = 6,
+                        Titulo = "Guardians of the Galaxy Vol. 3",
+                        Descripcion = "Star-Lord, Rocket, Groot y otros héroes luchan...",
+                        FechaEstreno = new DateTime(2023, 5, 5),
+                        Genero = "Aventura, Ciencia ficción, Acción",
+                        Director = "James Gunn",
+                        Actores = "Chris Pratt, Zoe Saldana, Dave Bautista",
+                        Calificacion = 8.0,
+                        Imagen = "/cine_web_app/front-end/images/Guardians-3-Banner.jpg",
+                        Cartel = "/cine_web_app/front-end/images/Guardians-3-Cartel.jpg",
+                        Sesiones = new Dictionary<string, List<Sesion>>
+                        {
+                            { "2024-11-14", new List<Sesion>
+                                {
+                                    new Sesion { Hora = "15:00", Sala = "4", EsISense = false, EsVOSE = false }
+                                }
+                            },
+                            { "2024-11-15", new List<Sesion>
+                                {
+                                    new Sesion { Hora = "14:00", Sala = "5", EsISense = true, EsVOSE = false }
+                                }
+                            }
+                        }
+                    }
                 }
             }
-            // Puedes agregar más cines si es necesario
         };
 
-        // Método para obtener todos los cines con sus películas y sesiones
+        // Métodos de la API (ya proporcionados) ...
         [HttpGet("GetCinesConPeliculas")]
         public IActionResult GetCinesConPeliculas()
         {
             return Ok(cines);
         }
 
-        // Método para obtener la lista de cines (sin películas)
         [HttpGet("GetCines")]
         public IActionResult GetCines()
         {
@@ -143,7 +226,6 @@ namespace cine_web_app.back_end.Controllers
             return Ok(cinesSinPeliculas);
         }
 
-        // Método para obtener un cine específico con sus películas y sesiones
         [HttpGet("GetCineConPeliculas")]
         public IActionResult GetCineConPeliculas(int cineId)
         {
@@ -155,7 +237,6 @@ namespace cine_web_app.back_end.Controllers
             return Ok(cine);
         }
 
-        // Método para obtener una película específica en un cine específico
         [HttpGet("GetPeliculaPorCine")]
         public IActionResult GetPeliculaPorCine(int cineId, int peliculaId)
         {
@@ -174,8 +255,6 @@ namespace cine_web_app.back_end.Controllers
             return Ok(pelicula);
         }
 
-
-        // Método para obtener las sesiones de una película específica en un cine específico
         [HttpGet("GetPeliculaSesionesPorCine")]
         public IActionResult GetPeliculaSesionesPorCine(int cineId, int peliculaId)
         {
