@@ -604,4 +604,45 @@ app.MapGet("/api/Movie/GetPeliculaById", (int id) =>
     return Results.Ok(pelicula);
 }).WithName("GetPeliculaById");
 
+app.MapGet("/api/Cine/GetSeatSelectionInfo", (int cineId, int movieId, string sessionDate, string sessionTime) =>
+{
+    var cine = cines.FirstOrDefault(c => c.Id == cineId);
+    if (cine == null)
+    {
+        return Results.NotFound("Cine no encontrado");
+    }
+
+    var pelicula = cine.Peliculas.FirstOrDefault(p => p.Id == movieId);
+    if (pelicula == null)
+    {
+        return Results.NotFound("Película no encontrada en este cine");
+    }
+
+    if (!pelicula.Sesiones.TryGetValue(sessionDate, out var sesiones))
+    {
+        return Results.NotFound("No hay sesiones para esta fecha");
+    }
+
+    var sesion = sesiones.FirstOrDefault(s => s.Hora == sessionTime);
+    if (sesion == null)
+    {
+        return Results.NotFound("Sesión no encontrada en este horario");
+    }
+
+    // Devolver la información para la selección de asientos
+    var seatSelectionInfo = new
+    {
+    MovieTitle = pelicula.Titulo,
+    CineName = cine.Nombre,
+    SessionDate = sessionDate,
+    SessionTime = sesion.Hora,
+    Room = sesion.Sala,
+    EsISense = sesion.EsISense,
+    EsVOSE = sesion.EsVOSE,
+    BannerImage = pelicula.Imagen // Asegúrate de que `Imagen` sea la propiedad del banner en la clase `Pelicula`
+    };
+
+    return Results.Ok(seatSelectionInfo);
+}).WithName("GetSeatSelectionInfo");
+
 app.Run();
