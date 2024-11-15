@@ -17,18 +17,24 @@ namespace cine_web_app.back_end.Controllers
             _cines = cines;
         }
 
-        // Endpoint para obtener información de la selección de asientos
         [HttpGet("GetSeatSelectionInfo")]
-        public IActionResult GetSeatSelectionInfo(int cineId, int movieId, string sessionDate, string sessionTime)
+        public IActionResult GetSeatSelectionInfo(string cineName, string movieTitle, string sessionDate, string sessionTime)
         {
-            var cine = _cines.FirstOrDefault(c => c.Id == cineId);
+            // Buscar el cine por nombre
+            var cine = _cines.FirstOrDefault(c => c.Nombre == cineName);
             if (cine == null)
+            {
                 return NotFound("Cine no encontrado");
+            }
 
-            var pelicula = cine.Peliculas.FirstOrDefault(p => p.Id == movieId);
+            // Buscar la película por título
+            var pelicula = cine.Peliculas.FirstOrDefault(p => p.Titulo == movieTitle);
             if (pelicula == null)
+            {
                 return NotFound("Película no encontrada en este cine");
+            }
 
+            // Buscar la sesión específica por fecha y hora
             if (!pelicula.Sesiones.TryGetValue(sessionDate, out var sesiones))
             {
                 return NotFound("No hay sesiones para esta fecha");
@@ -40,6 +46,7 @@ namespace cine_web_app.back_end.Controllers
                 return NotFound("Sesión no encontrada en este horario");
             }
 
+            // Devolver la información para la selección de asientos
             var seatSelectionInfo = new
             {
                 MovieTitle = pelicula.Titulo,
@@ -49,7 +56,7 @@ namespace cine_web_app.back_end.Controllers
                 Room = sesion.Sala,
                 EsISense = sesion.EsISense,
                 EsVOSE = sesion.EsVOSE,
-                BannerImage = pelicula.Imagen  // Aquí usamos la propiedad correcta: "Imagen"
+                BannerImage = pelicula.Imagen
             };
 
             return Ok(seatSelectionInfo);

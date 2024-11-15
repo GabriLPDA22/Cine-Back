@@ -604,23 +604,23 @@ app.MapGet("/api/Movie/GetPeliculaById", (int id) =>
     return Results.Ok(pelicula);
 }).WithName("GetPeliculaById");
 
-app.MapGet("/api/Cine/GetSeatSelectionInfo", (int cineId, int movieId, string sessionDate, string sessionTime) =>
+app.MapGet("/api/Cine/GetSeatSelectionInfo", (string cineName, string movieTitle, string sessionDate, string sessionTime) =>
 {
-    // Buscar el cine en la lista en memoria
-    var cine = cines.FirstOrDefault(c => c.Id == cineId);
+    // Buscar el cine en la lista en memoria usando el nombre
+    var cine = cines.FirstOrDefault(c => c.Nombre == cineName);
     if (cine == null)
     {
         return Results.NotFound("Cine no encontrado");
     }
 
-    // Buscar la película en la lista de películas del cine
-    var pelicula = cine.Peliculas.FirstOrDefault(p => p.Id == movieId);
+    // Buscar la película en la lista de películas del cine usando el título
+    var pelicula = cine.Peliculas.FirstOrDefault(p => p.Titulo == movieTitle);
     if (pelicula == null)
     {
         return Results.NotFound("Película no encontrada en este cine");
     }
 
-    // Buscar la sesión específica por fecha y hora
+    // Verificar que la sesión existe para la fecha y hora proporcionada
     if (!pelicula.Sesiones.TryGetValue(sessionDate, out var sesiones))
     {
         return Results.NotFound("No hay sesiones para esta fecha");
@@ -642,10 +642,12 @@ app.MapGet("/api/Cine/GetSeatSelectionInfo", (int cineId, int movieId, string se
         Room = sesion.Sala,
         EsISense = sesion.EsISense,
         EsVOSE = sesion.EsVOSE,
-        BannerImage = pelicula.Imagen // Aquí usamos la propiedad correcta: "Imagen"
+        BannerImage = pelicula.Imagen
     };
 
     return Results.Ok(seatSelectionInfo);
 }).WithName("GetSeatSelectionInfo");
 
 app.Run();
+
+
