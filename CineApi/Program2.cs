@@ -606,18 +606,21 @@ app.MapGet("/api/Movie/GetPeliculaById", (int id) =>
 
 app.MapGet("/api/Cine/GetSeatSelectionInfo", (int cineId, int movieId, string sessionDate, string sessionTime) =>
 {
+    // Buscar el cine en la lista en memoria
     var cine = cines.FirstOrDefault(c => c.Id == cineId);
     if (cine == null)
     {
         return Results.NotFound("Cine no encontrado");
     }
 
+    // Buscar la película en la lista de películas del cine
     var pelicula = cine.Peliculas.FirstOrDefault(p => p.Id == movieId);
     if (pelicula == null)
     {
         return Results.NotFound("Película no encontrada en este cine");
     }
 
+    // Buscar la sesión específica por fecha y hora
     if (!pelicula.Sesiones.TryGetValue(sessionDate, out var sesiones))
     {
         return Results.NotFound("No hay sesiones para esta fecha");
@@ -632,14 +635,14 @@ app.MapGet("/api/Cine/GetSeatSelectionInfo", (int cineId, int movieId, string se
     // Devolver la información para la selección de asientos
     var seatSelectionInfo = new
     {
-    MovieTitle = pelicula.Titulo,
-    CineName = cine.Nombre,
-    SessionDate = sessionDate,
-    SessionTime = sesion.Hora,
-    Room = sesion.Sala,
-    EsISense = sesion.EsISense,
-    EsVOSE = sesion.EsVOSE,
-    BannerImage = pelicula.Imagen // Asegúrate de que `Imagen` sea la propiedad del banner en la clase `Pelicula`
+        MovieTitle = pelicula.Titulo,
+        CineName = cine.Nombre,
+        SessionDate = sessionDate,
+        SessionTime = sesion.Hora,
+        Room = sesion.Sala,
+        EsISense = sesion.EsISense,
+        EsVOSE = sesion.EsVOSE,
+        BannerImage = pelicula.Imagen // Aquí usamos la propiedad correcta: "Imagen"
     };
 
     return Results.Ok(seatSelectionInfo);
