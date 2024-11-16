@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
+using cine_web_app.back_end.Services; // Importar el servicio correcto
 using System.Linq;
-using cine_web_app.back_end.Models;
 
 namespace cine_web_app.back_end.Controllers
 {
@@ -9,19 +8,19 @@ namespace cine_web_app.back_end.Controllers
     [ApiController]
     public class CineController : ControllerBase
     {
-        private readonly List<Cine> _cines;
+        private readonly CineService _cineService;
 
-        // Constructor que recibe la lista de cines como parámetro
-        public CineController(List<Cine> cines)
+        // Inyección de dependencia del CineService
+        public CineController(CineService cineService)
         {
-            _cines = cines;
+            _cineService = cineService;
         }
 
         [HttpGet("GetSeatSelectionInfo")]
         public IActionResult GetSeatSelectionInfo(string cineName, string movieTitle, string sessionDate, string sessionTime)
         {
             // Buscar el cine por nombre
-            var cine = _cines.FirstOrDefault(c => c.Nombre == cineName);
+            var cine = _cineService.ObtenerCines().FirstOrDefault(c => c.Nombre == cineName);
             if (cine == null)
             {
                 return NotFound("Cine no encontrado");
