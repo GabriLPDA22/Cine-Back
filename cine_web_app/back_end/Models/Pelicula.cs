@@ -18,6 +18,9 @@ namespace cine_web_app.back_end.Models
         public string Actores { get; set; }
         public int EdadRecomendada { get; set; }
         public string ImagenEdadRecomendada { get; set; }
+        public bool EnCartelera { get; set; } // Campo para identificar si está en cartelera
+        public bool EnVentaAnticipada { get; set; } // Campo para identificar si está en venta anticipada
+
         
         // Agregar la propiedad Sesiones para almacenar las sesiones por fecha
         public Dictionary<string, List<Sesion>> Sesiones { get; set; }

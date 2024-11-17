@@ -32,24 +32,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-// Comentar esta línea si tienes problemas de SSL en localhost
-// app.UseHttpsRedirection();
-
 app.UseCors("PermitirFrontend");
-
-// try
-// {
-//     app.UseStaticFiles(new StaticFileOptions
-//     {
-//         FileProvider = new PhysicalFileProvider(
-//             Path.Combine(Directory.GetCurrentDirectory(), "front-end")),
-//         RequestPath = "/cine_web_app/front-end"
-//     });
-// }
-// catch (Exception ex)
-// {
-//     Console.WriteLine($"Error al configurar archivos estáticos: {ex.Message}");
-// }
 
 // Obtener el servicio CineService
 var cineService = app.Services.GetRequiredService<CineService>();
@@ -96,78 +79,20 @@ app.MapGet("/api/Movie/GetPeliculaById", (int id) =>
     return Results.Ok(pelicula);
 }).WithName("GetPeliculaById");
 
-// Endpoint para obtener información de selección de asientos
-app.MapGet("/api/Cine/GetSeatSelectionInfo", (string cineName, string movieTitle, string sessionDate, string sessionTime) =>
+app.MapGet("/api/Movie/GetPeliculasEnCartelera", () =>
 {
-    var cine = cineService.ObtenerCines().FirstOrDefault(c => c.Nombre == cineName);
-    if (cine == null)
-    {
-        return Results.NotFound("Cine no encontrado");
-    }
+    return Results.Ok(cineService.ObtenerPeliculasEnCartelera());
+}).WithName("GetPeliculasEnCartelera");
 
-    var pelicula = cine.Peliculas.FirstOrDefault(p => p.Titulo == movieTitle);
-    if (pelicula == null)
-    {
-        return Results.NotFound("Película no encontrada en este cine");
-    }
-
-    if (!pelicula.Sesiones.TryGetValue(sessionDate, out var sesiones))
-    {
-        return Results.NotFound("No hay sesiones para esta fecha");
-    }
-
-    var sesion = sesiones.FirstOrDefault(s => s.Hora == sessionTime);
-    if (sesion == null)
-    {
-        return Results.NotFound("Sesión no encontrada en este horario");
-    }
-
-    var seatSelectionInfo = new
-    {
-        MovieTitle = pelicula.Titulo,
-        CineName = cine.Nombre,
-        SessionDate = sessionDate,
-        SessionTime = sesion.Hora,
-        Room = sesion.Sala,
-        EsISense = sesion.EsISense,
-        EsVOSE = sesion.EsVOSE,
-        BannerImage = pelicula.Imagen
-    };
-
-    return Results.Ok(seatSelectionInfo);
-}).WithName("GetSeatSelectionInfo");
-
-// Obtener el servicio ProductoService
-var productoService = app.Services.GetRequiredService<ProductoService>();
-
-app.MapGet("/api/Productos/GetProductos", (string? categoria, ProductoService productoService) =>
+app.MapGet("/api/Movie/GetPeliculasEnVentaAnticipada", () =>
 {
-    IEnumerable<Producto> productos;
+    return Results.Ok(cineService.ObtenerPeliculasEnVentaAnticipada());
+}).WithName("GetPeliculasEnVentaAnticipada");
 
-    if (!string.IsNullOrEmpty(categoria))
-    {
-        if (categoria == "Top Ventas")
-        {
-            productos = productoService.ObtenerProductos();
-        }
-        else
-        {
-            productos = productoService.ObtenerProductos()
-                                        .Where(p => p.Categorias.Contains(categoria));
-        }
-    }
-    else
-    {
-        productos = productoService.ObtenerProductos();
-    }
-
-    return Results.Ok(productos);
-}).WithName("GetProductos");
-
-// Endpoint para obtener las categorías
-app.MapGet("/api/Productos/GetCategorias", () =>
+app.MapGet("/api/Movie/GetPeliculasProximas", () =>
 {
-    return Results.Ok(new List<string> { "Top Ventas", "Menus", "Palomitas", "Bebidas", "Hot Food", "Merchandising", "Snacks Dulces", "Infantil" });
-}).WithName("GetCategorias");
+    return Results.Ok(cineService.ObtenerPeliculasProximas());
+}).WithName("GetPeliculasProximas");
+
 
 app.Run();

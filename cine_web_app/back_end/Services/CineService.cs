@@ -21,6 +21,45 @@ namespace cine_web_app.back_end.Services
             return _cines;
         }
 
+        // Método para obtener todas las películas sin duplicados
+        public List<Pelicula> ObtenerTodasLasPeliculas()
+        {
+            return _cines.SelectMany(c => c.Peliculas)
+                         .GroupBy(p => p.Id) // Agrupa por ID
+                         .Select(g => g.First()) // Selecciona solo una película por ID
+                         .ToList();
+        }
+
+        // Método para obtener películas en cartelera sin duplicados
+        public List<Pelicula> ObtenerPeliculasEnCartelera()
+        {
+            return _cines.SelectMany(c => c.Peliculas)
+                         .Where(p => p.EnCartelera)
+                         .GroupBy(p => p.Id)
+                         .Select(g => g.First())
+                         .ToList();
+        }
+
+        // Método para obtener películas en venta anticipada sin duplicados
+        public List<Pelicula> ObtenerPeliculasEnVentaAnticipada()
+        {
+            return _cines.SelectMany(c => c.Peliculas)
+                         .Where(p => p.EnVentaAnticipada)
+                         .GroupBy(p => p.Id)
+                         .Select(g => g.First())
+                         .ToList();
+        }
+
+        // Método para obtener películas próximas sin duplicados
+        public List<Pelicula> ObtenerPeliculasProximas()
+        {
+            return _cines.SelectMany(c => c.Peliculas)
+                         .Where(p => p.FechaEstreno > DateTime.Now && !p.EnCartelera && !p.EnVentaAnticipada)
+                         .GroupBy(p => p.Id)
+                         .Select(g => g.First())
+                         .ToList();
+        }
+
         // Método para obtener un cine por ID
         public Cine ObtenerCinePorId(int id)
         {
@@ -59,7 +98,9 @@ namespace cine_web_app.back_end.Services
                             Cartel = "/cine_web_app/front-end/images/Spiderman-No-Way-Home-Cartel.jpg",
                             EdadRecomendada = 12,
                             ImagenEdadRecomendada = "/cine_web_app/front-end/images/12.jpg",
-                            Sesiones = CrearSesionesSpiderMan()
+                            Sesiones = CrearSesionesSpiderMan(),
+                            EnCartelera = false, // Ya no está en cartelera
+                            EnVentaAnticipada = false // Tampoco está en venta anticipada
                         },
                         new Pelicula
                         {
@@ -76,7 +117,9 @@ namespace cine_web_app.back_end.Services
                             ImagenEdadRecomendada = "/cine_web_app/front-end/images/12.jpg",
                             Imagen = "/cine_web_app/front-end/images/X-Men_Apocalypse_Banner.jpg",
                             Cartel = "/cine_web_app/front-end/images/X-MEN_Apocalypse.jpg",
-                            Sesiones = CrearSesionesXMen()
+                            Sesiones = CrearSesionesXMen(),
+                            EnCartelera = true, // Actualmente en cartelera
+                            EnVentaAnticipada = true // Si está en venta anticipada
                         },
                         new Pelicula
                         {
@@ -93,7 +136,9 @@ namespace cine_web_app.back_end.Services
                             Cartel = "/cine_web_app/front-end/images/Venom_3.jpg",
                             EdadRecomendada = 12,
                             ImagenEdadRecomendada = "/cine_web_app/front-end/images/12.jpg",
-                            Sesiones = CrearSesionesVenom()
+                            Sesiones = CrearSesionesVenom(),
+                            EnCartelera = true, // Actualmente en cartelera
+                            EnVentaAnticipada = false // No está en venta anticipada
                         },
                     }
                 },
@@ -169,7 +214,9 @@ namespace cine_web_app.back_end.Services
                             Cartel = "/cine_web_app/front-end/images/terrifier-3.jpg", // Ruta del cartel
                             EdadRecomendada = 18, // Marcado como para mayores de 18 años
                             ImagenEdadRecomendada = "/cine_web_app/front-end/images/18.jpg",
-                            Sesiones = CrearSesionesTerrifier()
+                            Sesiones = CrearSesionesTerrifier(),
+                            EnCartelera = true, // Actualmente en cartelera
+                            EnVentaAnticipada = false // No está en venta anticipada
                         },
                         new Pelicula
                         {
@@ -185,7 +232,9 @@ namespace cine_web_app.back_end.Services
                             Cartel = "/cine_web_app/front-end/images/The-Batman-Cartel.jpg",
                             EdadRecomendada = 12,
                             ImagenEdadRecomendada = "/cine_web_app/front-end/images/12.jpg",
-                            Sesiones = CrearSesionesBatman()
+                            Sesiones = CrearSesionesBatman(),
+                            EnCartelera = true, // Actualmente en cartelera
+                            EnVentaAnticipada = true // No está en venta anticipada
                         },
 
                     }
