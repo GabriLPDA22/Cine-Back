@@ -33,12 +33,19 @@ namespace cine_web_app.back_end.Controllers
                 return NotFound("Película no encontrada en este cine");
             }
 
-            // Buscar la sesión específica por fecha y hora
-            if (!pelicula.Sesiones.TryGetValue(sessionDate, out var sesiones))
+            // Buscar las sesiones para este cine en la fecha dada
+            if (!pelicula.Sesiones.TryGetValue(cineName, out var sesionesPorFecha))
+            {
+                return NotFound("No hay sesiones para este cine");
+            }
+
+            // Buscar las sesiones en la fecha específica
+            if (!sesionesPorFecha.TryGetValue(sessionDate, out var sesiones))
             {
                 return NotFound("No hay sesiones para esta fecha");
             }
 
+            // Buscar la sesión específica por hora
             var sesion = sesiones.FirstOrDefault(s => s.Hora == sessionTime);
             if (sesion == null)
             {
@@ -60,5 +67,6 @@ namespace cine_web_app.back_end.Controllers
 
             return Ok(seatSelectionInfo);
         }
+
     }
 }

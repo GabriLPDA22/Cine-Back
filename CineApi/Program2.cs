@@ -3,6 +3,7 @@ using cine_web_app.back_end.Services; // Corregido el espacio de nombres
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
+using Newtonsoft.Json;  // Agregar el espacio de nombres Newtonsoft.Json
 using System.IO;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -52,13 +53,32 @@ app.MapGet("/api/Cine/GetCines", () =>
 // Endpoint para obtener un cine específico con sus películas
 app.MapGet("/api/Cine/GetCineConPeliculas", (int cineId) =>
 {
+    // Obtener el cine por su ID
     var cine = cineService.ObtenerCinePorId(cineId);
+
+    // Si el cine no existe, devolver un error 404
     if (cine == null)
     {
         return Results.NotFound("Cine no encontrado");
     }
-    return Results.Ok(cine);
-}).WithName("GetCineConPeliculas");
+
+    // Asegurarnos de que las sesiones se devuelvan correctamente
+    var cineConPeliculas = new
+    {
+        cine.Id,
+        cine.Nombre,
+        peliculas = cine.Peliculas.Select(pelicula => new
+        {
+            pelicula.Id,
+            pelicula.Titulo,
+            pelicula.Sesiones // Devuelves las sesiones junto con la película
+        }).ToList()
+    };
+
+    return Results.Ok(cineConPeliculas); // Devuelve las películas con las sesiones
+});
+
+
 
 // Endpoint para obtener todas las películas
 app.MapGet("/api/Movie/GetPeliculas", () =>
@@ -77,7 +97,7 @@ app.MapGet("/api/Movie/GetPeliculaById", (int id) =>
         return Results.NotFound("Película no encontrada");
     }
     return Results.Ok(pelicula);
-}).WithName("GetPeliculaById");
+});
 
 app.MapGet("/api/Movie/GetPeliculasEnCartelera", () =>
 {
@@ -93,6 +113,5 @@ app.MapGet("/api/Movie/GetPeliculasProximas", () =>
 {
     return Results.Ok(cineService.ObtenerPeliculasProximas());
 }).WithName("GetPeliculasProximas");
-
 
 app.Run();

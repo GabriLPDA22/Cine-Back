@@ -21,8 +21,8 @@ namespace cine_web_app.back_end.Models
         public bool EnCartelera { get; set; } // Campo para identificar si está en cartelera
         public bool EnVentaAnticipada { get; set; } // Campo para identificar si está en venta anticipada
 
-        
-        // Agregar la propiedad Sesiones para almacenar las sesiones por fecha
-        public Dictionary<string, List<Sesion>> Sesiones { get; set; }
+        // Cambiar la propiedad Sesiones para soportar cines, fechas y sesiones
+        public Dictionary<string, Dictionary<string, List<Sesion>>> Sesiones { get; set; }
+
     }
 }

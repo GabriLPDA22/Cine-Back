@@ -236,301 +236,356 @@ namespace cine_web_app.back_end.Services
                             EnCartelera = true, // Actualmente en cartelera
                             EnVentaAnticipada = true // No está en venta anticipada
                         },
+                        new Pelicula
+                        {
+                            Id = 6,
+                            Titulo = "Gladiator II",
+                            Descripcion = "Años después de presenciar la muerte del admirado héroe Máximo...",
+                            FechaEstreno = new DateTime(2024, 11, 15),
+                            Genero = "Acción, Aventura, Drama",
+                            Director = "Ridley Scott",
+                            Duracion = "2h 27m",
+                            Actores = "Paul Mescal, Denzel Washington, Connie Nielsen, Joseph Quinn, Derek Jacobi, Fred Hechinger, Lior Raz, Pedro Pascal",
+                            Calificacion = 8.5,
+                            Imagen = "/cine_web_app/front-end/images/Banner-Gladiator-II.jpg",
+                            Cartel = "/cine_web_app/front-end/images/Gladiator-II-Cartel.jpg",
+                            EdadRecomendada = 16,
+                            ImagenEdadRecomendada = "/cine_web_app/front-end/images/16.jpg",
+                            Sesiones = CrearSesionesGladiator2(),  // Asegúrate de definir las sesiones para Gladiator II
+                            EnCartelera = true,
+                            EnVentaAnticipada = true
+                        }
 
                     }
                 }
             };
         }
 
-        private Dictionary<string, List<Sesion>> CrearSesionesSpiderMan()
+        private Dictionary<string, Dictionary<string, List<Sesion>>> CrearSesionesSpiderMan()
         {
-            return new Dictionary<string, List<Sesion>>
-    {
-        { "2024-11-11", new List<Sesion>
+            return new Dictionary<string, Dictionary<string, List<Sesion>>>
             {
-                new Sesion { Hora = "16:30", Sala = "10", EsISense = true, EsVOSE = false },
-                new Sesion { Hora = "18:05", Sala = "8", EsISense = false, EsVOSE = true }
-            }
-        },
-        { "2024-11-12", new List<Sesion>
-            {
-                new Sesion { Hora = "15:30", Sala = "3", EsISense = false, EsVOSE = false },
-                new Sesion { Hora = "17:45", Sala = "9", EsISense = true, EsVOSE = false },
-                new Sesion { Hora = "19:50", Sala = "6", EsISense = true, EsVOSE = true },
-                new Sesion { Hora = "22:10", Sala = "2", EsISense = false, EsVOSE = true }
-            }
-        },
-        { "2024-11-13", new List<Sesion>
-            {
-                new Sesion { Hora = "16:00", Sala = "10", EsISense = true, EsVOSE = false },
-                new Sesion { Hora = "18:10", Sala = "8", EsISense = false, EsVOSE = true },
-                new Sesion { Hora = "20:25", Sala = "5", EsISense = false, EsVOSE = false },
-                new Sesion { Hora = "23:00", Sala = "3", EsISense = true, EsVOSE = true }
-            }
-        },
-        { "2024-11-14", new List<Sesion>
-            {
-                new Sesion { Hora = "14:45", Sala = "4", EsISense = false, EsVOSE = false },
-                new Sesion { Hora = "17:00", Sala = "7", EsISense = true, EsVOSE = true },
-                new Sesion { Hora = "19:30", Sala = "2", EsISense = false, EsVOSE = false },
-                new Sesion { Hora = "21:50", Sala = "10", EsISense = true, EsVOSE = false }
-            }
-        },
-        { "2024-11-15", new List<Sesion>
-            {
-                new Sesion { Hora = "16:45", Sala = "5", EsISense = false, EsVOSE = false },
-                new Sesion { Hora = "19:00", Sala = "3", EsISense = true, EsVOSE = false },
-                new Sesion { Hora = "21:30", Sala = "8", EsISense = true, EsVOSE = true },
-                new Sesion { Hora = "23:45", Sala = "6", EsISense = false, EsVOSE = true }
-            }
-        },
-        { "2024-11-16", new List<Sesion>
-            {
-                new Sesion { Hora = "13:30", Sala = "10", EsISense = true, EsVOSE = false },
-                new Sesion { Hora = "16:00", Sala = "8", EsISense = false, EsVOSE = true },
-                new Sesion { Hora = "19:15", Sala = "5", EsISense = true, EsVOSE = false },
-                new Sesion { Hora = "22:20", Sala = "3", EsISense = false, EsVOSE = true }
-            }
-        },
-        { "2024-11-17", new List<Sesion>
-            {
-                new Sesion { Hora = "14:00", Sala = "7", EsISense = false, EsVOSE = false },
-                new Sesion { Hora = "17:20", Sala = "9", EsISense = true, EsVOSE = true },
-                new Sesion { Hora = "20:30", Sala = "2", EsISense = false, EsVOSE = false },
-                new Sesion { Hora = "23:00", Sala = "10", EsISense = true, EsVOSE = true }
-            }
-        }
-    };
+                {
+                    "Gran Casa", new Dictionary<string, List<Sesion>>
+                    {
+                        { "2024-11-11", new List<Sesion>
+                            {
+                                new Sesion { Hora = "16:30", Sala = "10", EsISense = true, EsVOSE = false },
+                                new Sesion { Hora = "18:05", Sala = "8", EsISense = false, EsVOSE = true }
+                            }
+                        },
+                        { "2024-11-12", new List<Sesion>
+                            {
+                                new Sesion { Hora = "15:30", Sala = "3", EsISense = false, EsVOSE = false },
+                                new Sesion { Hora = "17:45", Sala = "9", EsISense = true, EsVOSE = false },
+                                new Sesion { Hora = "19:50", Sala = "6", EsISense = true, EsVOSE = true },
+                                new Sesion { Hora = "22:10", Sala = "2", EsISense = false, EsVOSE = true }
+                            }
+                        }
+                        // Agrega más días y sesiones para Gran Casa según sea necesario
+                    }
+                },
+                {
+                    "Puerto Venecia", new Dictionary<string, List<Sesion>>
+                    {
+                        { "2024-11-11", new List<Sesion>
+                            {
+                                new Sesion { Hora = "17:00", Sala = "7", EsISense = true, EsVOSE = true },
+                                new Sesion { Hora = "19:30", Sala = "2", EsISense = false, EsVOSE = false }
+                            }
+                        },
+                        { "2024-11-12", new List<Sesion>
+                            {
+                                new Sesion { Hora = "16:00", Sala = "5", EsISense = true, EsVOSE = false },
+                                new Sesion { Hora = "20:00", Sala = "3", EsISense = false, EsVOSE = true }
+                            }
+                        }
+                        // Agrega más días y sesiones para Puerto Venecia según sea necesario
+                    }
+                }
+            };
         }
 
-        private Dictionary<string, List<Sesion>> CrearSesionesXMen()
+       private Dictionary<string, Dictionary<string, List<Sesion>>> CrearSesionesXMen()
         {
-            return new Dictionary<string, List<Sesion>>
-    {
-        { "2024-11-11", new List<Sesion>
+            return new Dictionary<string, Dictionary<string, List<Sesion>>>
             {
-                new Sesion { Hora = "15:00", Sala = "1", EsISense = true, EsVOSE = false },
-                new Sesion { Hora = "17:30", Sala = "3", EsISense = false, EsVOSE = true },
-                new Sesion { Hora = "20:00", Sala = "2", EsISense = false, EsVOSE = false },
-                new Sesion { Hora = "22:30", Sala = "4", EsISense = true, EsVOSE = true }
-            }
-        },
-        { "2024-11-12", new List<Sesion>
-            {
-                new Sesion { Hora = "16:00", Sala = "7", EsISense = false, EsVOSE = true },
-                new Sesion { Hora = "18:45", Sala = "9", EsISense = true, EsVOSE = false },
-                new Sesion { Hora = "21:00", Sala = "5", EsISense = true, EsVOSE = true }
-            }
-        },
-        { "2024-11-13", new List<Sesion>
-            {
-                new Sesion { Hora = "14:30", Sala = "6", EsISense = false, EsVOSE = false },
-                new Sesion { Hora = "17:00", Sala = "3", EsISense = true, EsVOSE = true },
-                new Sesion { Hora = "20:00", Sala = "10", EsISense = false, EsVOSE = false }
-            }
-        },
-        { "2024-11-14", new List<Sesion>
-            {
-                new Sesion { Hora = "15:15", Sala = "4", EsISense = false, EsVOSE = false },
-                new Sesion { Hora = "18:10", Sala = "7", EsISense = true, EsVOSE = false },
-                new Sesion { Hora = "20:30", Sala = "2", EsISense = true, EsVOSE = true }
-            }
-        },
-        { "2024-11-15", new List<Sesion>
-            {
-                new Sesion { Hora = "16:00", Sala = "5", EsISense = false, EsVOSE = true },
-                new Sesion { Hora = "19:00", Sala = "3", EsISense = true, EsVOSE = false },
-                new Sesion { Hora = "21:45", Sala = "9", EsISense = false, EsVOSE = true }
-            }
-        },
-        { "2024-11-16", new List<Sesion>
-            {
-                new Sesion { Hora = "14:00", Sala = "8", EsISense = true, EsVOSE = true },
-                new Sesion { Hora = "17:00", Sala = "6", EsISense = false, EsVOSE = false },
-                new Sesion { Hora = "20:00", Sala = "4", EsISense = true, EsVOSE = false }
-            }
-        },
-        { "2024-11-17", new List<Sesion>
-            {
-                new Sesion { Hora = "15:30", Sala = "1", EsISense = false, EsVOSE = false },
-                new Sesion { Hora = "18:30", Sala = "3", EsISense = true, EsVOSE = true },
-                new Sesion { Hora = "21:15", Sala = "2", EsISense = true, EsVOSE = false }
-            }
+                {
+                    "Gran Casa", new Dictionary<string, List<Sesion>>
+                    {
+                        { "2024-11-11", new List<Sesion>
+                            {
+                                new Sesion { Hora = "15:00", Sala = "1", EsISense = true, EsVOSE = false },
+                                new Sesion { Hora = "17:30", Sala = "3", EsISense = false, EsVOSE = true },
+                                new Sesion { Hora = "20:00", Sala = "2", EsISense = false, EsVOSE = false },
+                                new Sesion { Hora = "22:30", Sala = "4", EsISense = true, EsVOSE = true }
+                            }
+                        },
+                        { "2024-11-12", new List<Sesion>
+                            {
+                                new Sesion { Hora = "16:00", Sala = "7", EsISense = false, EsVOSE = true },
+                                new Sesion { Hora = "18:45", Sala = "9", EsISense = true, EsVOSE = false },
+                                new Sesion { Hora = "21:00", Sala = "5", EsISense = true, EsVOSE = true }
+                            }
+                        }
+                        // Agrega más fechas y sesiones para Gran Casa según sea necesario
+                    }
+                },
+                {
+                    "Puerto Venecia", new Dictionary<string, List<Sesion>>
+                    {
+                        { "2024-11-13", new List<Sesion>
+                            {
+                                new Sesion { Hora = "14:30", Sala = "6", EsISense = false, EsVOSE = false },
+                                new Sesion { Hora = "17:00", Sala = "3", EsISense = true, EsVOSE = true },
+                                new Sesion { Hora = "20:00", Sala = "10", EsISense = false, EsVOSE = false }
+                            }
+                        },
+                        { "2024-11-14", new List<Sesion>
+                            {
+                                new Sesion { Hora = "15:15", Sala = "4", EsISense = false, EsVOSE = false },
+                                new Sesion { Hora = "18:10", Sala = "7", EsISense = true, EsVOSE = false },
+                                new Sesion { Hora = "20:30", Sala = "2", EsISense = true, EsVOSE = true }
+                            }
+                        }
+                        // Agrega más fechas y sesiones para Puerto Venecia según sea necesario
+                    }
+                }
+            };
         }
-    };
-        }
+
 
         // Método de creación de sesiones para Venom
-        Dictionary<string, List<Sesion>> CrearSesionesVenom()
+        private Dictionary<string, Dictionary<string, List<Sesion>>> CrearSesionesVenom()
         {
-            return new Dictionary<string, List<Sesion>>
+            return new Dictionary<string, Dictionary<string, List<Sesion>>>
             {
-                { "2024-11-11", new List<Sesion>
+                {
+                    "Gran Casa", new Dictionary<string, List<Sesion>>
                     {
-                        new Sesion { Hora = "14:00", Sala = "2", EsISense = true, EsVOSE = false },
-                        new Sesion { Hora = "17:15", Sala = "5", EsISense = false, EsVOSE = true }
+                        { "2024-11-11", new List<Sesion>
+                            {
+                                new Sesion { Hora = "14:00", Sala = "2", EsISense = false, EsVOSE = false },
+                                new Sesion { Hora = "17:15", Sala = "5", EsISense = false, EsVOSE = true }
+                            }
+                        },
+                        { "2024-11-12", new List<Sesion>
+                            {
+                                new Sesion { Hora = "13:30", Sala = "3", EsISense = false, EsVOSE = false },
+                                new Sesion { Hora = "16:45", Sala = "7", EsISense = true, EsVOSE = false },
+                                new Sesion { Hora = "20:00", Sala = "6", EsISense = true, EsVOSE = true }
+                            }
+                        }
+                        // Agrega más fechas para "Gran Casa" según sea necesario
                     }
                 },
-                { "2024-11-12", new List<Sesion>
+                {
+                    "Puerto Venecia", new Dictionary<string, List<Sesion>>
                     {
-                        new Sesion { Hora = "13:30", Sala = "3", EsISense = false, EsVOSE = false },
-                        new Sesion { Hora = "16:45", Sala = "7", EsISense = true, EsVOSE = false },
-                        new Sesion { Hora = "20:00", Sala = "6", EsISense = true, EsVOSE = true }
-                    }
-                },
-                { "2024-11-13", new List<Sesion>
-                    {
-                        new Sesion { Hora = "15:00", Sala = "8", EsISense = true, EsVOSE = false },
-                        new Sesion { Hora = "18:20", Sala = "4", EsISense = false, EsVOSE = true },
-                        new Sesion { Hora = "21:30", Sala = "9", EsISense = false, EsVOSE = false }
-                    }
-                },
-                { "2024-11-14", new List<Sesion>
-                    {
-                        new Sesion { Hora = "13:45", Sala = "2", EsISense = true, EsVOSE = true },
-                        new Sesion { Hora = "17:00", Sala = "6", EsISense = false, EsVOSE = false },
-                        new Sesion { Hora = "20:15", Sala = "10", EsISense = true, EsVOSE = false }
-                    }
-                },
-                { "2024-11-15", new List<Sesion>
-                    {
-                        new Sesion { Hora = "16:00", Sala = "3", EsISense = false, EsVOSE = true },
-                        new Sesion { Hora = "19:30", Sala = "7", EsISense = true, EsVOSE = false },
-                        new Sesion { Hora = "22:00", Sala = "4", EsISense = true, EsVOSE = true }
-                    }
-                },
-                { "2024-11-16", new List<Sesion>
-                    {
-                        new Sesion { Hora = "12:00", Sala = "1", EsISense = false, EsVOSE = false },
-                        new Sesion { Hora = "15:30", Sala = "8", EsISense = true, EsVOSE = false },
-                        new Sesion { Hora = "18:45", Sala = "6", EsISense = false, EsVOSE = true },
-                        new Sesion { Hora = "21:15", Sala = "2", EsISense = true, EsVOSE = false }
-                    }
-                },
-                { "2024-11-17", new List<Sesion>
-                    {
-                        new Sesion { Hora = "14:30", Sala = "5", EsISense = true, EsVOSE = false },
-                        new Sesion { Hora = "17:45", Sala = "9", EsISense = false, EsVOSE = true },
-                        new Sesion { Hora = "20:00", Sala = "3", EsISense = false, EsVOSE = false },
-                        new Sesion { Hora = "22:30", Sala = "10", EsISense = true, EsVOSE = true }
+                        { "2024-11-13", new List<Sesion>
+                            {
+                                new Sesion { Hora = "15:00", Sala = "8", EsISense = true, EsVOSE = false },
+                                new Sesion { Hora = "18:20", Sala = "4", EsISense = false, EsVOSE = true },
+                                new Sesion { Hora = "21:30", Sala = "9", EsISense = false, EsVOSE = false }
+                            }
+                        }
+                        // Agrega más fechas para "Puerto Venecia" según sea necesario
                     }
                 }
             };
         }
 
+
+
         // Método de creación de sesiones para Terrifier 3
-        Dictionary<string, List<Sesion>> CrearSesionesTerrifier()
+       private Dictionary<string, Dictionary<string, List<Sesion>>> CrearSesionesTerrifier()
         {
-            return new Dictionary<string, List<Sesion>>
-    {
-        { "2024-11-11", new List<Sesion>
+            return new Dictionary<string, Dictionary<string, List<Sesion>>>
             {
-                new Sesion { Hora = "15:00", Sala = "4", EsISense = false, EsVOSE = true },
-                new Sesion { Hora = "18:30", Sala = "6", EsISense = true, EsVOSE = false }
-            }
-        },
-        { "2024-11-12", new List<Sesion>
-            {
-                new Sesion { Hora = "14:45", Sala = "5", EsISense = true, EsVOSE = true },
-                new Sesion { Hora = "17:50", Sala = "2", EsISense = false, EsVOSE = false },
-                new Sesion { Hora = "21:10", Sala = "8", EsISense = true, EsVOSE = false }
-            }
-        },
-        { "2024-11-13", new List<Sesion>
-            {
-                new Sesion { Hora = "16:20", Sala = "3", EsISense = false, EsVOSE = true },
-                new Sesion { Hora = "19:40", Sala = "7", EsISense = true, EsVOSE = false },
-                new Sesion { Hora = "22:30", Sala = "1", EsISense = false, EsVOSE = true }
-            }
-        },
-        { "2024-11-14", new List<Sesion>
-            {
-                new Sesion { Hora = "15:15", Sala = "10", EsISense = true, EsVOSE = false },
-                new Sesion { Hora = "18:45", Sala = "4", EsISense = false, EsVOSE = true },
-                new Sesion { Hora = "21:30", Sala = "9", EsISense = true, EsVOSE = true }
-            }
-        },
-        { "2024-11-15", new List<Sesion>
-            {
-                new Sesion { Hora = "14:30", Sala = "2", EsISense = false, EsVOSE = false },
-                new Sesion { Hora = "17:00", Sala = "8", EsISense = true, EsVOSE = true },
-                new Sesion { Hora = "20:20", Sala = "6", EsISense = false, EsVOSE = false }
-            }
-        },
-        { "2024-11-16", new List<Sesion>
-            {
-                new Sesion { Hora = "13:50", Sala = "7", EsISense = false, EsVOSE = true },
-                new Sesion { Hora = "16:45", Sala = "5", EsISense = true, EsVOSE = false },
-                new Sesion { Hora = "19:10", Sala = "3", EsISense = true, EsVOSE = true },
-                new Sesion { Hora = "22:00", Sala = "1", EsISense = false, EsVOSE = false }
-            }
-        },
-        { "2024-11-17", new List<Sesion>
-            {
-                new Sesion { Hora = "15:00", Sala = "9", EsISense = true, EsVOSE = false },
-                new Sesion { Hora = "18:30", Sala = "2", EsISense = false, EsVOSE = true },
-                new Sesion { Hora = "21:45", Sala = "6", EsISense = true, EsVOSE = true }
-            }
-        }
-    };
+                {
+                    "Gran Casa", new Dictionary<string, List<Sesion>>
+                    {
+                        { "2024-11-11", new List<Sesion>
+                            {
+                                new Sesion { Hora = "14:00", Sala = "2", EsISense = true, EsVOSE = false },
+                                new Sesion { Hora = "17:15", Sala = "5", EsISense = false, EsVOSE = true }
+                            }
+                        },
+                        { "2024-11-12", new List<Sesion>
+                            {
+                                new Sesion { Hora = "13:30", Sala = "3", EsISense = false, EsVOSE = false },
+                                new Sesion { Hora = "16:45", Sala = "7", EsISense = true, EsVOSE = false },
+                                new Sesion { Hora = "20:00", Sala = "6", EsISense = true, EsVOSE = true }
+                            }
+                        }
+                        // Agrega más días y sesiones para Gran Casa
+                    }
+                },
+                {
+                    "Puerto Venecia", new Dictionary<string, List<Sesion>>
+                    {
+                        { "2024-11-13", new List<Sesion>
+                            {
+                                new Sesion { Hora = "15:00", Sala = "8", EsISense = true, EsVOSE = false },
+                                new Sesion { Hora = "18:20", Sala = "4", EsISense = false, EsVOSE = true },
+                                new Sesion { Hora = "21:30", Sala = "9", EsISense = false, EsVOSE = false }
+                            }
+                        },
+                        { "2024-11-14", new List<Sesion>
+                            {
+                                new Sesion { Hora = "13:45", Sala = "2", EsISense = true, EsVOSE = true },
+                                new Sesion { Hora = "17:00", Sala = "6", EsISense = false, EsVOSE = false },
+                                new Sesion { Hora = "20:15", Sala = "10", EsISense = true, EsVOSE = false }
+                            }
+                        }
+                        // Agrega más días y sesiones para Puerto Venecia
+                    }
+                }
+            };
         }
 
+
         // Método de creación de sesiones para The Batman
-        Dictionary<string, List<Sesion>> CrearSesionesBatman()
+        private Dictionary<string, Dictionary<string, List<Sesion>>> CrearSesionesBatman()
         {
-            return new Dictionary<string, List<Sesion>>
-    {
-        { "2024-11-11", new List<Sesion>
+            return new Dictionary<string, Dictionary<string, List<Sesion>>>
             {
-                new Sesion { Hora = "16:00", Sala = "5", EsISense = true, EsVOSE = false },
-                new Sesion { Hora = "19:00", Sala = "3", EsISense = false, EsVOSE = true }
-            }
-        },
-        { "2024-11-12", new List<Sesion>
-            {
-                new Sesion { Hora = "15:30", Sala = "7", EsISense = false, EsVOSE = false },
-                new Sesion { Hora = "18:45", Sala = "2", EsISense = true, EsVOSE = false },
-                new Sesion { Hora = "21:10", Sala = "9", EsISense = false, EsVOSE = true }
-            }
-        },
-        { "2024-11-13", new List<Sesion>
-            {
-                new Sesion { Hora = "14:20", Sala = "4", EsISense = true, EsVOSE = true },
-                new Sesion { Hora = "17:40", Sala = "6", EsISense = false, EsVOSE = false },
-                new Sesion { Hora = "20:50", Sala = "10", EsISense = true, EsVOSE = false }
-            }
-        },
-        { "2024-11-14", new List<Sesion>
-            {
-                new Sesion { Hora = "16:15", Sala = "8", EsISense = false, EsVOSE = true },
-                new Sesion { Hora = "19:30", Sala = "5", EsISense = true, EsVOSE = false },
-                new Sesion { Hora = "22:45", Sala = "1", EsISense = false, EsVOSE = true }
-            }
-        },
-        { "2024-11-15", new List<Sesion>
-            {
-                new Sesion { Hora = "13:00", Sala = "3", EsISense = true, EsVOSE = false },
-                new Sesion { Hora = "16:30", Sala = "7", EsISense = false, EsVOSE = true },
-                new Sesion { Hora = "20:00", Sala = "4", EsISense = true, EsVOSE = false }
-            }
-        },
-        { "2024-11-16", new List<Sesion>
-            {
-                new Sesion { Hora = "12:30", Sala = "2", EsISense = false, EsVOSE = false },
-                new Sesion { Hora = "15:45", Sala = "8", EsISense = true, EsVOSE = true },
-                new Sesion { Hora = "19:00", Sala = "6", EsISense = true, EsVOSE = false },
-                new Sesion { Hora = "22:10", Sala = "9", EsISense = false, EsVOSE = true }
-            }
-        },
-        { "2024-11-17", new List<Sesion>
-            {
-                new Sesion { Hora = "14:00", Sala = "5", EsISense = true, EsVOSE = true },
-                new Sesion { Hora = "17:20", Sala = "3", EsISense = false, EsVOSE = false },
-                new Sesion { Hora = "20:40", Sala = "7", EsISense = true, EsVOSE = false },
-                new Sesion { Hora = "23:00", Sala = "10", EsISense = false, EsVOSE = true }
-            }
+                {
+                    "Gran Casa", new Dictionary<string, List<Sesion>>
+                    {
+                        { "2024-11-11", new List<Sesion>
+                            {
+                                new Sesion { Hora = "16:00", Sala = "5", EsISense = true, EsVOSE = false },
+                                new Sesion { Hora = "19:00", Sala = "3", EsISense = false, EsVOSE = true }
+                            }
+                        },
+                        { "2024-11-12", new List<Sesion>
+                            {
+                                new Sesion { Hora = "15:30", Sala = "7", EsISense = false, EsVOSE = false },
+                                new Sesion { Hora = "18:45", Sala = "2", EsISense = true, EsVOSE = false },
+                                new Sesion { Hora = "21:10", Sala = "9", EsISense = false, EsVOSE = true }
+                            }
+                        }
+                        // Agrega más días y sesiones para Gran Casa según sea necesario
+                    }
+                },
+                {
+                    "Puerto Venecia", new Dictionary<string, List<Sesion>>
+                    {
+                        { "2024-11-13", new List<Sesion>
+                            {
+                                new Sesion { Hora = "14:20", Sala = "4", EsISense = true, EsVOSE = true },
+                                new Sesion { Hora = "17:40", Sala = "6", EsISense = false, EsVOSE = false },
+                                new Sesion { Hora = "20:50", Sala = "10", EsISense = true, EsVOSE = false }
+                            }
+                        },
+                        { "2024-11-14", new List<Sesion>
+                            {
+                                new Sesion { Hora = "16:15", Sala = "8", EsISense = false, EsVOSE = true },
+                                new Sesion { Hora = "19:30", Sala = "5", EsISense = true, EsVOSE = false },
+                                new Sesion { Hora = "22:45", Sala = "1", EsISense = false, EsVOSE = true }
+                            }
+                        }
+                        // Agrega más días y sesiones para Puerto Venecia según sea necesario
+                    }
+                }
+            };
         }
-    };
+        private Dictionary<string, Dictionary<string, List<Sesion>>> CrearSesionesGladiator2()
+        {
+            return new Dictionary<string, Dictionary<string, List<Sesion>>>
+            {
+                {
+                    "Gran Casa", new Dictionary<string, List<Sesion>>
+                    {
+                        // Lunes 11 de noviembre
+                        { "2024-11-11", new List<Sesion>
+                            {
+                                new Sesion { Hora = "14:00", Sala = "2", EsISense = true, EsVOSE = false },
+                                new Sesion { Hora = "16:30", Sala = "5", EsISense = false, EsVOSE = true },
+                                new Sesion { Hora = "19:00", Sala = "4", EsISense = true, EsVOSE = false },
+                                new Sesion { Hora = "21:30", Sala = "3", EsISense = false, EsVOSE = true }
+                            }
+                        },
+                        // Martes 12 de noviembre
+                        { "2024-11-12", new List<Sesion>
+                            {
+                                new Sesion { Hora = "15:00", Sala = "6", EsISense = false, EsVOSE = true },
+                                new Sesion { Hora = "17:30", Sala = "2", EsISense = true, EsVOSE = false },
+                                new Sesion { Hora = "20:00", Sala = "5", EsISense = false, EsVOSE = false },
+                                new Sesion { Hora = "22:30", Sala = "7", EsISense = true, EsVOSE = true }
+                            }
+                        },
+                        // Miércoles 13 de noviembre
+                        { "2024-11-13", new List<Sesion>
+                            {
+                                new Sesion { Hora = "13:45", Sala = "1", EsISense = false, EsVOSE = false },
+                                new Sesion { Hora = "16:15", Sala = "3", EsISense = true, EsVOSE = true },
+                                new Sesion { Hora = "18:45", Sala = "4", EsISense = false, EsVOSE = true },
+                                new Sesion { Hora = "21:00", Sala = "8", EsISense = true, EsVOSE = false }
+                            }
+                        },
+                        // Jueves 14 de noviembre
+                        { "2024-11-14", new List<Sesion>
+                            {
+                                new Sesion { Hora = "14:30", Sala = "6", EsISense = false, EsVOSE = true },
+                                new Sesion { Hora = "17:00", Sala = "3", EsISense = true, EsVOSE = false },
+                                new Sesion { Hora = "19:30", Sala = "2", EsISense = false, EsVOSE = false },
+                                new Sesion { Hora = "22:00", Sala = "7", EsISense = true, EsVOSE = true }
+                            }
+                        },
+                        // Viernes 15 de noviembre
+                        { "2024-11-15", new List<Sesion>
+                            {
+                                new Sesion { Hora = "16:30", Sala = "1", EsISense = true, EsVOSE = false },
+                                new Sesion { Hora = "19:00", Sala = "5", EsISense = false, EsVOSE = true },
+                                new Sesion { Hora = "21:30", Sala = "4", EsISense = false, EsVOSE = false },
+                                new Sesion { Hora = "23:45", Sala = "6", EsISense = true, EsVOSE = true }
+                            }
+                        },
+                        // Sábado 16 de noviembre
+                        { "2024-11-16", new List<Sesion>
+                            {
+                                new Sesion { Hora = "13:30", Sala = "3", EsISense = false, EsVOSE = false },
+                                new Sesion { Hora = "16:00", Sala = "7", EsISense = true, EsVOSE = false },
+                                new Sesion { Hora = "18:30", Sala = "5", EsISense = false, EsVOSE = true },
+                                new Sesion { Hora = "21:00", Sala = "2", EsISense = true, EsVOSE = true }
+                            }
+                        },
+                        // Domingo 17 de noviembre
+                        { "2024-11-17", new List<Sesion>
+                            {
+                                new Sesion { Hora = "15:00", Sala = "2", EsISense = true, EsVOSE = false },
+                                new Sesion { Hora = "17:30", Sala = "3", EsISense = false, EsVOSE = true },
+                                new Sesion { Hora = "20:00", Sala = "4", EsISense = true, EsVOSE = false },
+                                new Sesion { Hora = "22:30", Sala = "6", EsISense = false, EsVOSE = true }
+                            }
+                        }
+                    }
+                },
+                {
+                    "Puerto Venecia", new Dictionary<string, List<Sesion>>
+                    {
+                        { "2024-11-11", new List<Sesion>
+                            {
+                                new Sesion { Hora = "14:00", Sala = "5", EsISense = false, EsVOSE = true },
+                                new Sesion { Hora = "16:30", Sala = "7", EsISense = true, EsVOSE = false },
+                                new Sesion { Hora = "19:00", Sala = "2", EsISense = true, EsVOSE = true },
+                                new Sesion { Hora = "21:30", Sala = "3", EsISense = false, EsVOSE = false }
+                            }
+                        },
+                        { "2024-11-12", new List<Sesion>
+                            {
+                                new Sesion { Hora = "15:30", Sala = "1", EsISense = true, EsVOSE = false },
+                                new Sesion { Hora = "18:00", Sala = "4", EsISense = false, EsVOSE = true },
+                                new Sesion { Hora = "20:30", Sala = "5", EsISense = true, EsVOSE = false },
+                                new Sesion { Hora = "23:00", Sala = "7", EsISense = false, EsVOSE = true }
+                            }
+                        },
+                        // Añadir más días y sesiones para Puerto Venecia según sea necesario.
+                    }
+                }
+            };
         }
     }
 }
