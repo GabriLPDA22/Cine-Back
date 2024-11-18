@@ -215,6 +215,25 @@ namespace cine_web_app.back_end.Services
                             EnCartelera = true,
                             EnVentaAnticipada = true
                         },
+                        new Pelicula
+                        {
+                            Id = 8, // Ajusta el ID según corresponda
+                            Titulo = "Robot Salvaje",
+                            Descripcion = "La película sigue el épico viaje de un robot -la unidad 7134 de Roz, 'Roz' para abreviar- que naufraga en una isla deshabitada y debe aprender a adaptarse al duro entorno, entablando gradualmente relaciones con los animales de la isla y convirtiéndose en padre adoptivo de un gosling huérfano.",
+                            FechaEstreno = new DateTime(2024, 10, 11),
+                            Genero = "Aventura, Animación",
+                            Director = "Chris Sanders",
+                            Actores = "Bill Nighy, Lupita Nyong'o, Stephanie Hsu, Mark Hamill, Ving Rhames, Catherine O'Hara, Matt Berry, Pedro Pascal, Kit Connor",
+                            Duracion = "1h 41m",
+                            Calificacion = 9.0, // Ajusta esta calificación según sea necesario
+                            Imagen = "/cine_web_app/front-end/images/Banner-Robot-Salvaje.jpg", // Cambia el nombre si necesitas una imagen específica
+                            Cartel = "/cine_web_app/front-end/images/Robot-Salvaje-Cartel.jpg", // Cambia el nombre si necesitas una imagen específica
+                            EdadRecomendada = 0, // Edad para todos los públicos
+                            ImagenEdadRecomendada = "/cine_web_app/front-end/images/Todos.jpg", // Cambia el nombre si necesitas una imagen específica
+                            Sesiones = CrearSesionesRobotSalvaje(), // Asegúrate de definir las sesiones para Robot Salvaje
+                            EnCartelera = true,
+                            EnVentaAnticipada = true
+                        },
                     }
                 },
                 new Cine
@@ -348,8 +367,26 @@ namespace cine_web_app.back_end.Services
                             Sesiones = CrearSesionesRedOne(), // Asegúrate de definir las sesiones para Red One
                             EnCartelera = true,
                             EnVentaAnticipada = true
-                        },      
-
+                        },
+                        new Pelicula
+                        {
+                            Id = 8, // Ajusta el ID según corresponda
+                            Titulo = "Robot Salvaje",
+                            Descripcion = "La película sigue el épico viaje de un robot -la unidad 7134 de Roz, 'Roz' para abreviar- que naufraga en una isla deshabitada y debe aprender a adaptarse al duro entorno, entablando gradualmente relaciones con los animales de la isla y convirtiéndose en padre adoptivo de un gosling huérfano.",
+                            FechaEstreno = new DateTime(2024, 10, 11),
+                            Genero = "Aventura, Animación",
+                            Director = "Chris Sanders",
+                            Actores = "Bill Nighy, Lupita Nyong'o, Stephanie Hsu, Mark Hamill, Ving Rhames, Catherine O'Hara, Matt Berry, Pedro Pascal, Kit Connor",
+                            Duracion = "1h 41m",
+                            Calificacion = 9.0, // Ajusta esta calificación según sea necesario
+                            Imagen = "/cine_web_app/front-end/images/Banner-Robot-Salvaje.jpg", // Cambia el nombre si necesitas una imagen específica
+                            Cartel = "/cine_web_app/front-end/images/Robot-Salvaje-Cartel.jpg", // Cambia el nombre si necesitas una imagen específica
+                            EdadRecomendada = 0, // Edad para todos los públicos
+                            ImagenEdadRecomendada = "/cine_web_app/front-end/images/Todos.jpg", // Cambia el nombre si necesitas una imagen específica
+                            Sesiones = CrearSesionesRobotSalvaje(), // Asegúrate de definir las sesiones para Robot Salvaje
+                            EnCartelera = true,
+                            EnVentaAnticipada = true
+                        },
                     }
                 }
             };
@@ -726,5 +763,50 @@ namespace cine_web_app.back_end.Services
                 }
             };
         }
+        private Dictionary<string, Dictionary<string, List<Sesion>>> CrearSesionesRobotSalvaje()
+        {
+            return new Dictionary<string, Dictionary<string, List<Sesion>>>
+            {
+                {
+                    "Gran Casa", new Dictionary<string, List<Sesion>>
+                    {
+                        { "2024-10-12", new List<Sesion>
+                            {
+                                new Sesion { Hora = "15:00", Sala = "1", EsISense = false, EsVOSE = false },
+                                new Sesion { Hora = "17:15", Sala = "2", EsISense = true, EsVOSE = true },
+                                new Sesion { Hora = "19:30", Sala = "4", EsISense = false, EsVOSE = false }
+                            }
+                        },
+                        { "2024-10-13", new List<Sesion>
+                            {
+                                new Sesion { Hora = "14:30", Sala = "3", EsISense = true, EsVOSE = false },
+                                new Sesion { Hora = "16:45", Sala = "5", EsISense = false, EsVOSE = true },
+                                new Sesion { Hora = "19:00", Sala = "6", EsISense = true, EsVOSE = true }
+                            }
+                        }
+                        // Agrega más días y sesiones para Gran Casa según sea necesario
+                    }
+                },
+                {
+                    "Puerto Venecia", new Dictionary<string, List<Sesion>>
+                    {
+                        { "2024-10-12", new List<Sesion>
+                            {
+                                new Sesion { Hora = "16:00", Sala = "2", EsISense = false, EsVOSE = true },
+                                new Sesion { Hora = "18:30", Sala = "4", EsISense = true, EsVOSE = false }
+                            }
+                        },
+                        { "2024-10-13", new List<Sesion>
+                            {
+                                new Sesion { Hora = "15:00", Sala = "5", EsISense = true, EsVOSE = false },
+                                new Sesion { Hora = "17:30", Sala = "6", EsISense = false, EsVOSE = true }
+                            }
+                        }
+                        // Agrega más días y sesiones para Puerto Venecia según sea necesario
+                    }
+                }
+            };
+        }
+
     }
 }
