@@ -140,6 +140,81 @@ namespace cine_web_app.back_end.Services
                             EnCartelera = true, // Actualmente en cartelera
                             EnVentaAnticipada = false // No está en venta anticipada
                         },
+                                                new Pelicula
+                        {
+                            Id = 4,
+                            Titulo = "Terrifier 3",
+                            Descripcion = "Este año la Navidad llega antes. El payaso Art desata el caos entre los desprevenidos habitantes del condado de Miles...",
+                            FechaEstreno = new DateTime(2024, 10, 31),
+                            Genero = "Terror",
+                            Duracion = "2 horas 5 minutos",
+                            Calificacion = 7.5,
+                            Director = "Damien Leone",
+                            Actores = "Felissa Rose, Samantha Scaffidi, David Howard Thornton, Lauren LaVera, Chris Jericho, Elliott Fullam",
+                            Imagen = "/cine_web_app/front-end/images/banner-terrifier-3.jpg", // Ruta del banner
+                            Cartel = "/cine_web_app/front-end/images/terrifier-3.jpg", // Ruta del cartel
+                            EdadRecomendada = 18, // Marcado como para mayores de 18 años
+                            ImagenEdadRecomendada = "/cine_web_app/front-end/images/18.jpg",
+                            Sesiones = CrearSesionesTerrifier(),
+                            EnCartelera = true, // Actualmente en cartelera
+                            EnVentaAnticipada = false // No está en venta anticipada
+                        },
+                        new Pelicula
+                        {
+                            Id = 5,
+                            Titulo = "The Batman",
+                            Descripcion = "Bruce Wayne, en sus primeros años como el Caballero Oscuro, enfrenta a un asesino en serie conocido como el Riddler. Mientras investiga los crímenes, descubre secretos oscuros sobre su familia y la corrupción en Gotham. Con la ayuda de Catwoman, busca hacer justicia en una ciudad sumida en el caos.",
+                            FechaEstreno = new DateTime(2022, 3, 4),
+                            Genero = "Acción, Crimen, Drama",
+                            Director = "Matt Reeves",
+                            Actores = "Robert Pattinson, Zoë Kravitz, Colin Farrell",
+                            Calificacion = 7.9,
+                            Imagen = "/cine_web_app/front-end/images/Banner-The-Batman.jpg",
+                            Cartel = "/cine_web_app/front-end/images/The-Batman-Cartel.jpg",
+                            EdadRecomendada = 12,
+                            ImagenEdadRecomendada = "/cine_web_app/front-end/images/12.jpg",
+                            Sesiones = CrearSesionesBatman(),
+                            EnCartelera = true, // Actualmente en cartelera
+                            EnVentaAnticipada = true // No está en venta anticipada
+                        },
+                        new Pelicula
+                        {
+                            Id = 6,
+                            Titulo = "Gladiator II",
+                            Descripcion = "Años después de presenciar la muerte del admirado héroe Máximo...",
+                            FechaEstreno = new DateTime(2024, 11, 15),
+                            Genero = "Acción, Aventura, Drama",
+                            Director = "Ridley Scott",
+                            Duracion = "2h 27m",
+                            Actores = "Paul Mescal, Denzel Washington, Connie Nielsen, Joseph Quinn, Derek Jacobi, Fred Hechinger, Lior Raz, Pedro Pascal",
+                            Calificacion = 8.5,
+                            Imagen = "/cine_web_app/front-end/images/Banner-Gladiator-II.jpg",
+                            Cartel = "/cine_web_app/front-end/images/Gladiator-II-Cartel.jpg",
+                            EdadRecomendada = 16,
+                            ImagenEdadRecomendada = "/cine_web_app/front-end/images/16.jpg",
+                            Sesiones = CrearSesionesGladiator2(),  // Asegúrate de definir las sesiones para Gladiator II
+                            EnCartelera = true,
+                            EnVentaAnticipada = true
+                        },
+                        new Pelicula
+                        {
+                            Id = 7,
+                            Titulo = "Red One",
+                            Descripcion = "Tras el secuestro de Papá Noel, nombre en clave: RED ONE, el Jefe de Seguridad del Polo Norte (Dwayne Johnson) debe formar equipo con el cazarrecompensas más infame del mundo (Chris Evans) en una misión trotamundos llena de acción para salvar la Navidad. No te pierdas #RedOne, protagonizada por Dwayne Johnson y Chris Evans. Disfruta de la película a partir del 6 de noviembre solo en cines.",
+                            FechaEstreno = new DateTime(2024, 11, 6),
+                            Genero = "Acción, Comedia, Aventura",
+                            Director = "Jake Kasdan",
+                            Actores = "Paul Mescal, Denzel Washington, Connie Nielsen, Joseph Quinn, Derek Jacobi, Fred Hechinger, Lior Raz, Pedro Pascal",
+                            Duracion = "2h 3m",
+                            Calificacion = 8.5,
+                            Imagen = "/cine_web_app/front-end/images/Banner-Red-One.jpg",
+                            Cartel = "/cine_web_app/front-end/images/Red-One-Cartel.jpg",
+                            EdadRecomendada = 7,
+                            ImagenEdadRecomendada = "/cine_web_app/front-end/images/7.jpg",
+                            Sesiones = CrearSesionesRedOne(), // Asegúrate de definir las sesiones para Red One
+                            EnCartelera = true,
+                            EnVentaAnticipada = true
+                        },
                     }
                 },
                 new Cine
@@ -254,14 +329,33 @@ namespace cine_web_app.back_end.Services
                             Sesiones = CrearSesionesGladiator2(),  // Asegúrate de definir las sesiones para Gladiator II
                             EnCartelera = true,
                             EnVentaAnticipada = true
-                        }
+                        },
+                        new Pelicula
+                        {
+                            Id = 7,
+                            Titulo = "Red One",
+                            Descripcion = "Tras el secuestro de Papá Noel, nombre en clave: RED ONE, el Jefe de Seguridad del Polo Norte (Dwayne Johnson) debe formar equipo con el cazarrecompensas más infame del mundo (Chris Evans) en una misión trotamundos llena de acción para salvar la Navidad. No te pierdas #RedOne, protagonizada por Dwayne Johnson y Chris Evans. Disfruta de la película a partir del 6 de noviembre solo en cines.",
+                            FechaEstreno = new DateTime(2024, 11, 6),
+                            Genero = "Acción, Comedia, Aventura",
+                            Director = "Jake Kasdan",
+                            Actores = "Paul Mescal, Denzel Washington, Connie Nielsen, Joseph Quinn, Derek Jacobi, Fred Hechinger, Lior Raz, Pedro Pascal",
+                            Duracion = "2h 3m",
+                            Calificacion = 8.5,
+                            Imagen = "/cine_web_app/front-end/images/Banner-Red-One.jpg",
+                            Cartel = "/cine_web_app/front-end/images/Red-One-Cartel.jpg",
+                            EdadRecomendada = 7,
+                            ImagenEdadRecomendada = "/cine_web_app/front-end/images/7.jpg",
+                            Sesiones = CrearSesionesRedOne(), // Asegúrate de definir las sesiones para Red One
+                            EnCartelera = true,
+                            EnVentaAnticipada = true
+                        },      
 
                     }
                 }
             };
         }
-
-        private Dictionary<string, Dictionary<string, List<Sesion>>> CrearSesionesSpiderMan()
+        
+        private Dictionary<string, Dictionary<string, List<Sesion>>>  CrearSesionesRedOne()
         {
             return new Dictionary<string, Dictionary<string, List<Sesion>>>
             {
@@ -305,6 +399,7 @@ namespace cine_web_app.back_end.Services
                 }
             };
         }
+
 
        private Dictionary<string, Dictionary<string, List<Sesion>>> CrearSesionesXMen()
         {
@@ -583,6 +678,50 @@ namespace cine_web_app.back_end.Services
                             }
                         },
                         // Añadir más días y sesiones para Puerto Venecia según sea necesario.
+                    }
+                }
+            };
+        }
+        private Dictionary<string, Dictionary<string, List<Sesion>>> CrearSesionesSpiderMan()
+        {
+            return new Dictionary<string, Dictionary<string, List<Sesion>>>
+            {
+                {
+                    "Gran Casa", new Dictionary<string, List<Sesion>>
+                    {
+                        { "2024-11-11", new List<Sesion>
+                            {
+                                new Sesion { Hora = "16:30", Sala = "10", EsISense = true, EsVOSE = false },
+                                new Sesion { Hora = "18:05", Sala = "8", EsISense = false, EsVOSE = true }
+                            }
+                        },
+                        { "2024-11-12", new List<Sesion>
+                            {
+                                new Sesion { Hora = "15:30", Sala = "3", EsISense = false, EsVOSE = false },
+                                new Sesion { Hora = "17:45", Sala = "9", EsISense = true, EsVOSE = false },
+                                new Sesion { Hora = "19:50", Sala = "6", EsISense = true, EsVOSE = true },
+                                new Sesion { Hora = "22:10", Sala = "2", EsISense = false, EsVOSE = true }
+                            }
+                        }
+                        // Agrega más días y sesiones para Gran Casa según sea necesario
+                    }
+                },
+                {
+                    "Puerto Venecia", new Dictionary<string, List<Sesion>>
+                    {
+                        { "2024-11-11", new List<Sesion>
+                            {
+                                new Sesion { Hora = "17:00", Sala = "7", EsISense = true, EsVOSE = true },
+                                new Sesion { Hora = "19:30", Sala = "2", EsISense = false, EsVOSE = false }
+                            }
+                        },
+                        { "2024-11-12", new List<Sesion>
+                            {
+                                new Sesion { Hora = "16:00", Sala = "5", EsISense = true, EsVOSE = false },
+                                new Sesion { Hora = "20:00", Sala = "3", EsISense = false, EsVOSE = true }
+                            }
+                        }
+                        // Agrega más días y sesiones para Puerto Venecia según sea necesario
                     }
                 }
             };
