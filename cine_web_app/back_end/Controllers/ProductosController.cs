@@ -1,6 +1,6 @@
-using Microsoft.AspNetCore.Mvc; // Espacio de nombres para ControllerBase y ApiController
-using cine_web_app.back_end.Services; // Espacio de nombres para ProductoService
-using cine_web_app.back_end.Models; // Espacio de nombres para Producto
+using Microsoft.AspNetCore.Mvc;
+using cine_web_app.back_end.Services;
+using cine_web_app.back_end.Models;
 
 [Route("api/[controller]")]
 [ApiController]
@@ -13,20 +13,41 @@ public class ProductosController : ControllerBase
         _productoService = productoService;
     }
 
-    // Obtener productos
+    // Obtener productos por categoría
     [HttpGet("GetProductos")]
-    public IActionResult GetProductos()
+    public IActionResult GetProductos([FromQuery] string? categoria)
     {
-        var productos = _productoService.ObtenerProductos();
-        return Ok(productos);
+        try
+        {
+            var productos = string.IsNullOrEmpty(categoria)
+                ? _productoService.ObtenerProductos() // Si no se especifica categoría, devuelve todos los productos
+                : _productoService.ObtenerProductosPorCategoria(categoria);
+
+            return Ok(productos);
+        }
+        catch (ArgumentException ex)
+        {
+            return BadRequest(new { Error = ex.Message });
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, new { Error = "Error al obtener los productos", Details = ex.Message });
+        }
     }
 
-    // Obtener categorías
+    // Obtener todas las categorías disponibles
     [HttpGet("GetCategorias")]
     public IActionResult GetCategorias()
     {
-        var categorias = _productoService.ObtenerCategorias();
-        return Ok(categorias);
+        try
+        {
+            var categorias = _productoService.ObtenerCategorias();
+            return Ok(categorias);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, new { Error = "Error al obtener las categorías", Details = ex.Message });
+        }
     }
-}
 
+}

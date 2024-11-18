@@ -1,18 +1,9 @@
 public class ProductoService
 {
     private readonly List<Producto> _productos;
-
-    // Lista de categorías válidas
     private readonly List<string> _categoriasValidas = new List<string>
     {
-        "Top Ventas",
-        "Menus",
-        "Palomitas",
-        "Bebidas",
-        "Hot Food",
-        "Merchandising",
-        "Snacks Dulces",
-        "Infantil"
+        "Top Ventas", "Menus", "Palomitas", "Bebidas", "Hot Food", "Merchandising", "Snacks Dulces", "Infantil"
     };
 
     public ProductoService()
@@ -57,30 +48,18 @@ public class ProductoService
         return _productos;
     }
 
-    // Método para obtener categorías válidas
     public IEnumerable<string> ObtenerCategorias()
     {
         return _categoriasValidas;
     }
 
-    // Método para obtener productos por categoría
     public IEnumerable<Producto> ObtenerProductosPorCategoria(string categoria)
     {
         if (string.IsNullOrEmpty(categoria))
-        {
             throw new ArgumentException("La categoría no puede estar vacía.");
-        }
-
-        if (categoria == "Menus")
-        {
-            // Filtrar por nombre que contiene "Menu" o está en la categoría Menus
-            return _productos.Where(p => p.Nombre.Contains("Menu", StringComparison.OrdinalIgnoreCase));
-        }
 
         if (!_categoriasValidas.Contains(categoria))
-        {
             throw new ArgumentException($"La categoría '{categoria}' no es válida.");
-        }
 
         return _productos.Where(p => p.Categorias.Contains(categoria, StringComparer.OrdinalIgnoreCase));
     }

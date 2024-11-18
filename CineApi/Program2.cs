@@ -8,6 +8,7 @@ using System.IO;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Configuración de servicios
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<ProductoService>();
@@ -78,8 +79,6 @@ app.MapGet("/api/Cine/GetCineConPeliculas", (int cineId) =>
     return Results.Ok(cineConPeliculas); // Devuelve las películas con las sesiones
 });
 
-
-
 // Endpoint para obtener todas las películas
 app.MapGet("/api/Movie/GetPeliculas", () =>
 {
@@ -99,19 +98,100 @@ app.MapGet("/api/Movie/GetPeliculaById", (int id) =>
     return Results.Ok(pelicula);
 });
 
+// Endpoint para obtener las películas en cartelera
 app.MapGet("/api/Movie/GetPeliculasEnCartelera", () =>
 {
     return Results.Ok(cineService.ObtenerPeliculasEnCartelera());
 }).WithName("GetPeliculasEnCartelera");
 
+// Endpoint para obtener las películas en venta anticipada
 app.MapGet("/api/Movie/GetPeliculasEnVentaAnticipada", () =>
 {
     return Results.Ok(cineService.ObtenerPeliculasEnVentaAnticipada());
 }).WithName("GetPeliculasEnVentaAnticipada");
 
+// Endpoint para obtener las películas próximas
 app.MapGet("/api/Movie/GetPeliculasProximas", () =>
 {
     return Results.Ok(cineService.ObtenerPeliculasProximas());
 }).WithName("GetPeliculasProximas");
+
+// Endpoint para obtener información de selección de asientos
+app.MapGet("/api/Cine/GetSeatSelectionInfo", (string cineName, string movieTitle, string sessionDate, string sessionTime) =>
+{
+    var cine = cineService.ObtenerCines().FirstOrDefault(c => c.Nombre == cineName);
+    if (cine == null)
+    {
+        return Results.NotFound("Cine no encontrado");
+    }
+
+    var pelicula = cine.Peliculas.FirstOrDefault(p => p.Titulo == movieTitle);
+    if (pelicula == null)
+    {
+        return Results.NotFound("Película no encontrada en este cine");
+    }
+
+    if (!pelicula.Sesiones.TryGetValue(cineName, out var sesionesPorFecha))
+    {
+        return Results.NotFound("No hay sesiones para este cine");
+    }
+
+    if (!sesionesPorFecha.TryGetValue(sessionDate, out var sesiones))
+    {
+        return Results.NotFound("No hay sesiones para esta fecha");
+    }
+
+    var sesion = sesiones.FirstOrDefault(s => s.Hora == sessionTime);
+    if (sesion == null)
+    {
+        return Results.NotFound("Sesión no encontrada en este horario");
+    }
+
+    var seatSelectionInfo = new
+    {
+        MovieTitle = pelicula.Titulo,
+        CineName = cine.Nombre,
+        SessionDate = sessionDate,
+        SessionTime = sesion.Hora,
+        Room = sesion.Sala,
+        EsISense = sesion.EsISense,
+        EsVOSE = sesion.EsVOSE,
+        BannerImage = pelicula.Imagen
+    };
+
+    return Results.Ok(seatSelectionInfo);
+}).WithName("GetSeatSelectionInfo");
+
+// Endpoint para obtener todos los productos
+app.MapGet("/api/Productos/GetProductos", (string? categoria) =>
+{
+    var productoService = app.Services.GetRequiredService<ProductoService>();
+
+    if (string.IsNullOrEmpty(categoria))
+    {
+        // Devuelve todos los productos si no se especifica una categoría
+        return Results.Ok(productoService.ObtenerProductos());
+    }
+
+    try
+    {
+        // Devuelve productos filtrados por categoría
+        var productosPorCategoria = productoService.ObtenerProductosPorCategoria(categoria);
+        return Results.Ok(productosPorCategoria);
+    }
+    catch (ArgumentException ex)
+    {
+        // Devuelve un error si la categoría no es válida
+        return Results.BadRequest(ex.Message);
+    }
+}).WithName("GetProductos");
+
+// Endpoint para obtener todas las categorías
+app.MapGet("/api/Productos/GetCategorias", () =>
+{
+    var productoService = app.Services.GetRequiredService<ProductoService>();
+    return Results.Ok(productoService.ObtenerCategorias());
+}).WithName("GetCategorias");
+
 
 app.Run();
