@@ -770,14 +770,14 @@ namespace cine_web_app.back_end.Services
                 {
                     "Gran Casa", new Dictionary<string, List<Sesion>>
                     {
-                        { "2024-10-12", new List<Sesion>
+                        { "2024-11-11", new List<Sesion>
                             {
                                 new Sesion { Hora = "15:00", Sala = "1", EsISense = false, EsVOSE = false },
                                 new Sesion { Hora = "17:15", Sala = "2", EsISense = true, EsVOSE = true },
                                 new Sesion { Hora = "19:30", Sala = "4", EsISense = false, EsVOSE = false }
                             }
                         },
-                        { "2024-10-13", new List<Sesion>
+                        { "2024-11-13", new List<Sesion>
                             {
                                 new Sesion { Hora = "14:30", Sala = "3", EsISense = true, EsVOSE = false },
                                 new Sesion { Hora = "16:45", Sala = "5", EsISense = false, EsVOSE = true },
@@ -790,13 +790,13 @@ namespace cine_web_app.back_end.Services
                 {
                     "Puerto Venecia", new Dictionary<string, List<Sesion>>
                     {
-                        { "2024-10-12", new List<Sesion>
+                        { "2024-11-12", new List<Sesion>
                             {
                                 new Sesion { Hora = "16:00", Sala = "2", EsISense = false, EsVOSE = true },
                                 new Sesion { Hora = "18:30", Sala = "4", EsISense = true, EsVOSE = false }
                             }
                         },
-                        { "2024-10-13", new List<Sesion>
+                        { "2024-11-13", new List<Sesion>
                             {
                                 new Sesion { Hora = "15:00", Sala = "5", EsISense = true, EsVOSE = false },
                                 new Sesion { Hora = "17:30", Sala = "6", EsISense = false, EsVOSE = true }
