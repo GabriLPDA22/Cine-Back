@@ -1,10 +1,8 @@
-using cine_web_app.back_end.Models; // Corregido el espacio de nombres
-using cine_web_app.back_end.Services; // Corregido el espacio de nombres
+using cine_web_app.back_end.Models;
+using cine_web_app.back_end.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.FileProviders;
-using Newtonsoft.Json;  // Agregar el espacio de nombres Newtonsoft.Json
-using System.IO;
+using Newtonsoft.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,9 +10,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<ProductoService>();
-
-// Registrar el servicio CineService
 builder.Services.AddSingleton<CineService>();
+builder.Services.AddSingleton<ButacaService>(); // Registrar el servicio de butacas
 
 builder.Services.AddCors(options =>
 {
@@ -39,6 +36,9 @@ app.UseCors("PermitirFrontend");
 // Obtener el servicio CineService
 var cineService = app.Services.GetRequiredService<CineService>();
 
+// Obtener el servicio de ButacaService
+var butacaService = app.Services.GetRequiredService<ButacaService>();
+
 // Endpoint para obtener la lista de cines
 app.MapGet("/api/Cine/GetCines", () =>
 {
@@ -54,16 +54,13 @@ app.MapGet("/api/Cine/GetCines", () =>
 // Endpoint para obtener un cine específico con sus películas
 app.MapGet("/api/Cine/GetCineConPeliculas", (int cineId) =>
 {
-    // Obtener el cine por su ID
     var cine = cineService.ObtenerCinePorId(cineId);
 
-    // Si el cine no existe, devolver un error 404
     if (cine == null)
     {
         return Results.NotFound("Cine no encontrado");
     }
 
-    // Asegurarnos de que las sesiones se devuelvan correctamente
     var cineConPeliculas = new
     {
         cine.Id,
@@ -72,17 +69,17 @@ app.MapGet("/api/Cine/GetCineConPeliculas", (int cineId) =>
         {
             pelicula.Id,
             pelicula.Titulo,
-            pelicula.Sesiones // Devuelves las sesiones junto con la película
+            pelicula.Sesiones
         }).ToList()
     };
 
-    return Results.Ok(cineConPeliculas); // Devuelve las películas con las sesiones
+    return Results.Ok(cineConPeliculas);
 });
 
 // Endpoint para obtener todas las películas
 app.MapGet("/api/Movie/GetPeliculas", () =>
 {
-    return Results.Ok(cineService.ObtenerCines().SelectMany(c => c.Peliculas)); // Devuelve todas las películas
+    return Results.Ok(cineService.ObtenerCines().SelectMany(c => c.Peliculas));
 }).WithName("GetPeliculas");
 
 // Endpoint para obtener una película específica por ID
@@ -91,10 +88,12 @@ app.MapGet("/api/Movie/GetPeliculaById", (int id) =>
     var pelicula = cineService.ObtenerCines()
                               .SelectMany(c => c.Peliculas)
                               .FirstOrDefault(p => p.Id == id);
+
     if (pelicula == null)
     {
         return Results.NotFound("Película no encontrada");
     }
+
     return Results.Ok(pelicula);
 });
 
@@ -162,6 +161,37 @@ app.MapGet("/api/Cine/GetSeatSelectionInfo", (string cineName, string movieTitle
     return Results.Ok(seatSelectionInfo);
 }).WithName("GetSeatSelectionInfo");
 
+// Endpoint para obtener todas las butacas
+app.MapGet("/api/Butacas/GetButacas", () =>
+{
+    var butacas = butacaService.ObtenerButacas();
+    return Results.Ok(butacas);
+}).WithName("GetButacas");
+
+// Endpoint para reservar butacas
+app.MapPost("/api/Butacas/ReservarButacas", (List<string> coordenadasButacas) =>
+{
+    Console.WriteLine("Coordenadas recibidas: " + string.Join(", ", coordenadasButacas));
+
+    var resultado = butacaService.ReservarButacas(coordenadasButacas);
+
+    if (resultado)
+    {
+        return Results.Ok(new { mensaje = "Butacas reservadas con éxito." });
+    }
+
+    return Results.BadRequest(new { mensaje = "Error al reservar butacas. Puede que alguna ya esté ocupada o no exista." });
+}).WithName("ReservarButacas");
+
+// Endpoint para inicializar las butacas
+app.MapPost("/api/Butacas/InicializarButacas", (List<Butaca> butacasIniciales) =>
+{
+    butacaService.InicializarButacas(butacasIniciales);
+    return Results.Ok(new { mensaje = "Butacas inicializadas con éxito." });
+}).WithName("InicializarButacas");
+
+
+
 // Endpoint para obtener todos los productos
 app.MapGet("/api/Productos/GetProductos", (string? categoria) =>
 {
@@ -169,19 +199,16 @@ app.MapGet("/api/Productos/GetProductos", (string? categoria) =>
 
     if (string.IsNullOrEmpty(categoria))
     {
-        // Devuelve todos los productos si no se especifica una categoría
         return Results.Ok(productoService.ObtenerProductos());
     }
 
     try
     {
-        // Devuelve productos filtrados por categoría
         var productosPorCategoria = productoService.ObtenerProductosPorCategoria(categoria);
         return Results.Ok(productosPorCategoria);
     }
     catch (ArgumentException ex)
     {
-        // Devuelve un error si la categoría no es válida
         return Results.BadRequest(ex.Message);
     }
 }).WithName("GetProductos");
@@ -192,6 +219,5 @@ app.MapGet("/api/Productos/GetCategorias", () =>
     var productoService = app.Services.GetRequiredService<ProductoService>();
     return Results.Ok(productoService.ObtenerCategorias());
 }).WithName("GetCategorias");
-
 
 app.Run();

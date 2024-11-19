@@ -140,7 +140,7 @@ namespace cine_web_app.back_end.Services
                             EnCartelera = true, // Actualmente en cartelera
                             EnVentaAnticipada = false // No está en venta anticipada
                         },
-                                                new Pelicula
+                        new Pelicula
                         {
                             Id = 4,
                             Titulo = "Terrifier 3",
@@ -233,6 +233,44 @@ namespace cine_web_app.back_end.Services
                             Sesiones = CrearSesionesRobotSalvaje(), // Asegúrate de definir las sesiones para Robot Salvaje
                             EnCartelera = true,
                             EnVentaAnticipada = true
+                        },
+                        new Pelicula
+                        {
+                            Id = 9,
+                            Titulo = "X-Men Apocalypse",
+                            Descripcion = "Apocalypse, el primer y más poderoso mutante...",
+                            FechaEstreno = new DateTime(2016, 5, 27),
+                            Genero = "Sci-fi",
+                            Director = "Bryan Singer",
+                            Actores = "James McAvoy, Michael Fassbender, Jennifer Lawrence, Oscar Isaac, Nicholas Hoult, Rose Byrne, Evan Peters, Sophie Turner",
+                            Duracion = "2 horas 24 minutos",
+                            Calificacion = 7.0,
+                            EdadRecomendada = 12,
+                            ImagenEdadRecomendada = "/cine_web_app/front-end/images/12.jpg",
+                            Imagen = "/cine_web_app/front-end/images/X-Men_Apocalypse_Banner.jpg",
+                            Cartel = "/cine_web_app/front-end/images/X-MEN_Apocalypse.jpg",
+                            Sesiones = CrearSesionesXMen(),
+                            EnCartelera = true, // Actualmente en cartelera
+                            EnVentaAnticipada = true // Si está en venta anticipada
+                        },
+                        new Pelicula
+                        {
+                            Id = 10,
+                            Titulo = "X-Men Apocalypse",
+                            Descripcion = "Apocalypse, el primer y más poderoso mutante...",
+                            FechaEstreno = new DateTime(2016, 5, 27),
+                            Genero = "Sci-fi",
+                            Director = "Bryan Singer",
+                            Actores = "James McAvoy, Michael Fassbender, Jennifer Lawrence, Oscar Isaac, Nicholas Hoult, Rose Byrne, Evan Peters, Sophie Turner",
+                            Duracion = "2 horas 24 minutos",
+                            Calificacion = 7.0,
+                            EdadRecomendada = 12,
+                            ImagenEdadRecomendada = "/cine_web_app/front-end/images/12.jpg",
+                            Imagen = "/cine_web_app/front-end/images/X-Men_Apocalypse_Banner.jpg",
+                            Cartel = "/cine_web_app/front-end/images/X-MEN_Apocalypse.jpg",
+                            Sesiones = CrearSesionesXMen(),
+                            EnCartelera = true, // Actualmente en cartelera
+                            EnVentaAnticipada = true // Si está en venta anticipada
                         },
                     }
                 },
