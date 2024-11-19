@@ -1,6 +1,7 @@
 using System;
 
-namespace cine_web_app.back_end.Models
+namespace cine_web_app.back_end.Models{
+public enum CategoriaAsiento
 {
     public enum CategoriaAsiento
     {
@@ -20,4 +21,4 @@ namespace cine_web_app.back_end.Models
 }
 
 
-
+}
