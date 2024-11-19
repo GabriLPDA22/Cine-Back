@@ -10,7 +10,7 @@ namespace cine_web_app.back_end.Services
 
         public ButacaService()
         {
-            // Inicialización de una lista vacía de butacas
+            // Lista vacía al inicio, será llenada por el front-end
             _butacas = new List<Butaca>();
         }
 
@@ -21,13 +21,13 @@ namespace cine_web_app.back_end.Services
 
         public Butaca ObtenerButacaPorDescripcion(string descripcion)
         {
-            // Buscar una butaca por su descripción (coordenadas como string)
             return _butacas.FirstOrDefault(b => b.Descripcion == descripcion);
         }
 
         public bool ReservarButacas(List<string> coordenadas)
         {
             var butacasReservadas = new List<Butaca>();
+
             foreach (var coord in coordenadas)
             {
                 var butaca = ObtenerButacaPorDescripcion(coord);
@@ -39,20 +39,28 @@ namespace cine_web_app.back_end.Services
                 butacasReservadas.Add(butaca);
             }
 
-            // Marcar todas como ocupadas si todas están disponibles
+            // Marcar como ocupadas todas las butacas disponibles
             foreach (var butaca in butacasReservadas)
             {
-                butaca.EstaOcupado = true;
+                butaca.EstaOcupado = true; // Marca como ocupado
             }
 
             return true;
         }
 
-        // Método para inicializar las butacas
+
         public void InicializarButacas(List<Butaca> butacasIniciales)
         {
             _butacas.Clear();
             _butacas.AddRange(butacasIniciales);
+        }
+
+        public void ReestablecerButacas()
+        {
+            foreach (var butaca in _butacas)
+            {
+                butaca.EstaOcupado = false; // Reiniciar todas las butacas a desocupado
+            }
         }
     }
 }

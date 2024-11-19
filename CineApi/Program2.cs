@@ -165,31 +165,61 @@ app.MapGet("/api/Cine/GetSeatSelectionInfo", (string cineName, string movieTitle
 app.MapGet("/api/Butacas/GetButacas", () =>
 {
     var butacas = butacaService.ObtenerButacas();
+    if (butacas.Count == 0)
+    {
+        return Results.NotFound(new { mensaje = "No hay butacas disponibles. Inicializa las butacas primero." });
+    }
     return Results.Ok(butacas);
 }).WithName("GetButacas");
 
 // Endpoint para reservar butacas
 app.MapPost("/api/Butacas/ReservarButacas", (List<string> coordenadasButacas) =>
 {
-    Console.WriteLine("Coordenadas recibidas: " + string.Join(", ", coordenadasButacas));
+    Console.WriteLine("Coordenadas recibidas para reservar: " + string.Join(", ", coordenadasButacas));
 
     var resultado = butacaService.ReservarButacas(coordenadasButacas);
 
     if (resultado)
     {
+        Console.WriteLine("Reservas realizadas con éxito.");
         return Results.Ok(new { mensaje = "Butacas reservadas con éxito." });
     }
 
+    Console.WriteLine("Error al reservar butacas: Alguna ya está ocupada o no existe.");
     return Results.BadRequest(new { mensaje = "Error al reservar butacas. Puede que alguna ya esté ocupada o no exista." });
 }).WithName("ReservarButacas");
 
-// Endpoint para inicializar las butacas
-app.MapPost("/api/Butacas/InicializarButacas", (List<Butaca> butacasIniciales) =>
+// Endpoint para inicializar las butacas desde el front-end
+app.MapPost("/api/Butacas/InicializarButacas", async (HttpRequest request) =>
 {
-    butacaService.InicializarButacas(butacasIniciales);
-    return Results.Ok(new { mensaje = "Butacas inicializadas con éxito." });
+    try
+    {
+        var butacasIniciales = await request.ReadFromJsonAsync<List<Butaca>>();
+        if (butacasIniciales == null || !butacasIniciales.Any())
+        {
+            return Results.BadRequest(new { mensaje = "La lista de butacas no puede estar vacía." });
+        }
+
+        butacaService.InicializarButacas(butacasIniciales);
+        return Results.Ok(new { mensaje = "Butacas inicializadas con éxito." });
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Error al inicializar las butacas: {ex.Message}");
+        return Results.BadRequest(new { mensaje = "Error al inicializar las butacas.", detalle = ex.Message });
+    }
 }).WithName("InicializarButacas");
 
+
+
+
+// Endpoint para reestablecer todas las butacas al estado inicial
+app.MapPost("/api/Butacas/ReestablecerButacas", () =>
+{
+    butacaService.ReestablecerButacas();
+    Console.WriteLine("Butacas reestablecidas al estado inicial.");
+    return Results.Ok(new { mensaje = "Butacas reestablecidas al estado inicial." });
+}).WithName("ReestablecerButacas");
 
 
 // Endpoint para obtener todos los productos

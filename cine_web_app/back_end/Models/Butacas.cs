@@ -1,7 +1,6 @@
 using System;
 
-namespace cine_web_app.back_end.Models{
-public enum CategoriaAsiento
+namespace cine_web_app.back_end.Models
 {
     public enum CategoriaAsiento
     {
@@ -11,14 +10,10 @@ public enum CategoriaAsiento
 
     public class Butaca
     {
-        public int Id { get; set; } // Identificador único
-        public CategoriaAsiento Categoria { get; set; } // Categoría del asiento
-        public bool EstaOcupado { get; set; } // Indica si está ocupado
-        public string Descripcion { get; set; } // Descripción de la butaca
-        public int Suplemento { get; set; } // Suplemento asignado según la categoría
+        public string Id { get; set; } // Asegúrate de que sea un string si envías IDs como "0-1"
+        public string Categoria { get; set; } // "Estandar" o "VIP"
+        public bool EstaOcupado { get; set; } // true o false
+        public string Descripcion { get; set; } // Coordenadas o detalles adicionales
+        public int Suplemento { get; set; } // 0 para Estandar, 5 para VIP
     }
-
-}
-
-
 }

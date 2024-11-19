@@ -11,7 +11,6 @@ namespace cine_web_app.back_end.Controllers
     {
         private readonly ButacaService _butacaService;
 
-        // Utilizando Dependency Injection para obtener la instancia del servicio
         public ButacaController(ButacaService butacaService)
         {
             _butacaService = butacaService;
@@ -35,9 +34,27 @@ namespace cine_web_app.back_end.Controllers
         }
 
         /// <summary>
-        /// Reservar una lista de butacas especificadas por coordenadas.
+        /// Inicializar las butacas desde el front-end.
         /// </summary>
-        /// <param name="coordenadasButacas">Lista de coordenadas de butacas a reservar.</param>
+        /// <param name="butacasIniciales">Lista de butacas iniciales.</param>
+        /// <returns>Resultado de la operación.</returns>
+        [HttpPost("InicializarButacas")]
+        public IActionResult InicializarButacas([FromBody] List<Butaca> butacasIniciales)
+        {
+            if (butacasIniciales == null || !butacasIniciales.Any())
+            {
+                return BadRequest(new { mensaje = "La lista de butacas no puede estar vacía." });
+            }
+
+            _butacaService.InicializarButacas(butacasIniciales);
+
+            return Ok(new { mensaje = "Butacas inicializadas con éxito." });
+        }
+
+        /// <summary>
+        /// Reservar una lista de butacas.
+        /// </summary>
+        /// <param name="coordenadasButacas">Lista de coordenadas de las butacas a reservar.</param>
         /// <returns>Resultado de la operación.</returns>
         [HttpPost("ReservarButacas")]
         public IActionResult ReservarButacas([FromBody] List<string> coordenadasButacas)
@@ -58,21 +75,14 @@ namespace cine_web_app.back_end.Controllers
         }
 
         /// <summary>
-        /// Inicializar la lista de butacas en el backend.
+        /// Reestablecer todas las butacas a su estado inicial.
         /// </summary>
-        /// <param name="butacasIniciales">Lista de butacas iniciales.</param>
         /// <returns>Resultado de la operación.</returns>
-        [HttpPost("InicializarButacas")]
-        public IActionResult InicializarButacas([FromBody] List<Butaca> butacasIniciales)
+        [HttpPost("ReestablecerButacas")]
+        public IActionResult ReestablecerButacas()
         {
-            if (butacasIniciales == null || !butacasIniciales.Any())
-            {
-                return BadRequest(new { mensaje = "La lista de butacas no puede estar vacía." });
-            }
-
-            _butacaService.InicializarButacas(butacasIniciales);
-
-            return Ok(new { mensaje = "Butacas inicializadas con éxito." });
+            _butacaService.ReestablecerButacas();
+            return Ok(new { mensaje = "Butacas reestablecidas al estado inicial." });
         }
     }
 }
