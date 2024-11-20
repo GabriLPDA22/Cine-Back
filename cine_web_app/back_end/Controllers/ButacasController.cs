@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Linq;
 using cine_web_app.back_end.Models;
 using cine_web_app.back_end.Services;
 
@@ -25,7 +26,7 @@ namespace cine_web_app.back_end.Controllers
         {
             var butacas = _butacaService.ObtenerButacas();
 
-            if (butacas == null || butacas.Count == 0)
+            if (butacas == null || !butacas.Any())
             {
                 return NotFound(new { mensaje = "No se encontraron butacas." });
             }
@@ -44,6 +45,14 @@ namespace cine_web_app.back_end.Controllers
             if (butacasIniciales == null || !butacasIniciales.Any())
             {
                 return BadRequest(new { mensaje = "La lista de butacas no puede estar vacía." });
+            }
+
+            foreach (var butaca in butacasIniciales)
+            {
+                if (string.IsNullOrEmpty(butaca.Categoria))
+                {
+                    return BadRequest(new { mensaje = "Cada butaca debe tener una categoría definida." });
+                }
             }
 
             _butacaService.InicializarButacas(butacasIniciales);
@@ -83,6 +92,41 @@ namespace cine_web_app.back_end.Controllers
         {
             _butacaService.ReestablecerButacas();
             return Ok(new { mensaje = "Butacas reestablecidas al estado inicial." });
+        }
+
+        /// <summary>
+        /// Obtener butacas VIP.
+        /// </summary>
+        /// <returns>Lista de butacas VIP.</returns>
+        [HttpGet("ObtenerButacasVIP")]
+        public ActionResult<List<Butaca>> ObtenerButacasVIP()
+        {
+            var butacasVIP = _butacaService.ObtenerButacas().Where(b => b.Categoria == "VIP").ToList();
+
+            if (!butacasVIP.Any())
+            {
+                return NotFound(new { mensaje = "No se encontraron butacas VIP." });
+            }
+
+            return Ok(butacasVIP);
+        }
+
+        /// <summary>
+        /// Obtener el suplemento total de las butacas seleccionadas.
+        /// </summary>
+        /// <param name="coordenadasButacas">Lista de coordenadas de las butacas.</param>
+        /// <returns>Suplemento total.</returns>
+        [HttpPost("CalcularSuplemento")]
+        public ActionResult CalcularSuplemento([FromBody] List<string> coordenadasButacas)
+        {
+            if (coordenadasButacas == null || !coordenadasButacas.Any())
+            {
+                return BadRequest(new { mensaje = "La lista de coordenadas no puede estar vacía." });
+            }
+
+            var suplementoTotal = _butacaService.CalcularSuplemento(coordenadasButacas);
+
+            return Ok(new { suplementoTotal });
         }
     }
 }

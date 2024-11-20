@@ -200,6 +200,7 @@ app.MapPost("/api/Butacas/InicializarButacas", async (HttpRequest request) =>
             return Results.BadRequest(new { mensaje = "La lista de butacas no puede estar vacía." });
         }
 
+        // Inicializar butacas
         butacaService.InicializarButacas(butacasIniciales);
         return Results.Ok(new { mensaje = "Butacas inicializadas con éxito." });
     }
@@ -209,6 +210,26 @@ app.MapPost("/api/Butacas/InicializarButacas", async (HttpRequest request) =>
         return Results.BadRequest(new { mensaje = "Error al inicializar las butacas.", detalle = ex.Message });
     }
 }).WithName("InicializarButacas");
+
+// Endpoint para calcular el precio total incluyendo suplementos
+app.MapPost("/api/Butacas/CalcularPrecio", (List<string> coordenadasButacas) =>
+{
+    var suplementoTotal = butacaService.CalcularSuplemento(coordenadasButacas);
+    return Results.Ok(new { precioTotal = suplementoTotal });
+}).WithName("CalcularPrecio");
+
+// Endpoint para obtener solo butacas VIP
+app.MapGet("/api/Butacas/GetButacasVIP", () =>
+{
+    var butacasVIP = butacaService.ObtenerButacas().Where(b => b.Categoria == "VIP").ToList();
+    if (!butacasVIP.Any())
+    {
+        return Results.NotFound(new { mensaje = "No se encontraron butacas VIP." });
+    }
+
+    return Results.Ok(butacasVIP);
+}).WithName("GetButacasVIP");
+
 
 
 
