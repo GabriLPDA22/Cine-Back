@@ -17,7 +17,7 @@ public class ProductoService
             new Producto { Id = 7, Nombre = "Menu Taylor Swift The Eras Tour", Categorias = new List<string> { "Top Ventas", "Hot Food", "Menus" }, Precio = 12.50M, ImagenUrl = "/cine_web_app/front-end/images/menu_taylor_swift.jpg" },
             
             // Productos para Bebidas
-            new Producto { Id = 14, Nombre = "Vaso Taylor Swift Bebida CH", Categorias = new List<string> { "Bebidas" }, Precio = 5.90M, ImagenUrl = "/cine_web_app/front-end/images/vaso_taylor_swift.jpg" },
+            new Producto { Id = 14, Nombre = "Vaso Taylor Swift Bebida CH", Categorias = new List<string> { "Bebidas","Top Ventas" }, Precio = 5.90M, ImagenUrl = "/cine_web_app/front-end/images/vaso_taylor_swift.jpg" },
             new Producto { Id = 15, Nombre = "Refrescos 1L", Categorias = new List<string> { "Bebidas" }, Precio = 5.70M, ImagenUrl = "/cine_web_app/front-end/images/refresco_1l.jpg" },
             new Producto { Id = 16, Nombre = "Refrescos 75CL", Categorias = new List<string> { "Bebidas" }, Precio = 5.20M, ImagenUrl = "/cine_web_app/front-end/images/refresco_75cl.jpg" },
             new Producto { Id = 17, Nombre = "Lata Cerveza", Categorias = new List<string> { "Bebidas" }, Precio = 3.50M, ImagenUrl = "/cine_web_app/front-end/images/lata_cerveza.jpg" },
@@ -25,7 +25,7 @@ public class ProductoService
             new Producto { Id = 19, Nombre = "Agua 1L Stock", Categorias = new List<string> { "Bebidas" }, Precio = 3.30M, ImagenUrl = "/cine_web_app/front-end/images/agua_1l.jpg" },
 
             // Productos para Merchandising
-            new Producto { Id = 20, Nombre = "Funko Freddy Stock", Categorias = new List<string> { "Merchandising" }, Precio = 12.00M, ImagenUrl = "/cine_web_app/front-end/images/funko_freddy.jpg" },
+            new Producto { Id = 20, Nombre = "Funko Freddy Stock", Categorias = new List<string> { "Merchandising","Top Ventas" }, Precio = 12.00M, ImagenUrl = "/cine_web_app/front-end/images/funko_freddy.jpg" },
             new Producto { Id = 21, Nombre = "Funko Foxy Stock", Categorias = new List<string> { "Merchandising" }, Precio = 12.00M, ImagenUrl = "/cine_web_app/front-end/images/funko_foxy.jpg" },
             new Producto { Id = 22, Nombre = "Funko Ghostface Stock", Categorias = new List<string> { "Merchandising" }, Precio = 12.00M, ImagenUrl = "/cine_web_app/front-end/images/funko_ghostface.jpg" },
             new Producto { Id = 23, Nombre = "Peluche Freddy Stock", Categorias = new List<string> { "Merchandising" }, Precio = 15.00M, ImagenUrl = "/cine_web_app/front-end/images/peluche_freddy.jpg" },
