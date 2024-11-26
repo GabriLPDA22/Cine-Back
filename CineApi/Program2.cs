@@ -6,13 +6,18 @@ using Newtonsoft.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Configuración de servicios
+// ==================== CONFIGURACIÓN DE SERVICIOS ====================
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// Registro de servicios necesarios
 builder.Services.AddSingleton<ProductoService>();
 builder.Services.AddSingleton<CineService>();
-builder.Services.AddSingleton<ButacaService>(); // Registrar el servicio de butacas
+builder.Services.AddSingleton<ButacaService>();
+builder.Services.AddSingleton<PedidoService>(); // Registro del servicio de pedidos
 
+
+// Configuración de CORS
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("PermitirFrontend", policy =>
@@ -25,19 +30,23 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
+// ==================== CONFIGURACIÓN DE SWAGGER ====================
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
+// ==================== CONFIGURACIÓN DE CORS ====================
 app.UseCors("PermitirFrontend");
 
-// Obtener el servicio CineService
+// ==================== OBTENCIÓN DE SERVICIOS ====================
 var cineService = app.Services.GetRequiredService<CineService>();
-
-// Obtener el servicio de ButacaService
 var butacaService = app.Services.GetRequiredService<ButacaService>();
+var pedidoService = app.Services.GetRequiredService<PedidoService>();
+
+
+// ==================== ENDPOINTS DE CINES ====================
 
 // Endpoint para obtener la lista de cines
 app.MapGet("/api/Cine/GetCines", () =>
@@ -75,45 +84,6 @@ app.MapGet("/api/Cine/GetCineConPeliculas", (int cineId) =>
 
     return Results.Ok(cineConPeliculas);
 });
-
-// Endpoint para obtener todas las películas
-app.MapGet("/api/Movie/GetPeliculas", () =>
-{
-    return Results.Ok(cineService.ObtenerCines().SelectMany(c => c.Peliculas));
-}).WithName("GetPeliculas");
-
-// Endpoint para obtener una película específica por ID
-app.MapGet("/api/Movie/GetPeliculaById", (int id) =>
-{
-    var pelicula = cineService.ObtenerCines()
-                              .SelectMany(c => c.Peliculas)
-                              .FirstOrDefault(p => p.Id == id);
-
-    if (pelicula == null)
-    {
-        return Results.NotFound("Película no encontrada");
-    }
-
-    return Results.Ok(pelicula);
-});
-
-// Endpoint para obtener las películas en cartelera
-app.MapGet("/api/Movie/GetPeliculasEnCartelera", () =>
-{
-    return Results.Ok(cineService.ObtenerPeliculasEnCartelera());
-}).WithName("GetPeliculasEnCartelera");
-
-// Endpoint para obtener las películas en venta anticipada
-app.MapGet("/api/Movie/GetPeliculasEnVentaAnticipada", () =>
-{
-    return Results.Ok(cineService.ObtenerPeliculasEnVentaAnticipada());
-}).WithName("GetPeliculasEnVentaAnticipada");
-
-// Endpoint para obtener las películas próximas
-app.MapGet("/api/Movie/GetPeliculasProximas", () =>
-{
-    return Results.Ok(cineService.ObtenerPeliculasProximas());
-}).WithName("GetPeliculasProximas");
 
 // Endpoint para obtener información de selección de asientos
 app.MapGet("/api/Cine/GetSeatSelectionInfo", (string cineName, string movieTitle, string sessionDate, string sessionTime) =>
@@ -161,6 +131,49 @@ app.MapGet("/api/Cine/GetSeatSelectionInfo", (string cineName, string movieTitle
     return Results.Ok(seatSelectionInfo);
 }).WithName("GetSeatSelectionInfo");
 
+// ==================== ENDPOINTS DE PELÍCULAS ====================
+
+// Endpoint para obtener todas las películas
+app.MapGet("/api/Movie/GetPeliculas", () =>
+{
+    return Results.Ok(cineService.ObtenerCines().SelectMany(c => c.Peliculas));
+}).WithName("GetPeliculas");
+
+// Endpoint para obtener una película específica por ID
+app.MapGet("/api/Movie/GetPeliculaById", (int id) =>
+{
+    var pelicula = cineService.ObtenerCines()
+                              .SelectMany(c => c.Peliculas)
+                              .FirstOrDefault(p => p.Id == id);
+
+    if (pelicula == null)
+    {
+        return Results.NotFound("Película no encontrada");
+    }
+
+    return Results.Ok(pelicula);
+}).WithName("GetPeliculaById");
+
+// Endpoint para obtener películas en cartelera
+app.MapGet("/api/Movie/GetPeliculasEnCartelera", () =>
+{
+    return Results.Ok(cineService.ObtenerPeliculasEnCartelera());
+}).WithName("GetPeliculasEnCartelera");
+
+// Endpoint para obtener películas en venta anticipada
+app.MapGet("/api/Movie/GetPeliculasEnVentaAnticipada", () =>
+{
+    return Results.Ok(cineService.ObtenerPeliculasEnVentaAnticipada());
+}).WithName("GetPeliculasEnVentaAnticipada");
+
+// Endpoint para obtener películas próximas
+app.MapGet("/api/Movie/GetPeliculasProximas", () =>
+{
+    return Results.Ok(cineService.ObtenerPeliculasProximas());
+}).WithName("GetPeliculasProximas");
+
+// ==================== ENDPOINTS DE BUTACAS ====================
+
 // Endpoint para obtener todas las butacas
 app.MapGet("/api/Butacas/GetButacas", () =>
 {
@@ -175,17 +188,13 @@ app.MapGet("/api/Butacas/GetButacas", () =>
 // Endpoint para reservar butacas
 app.MapPost("/api/Butacas/ReservarButacas", (List<string> coordenadasButacas) =>
 {
-    Console.WriteLine("Coordenadas recibidas para reservar: " + string.Join(", ", coordenadasButacas));
-
     var resultado = butacaService.ReservarButacas(coordenadasButacas);
 
     if (resultado)
     {
-        Console.WriteLine("Reservas realizadas con éxito.");
         return Results.Ok(new { mensaje = "Butacas reservadas con éxito." });
     }
 
-    Console.WriteLine("Error al reservar butacas: Alguna ya está ocupada o no existe.");
     return Results.BadRequest(new { mensaje = "Error al reservar butacas. Puede que alguna ya esté ocupada o no exista." });
 }).WithName("ReservarButacas");
 
@@ -200,13 +209,11 @@ app.MapPost("/api/Butacas/InicializarButacas", async (HttpRequest request) =>
             return Results.BadRequest(new { mensaje = "La lista de butacas no puede estar vacía." });
         }
 
-        // Inicializar butacas
         butacaService.InicializarButacas(butacasIniciales);
         return Results.Ok(new { mensaje = "Butacas inicializadas con éxito." });
     }
     catch (Exception ex)
     {
-        Console.WriteLine($"Error al inicializar las butacas: {ex.Message}");
         return Results.BadRequest(new { mensaje = "Error al inicializar las butacas.", detalle = ex.Message });
     }
 }).WithName("InicializarButacas");
@@ -230,18 +237,14 @@ app.MapGet("/api/Butacas/GetButacasVIP", () =>
     return Results.Ok(butacasVIP);
 }).WithName("GetButacasVIP");
 
-
-
-
-
 // Endpoint para reestablecer todas las butacas al estado inicial
 app.MapPost("/api/Butacas/ReestablecerButacas", () =>
 {
     butacaService.ReestablecerButacas();
-    Console.WriteLine("Butacas reestablecidas al estado inicial.");
     return Results.Ok(new { mensaje = "Butacas reestablecidas al estado inicial." });
 }).WithName("ReestablecerButacas");
 
+// ==================== ENDPOINTS DE PRODUCTOS ====================
 
 // Endpoint para obtener todos los productos
 app.MapGet("/api/Productos/GetProductos", (string? categoria) =>
@@ -264,11 +267,48 @@ app.MapGet("/api/Productos/GetProductos", (string? categoria) =>
     }
 }).WithName("GetProductos");
 
-// Endpoint para obtener todas las categorías
+// Endpoint para obtener todas las categorías de productos
 app.MapGet("/api/Productos/GetCategorias", () =>
 {
     var productoService = app.Services.GetRequiredService<ProductoService>();
     return Results.Ok(productoService.ObtenerCategorias());
 }).WithName("GetCategorias");
 
+// ==================== ENDPOINTS DE PEDIDOS ====================
+
+// Endpoint para obtener todos los pedidos
+app.MapGet("/api/Pedido/GetPedidos", () =>
+{
+    var pedidos = pedidoService.ObtenerPedidos();
+    return Results.Ok(pedidos);
+}).WithName("GetPedidos");
+
+// Endpoint para obtener un pedido por ID
+app.MapGet("/api/Pedido/GetPedidoPorId", (int id) =>
+{
+    var pedido = pedidoService.ObtenerPedidoPorId(id);
+    if (pedido == null)
+    {
+        return Results.NotFound("Pedido no encontrado");
+    }
+    return Results.Ok(pedido);
+}).WithName("GetPedidoPorId");
+
+// Endpoint para crear un nuevo pedido
+app.MapPost("/api/Pedido/CreatePedido", (Pedido pedido) =>
+{
+    if (pedido == null)
+    {
+        return Results.BadRequest("El pedido no puede ser nulo.");
+    }
+
+    pedidoService.AgregarPedido(pedido);
+    return Results.Ok(new
+    {
+        Message = "Pedido creado correctamente",
+        PedidoId = pedido.Id
+    });
+}).WithName("CreatePedido");
+
+// ==================== EJECUCIÓN DE LA APLICACIÓN ====================
 app.Run();
