@@ -284,7 +284,7 @@ app.MapGet("/api/Pedido/GetPedidos", () =>
 }).WithName("GetPedidos");
 
 // Endpoint para obtener un pedido por ID
-app.MapGet("/api/Pedido/GetPedidoPorId", (int id) =>
+app.MapGet("/api/Pedido/GetPedidoPorId/{id}", (int id) =>
 {
     var pedido = pedidoService.ObtenerPedidoPorId(id);
     if (pedido == null)
@@ -294,6 +294,7 @@ app.MapGet("/api/Pedido/GetPedidoPorId", (int id) =>
     return Results.Ok(pedido);
 }).WithName("GetPedidoPorId");
 
+
 // Endpoint para crear un nuevo pedido
 app.MapPost("/api/Pedido/CreatePedido", (Pedido pedido) =>
 {
@@ -302,7 +303,19 @@ app.MapPost("/api/Pedido/CreatePedido", (Pedido pedido) =>
         return Results.BadRequest("El pedido no puede ser nulo.");
     }
 
+    // Validación de campos obligatorios
+    if (string.IsNullOrEmpty(pedido.NombreCliente) ||
+        string.IsNullOrEmpty(pedido.TituloPelicula) ||
+        string.IsNullOrEmpty(pedido.Cine))
+    {
+        return Results.BadRequest("Faltan datos obligatorios en el pedido.");
+    }
+
+
+    // Agregar el pedido al servicio
     pedidoService.AgregarPedido(pedido);
+
+    // Retornar el ID del pedido recién creado
     return Results.Ok(new
     {
         Message = "Pedido creado correctamente",

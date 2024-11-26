@@ -27,7 +27,7 @@ namespace cine_web_app.back_end.Services
             _pedidos.Add(pedido);
         }
 
-        // Método para obtener un pedido por Id
+        // **Nuevo método para obtener un pedido por ID**
         public Pedido ObtenerPedidoPorId(int id)
         {
             return _pedidos.FirstOrDefault(p => p.Id == id);

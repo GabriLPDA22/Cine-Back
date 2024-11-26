@@ -5,4 +5,5 @@ public class Producto
     public List<string> Categorias { get; set; } // Cambiado de string a List<string>
     public decimal Precio { get; set; }
     public string ImagenUrl { get; set; }
+    public int Cantidad { get; set; }
 }

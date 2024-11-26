@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using cine_web_app.back_end.Models;
 using cine_web_app.back_end.Services;
+using System.Text.Json;
 
 namespace cine_web_app.back_end.Controllers
 {
@@ -44,8 +45,6 @@ namespace cine_web_app.back_end.Controllers
                 return BadRequest("El pedido no puede ser nulo.");
             }
 
-            // Log de los datos recibidos
-            Console.WriteLine($"Pedido recibido: {System.Text.Json.JsonSerializer.Serialize(pedido)}");
 
             // Validación de campos obligatorios
             if (string.IsNullOrEmpty(pedido.NombreCliente) ||
@@ -55,8 +54,11 @@ namespace cine_web_app.back_end.Controllers
                 return BadRequest("Faltan datos obligatorios en el pedido.");
             }
 
-            return Ok(new { Message = "Pedido creado exitosamente", PedidoId = new Random().Next(1000, 9999) });
-        }
+            // Agregar el pedido al servicio
+            _pedidoService.AgregarPedido(pedido);
 
+            // Retornar el ID del pedido recién creado
+            return Ok(new { Message = "Pedido creado exitosamente", PedidoId = pedido.Id });
+        }
     }
 }
