@@ -16,6 +16,7 @@ namespace cine_web_app.back_end.Controllers
             _cineService = cineService;
         }
 
+        // Endpoint existente: GetSeatSelectionInfo
         [HttpGet("GetSeatSelectionInfo")]
         public IActionResult GetSeatSelectionInfo(string cineName, string movieTitle, string sessionDate, string sessionTime)
         {
@@ -77,5 +78,31 @@ namespace cine_web_app.back_end.Controllers
             return Ok(seatSelectionInfo);
         }
 
+        // NUEVO ENDPOINT: GetCineById
+        [HttpGet("GetCineById")]
+        public IActionResult GetCineById(int cineId)
+        {
+            Console.WriteLine($"Buscando cine con ID: {cineId}");
+
+            // Buscar el cine por ID usando el servicio
+            var cine = _cineService.ObtenerCines().FirstOrDefault(c => c.Id == cineId);
+
+            if (cine == null)
+            {
+                Console.WriteLine($"Cine con ID {cineId} no encontrado.");
+                return NotFound($"Cine con ID {cineId} no encontrado.");
+            }
+
+            // Construir el objeto de respuesta
+            var resultado = new
+            {
+                Id = cine.Id,
+                Nombre = cine.Nombre
+            };
+
+            Console.WriteLine("Cine encontrado:", resultado);
+
+            return Ok(resultado);
+        }
     }
 }

@@ -10,31 +10,19 @@ namespace cine_web_app.back_end.Services
 
         public ButacaService()
         {
-            // Lista vacía al inicio, será llenada por el front-end
             _butacas = new List<Butaca>();
         }
 
-        /// <summary>
-        /// Obtener todas las butacas.
-        /// </summary>
         public List<Butaca> ObtenerButacas()
         {
             return _butacas;
         }
 
-        /// <summary>
-        /// Obtener una butaca por su descripción.
-        /// </summary>
-        /// <param name="descripcion">Descripción de la butaca.</param>
         public Butaca ObtenerButacaPorDescripcion(string descripcion)
         {
             return _butacas.FirstOrDefault(b => b.Descripcion == descripcion);
         }
 
-        /// <summary>
-        /// Reservar una lista de butacas.
-        /// </summary>
-        /// <param name="coordenadas">Lista de coordenadas de las butacas a reservar.</param>
         public bool ReservarButacas(List<string> coordenadas)
         {
             var butacasReservadas = new List<Butaca>();
@@ -50,7 +38,6 @@ namespace cine_web_app.back_end.Services
                 butacasReservadas.Add(butaca);
             }
 
-            // Marcar como ocupadas todas las butacas disponibles
             foreach (var butaca in butacasReservadas)
             {
                 butaca.EstaOcupado = true;
@@ -59,46 +46,36 @@ namespace cine_web_app.back_end.Services
             return true;
         }
 
-        /// <summary>
-        /// Inicializar la lista de butacas.
-        /// </summary>
-        /// <param name="butacasIniciales">Lista de butacas iniciales.</param>
-        public void InicializarButacas(List<Butaca> butacasIniciales)
+        public bool LiberarButacas(List<string> coordenadas)
         {
-            // Validar que las categorías estén bien definidas
-            foreach (var butaca in butacasIniciales)
+            foreach (var coord in coordenadas)
             {
-                if (string.IsNullOrEmpty(butaca.Categoria))
+                var butaca = ObtenerButacaPorDescripcion(coord);
+                if (butaca == null || !butaca.EstaOcupado)
                 {
-                    butaca.Categoria = "Estandar"; // Categoría por defecto
+                    return false; // Alguna butaca no está ocupada
                 }
 
-                if (butaca.Categoria == "VIP" && butaca.Suplemento == 0)
-                {
-                    butaca.Suplemento = 5; // Suplemento por defecto para VIP
-                }
+                butaca.EstaOcupado = false;
             }
 
+            return true;
+        }
+
+        public void InicializarButacas(List<Butaca> butacasIniciales)
+        {
             _butacas.Clear();
             _butacas.AddRange(butacasIniciales);
         }
 
-        /// <summary>
-        /// Reestablecer todas las butacas a su estado inicial.
-        /// </summary>
         public void ReestablecerButacas()
         {
             foreach (var butaca in _butacas)
             {
-                butaca.EstaOcupado = false; // Reiniciar todas las butacas a desocupado
+                butaca.EstaOcupado = false;
             }
         }
 
-        /// <summary>
-        /// Calcular el suplemento total de una lista de butacas.
-        /// </summary>
-        /// <param name="coordenadas">Lista de coordenadas de las butacas.</param>
-        /// <returns>El suplemento total.</returns>
         public decimal CalcularSuplemento(List<string> coordenadas)
         {
             return _butacas

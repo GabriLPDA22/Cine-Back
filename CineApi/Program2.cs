@@ -60,6 +60,24 @@ app.MapGet("/api/Cine/GetCines", () =>
     return Results.Ok(cinesSinPeliculas);
 }).WithName("GetCines");
 
+// Endpoint para obtener cines por id
+app.MapGet("/api/Cine/GetCineById", (int cineId, CineService cineService) =>
+{
+    var cine = cineService.ObtenerCinePorId(cineId);
+    if (cine == null)
+    {
+        return Results.NotFound($"No se encontró un cine con el ID: {cineId}");
+    }
+
+    var resultado = new
+    {
+        cine.Id,
+        cine.Nombre
+    };
+
+    return Results.Ok(resultado);
+}).WithName("GetCineById");
+
 // Endpoint para obtener un cine específico con sus películas
 app.MapGet("/api/Cine/GetCineConPeliculas", (int cineId) =>
 {
@@ -94,18 +112,18 @@ app.MapGet("/api/Cine/GetSeatSelectionInfo", (string cineName, string movieTitle
         return Results.NotFound("Cine no encontrado");
     }
 
-    var pelicula = cine.Peliculas.FirstOrDefault(p => p.Titulo == movieTitle);
+    var pelicula = cine.Peliculas?.FirstOrDefault(p => p.Titulo == movieTitle);
     if (pelicula == null)
     {
         return Results.NotFound("Película no encontrada en este cine");
     }
 
-    if (!pelicula.Sesiones.TryGetValue(cineName, out var sesionesPorFecha))
+    if (pelicula.Sesiones == null || !pelicula.Sesiones.TryGetValue(cineName, out var sesionesPorFecha))
     {
         return Results.NotFound("No hay sesiones para este cine");
     }
 
-    if (!sesionesPorFecha.TryGetValue(sessionDate, out var sesiones))
+    if (!sesionesPorFecha.TryGetValue(sessionDate, out var sesiones) || sesiones == null)
     {
         return Results.NotFound("No hay sesiones para esta fecha");
     }
@@ -130,6 +148,7 @@ app.MapGet("/api/Cine/GetSeatSelectionInfo", (string cineName, string movieTitle
 
     return Results.Ok(seatSelectionInfo);
 }).WithName("GetSeatSelectionInfo");
+
 
 // ==================== ENDPOINTS DE PELÍCULAS ====================
 
@@ -178,27 +197,14 @@ app.MapGet("/api/Movie/GetPeliculasProximas", () =>
 app.MapGet("/api/Butacas/GetButacas", () =>
 {
     var butacas = butacaService.ObtenerButacas();
-    if (butacas.Count == 0)
+    if (butacas == null || butacas.Count == 0)
     {
         return Results.NotFound(new { mensaje = "No hay butacas disponibles. Inicializa las butacas primero." });
     }
     return Results.Ok(butacas);
 }).WithName("GetButacas");
 
-// Endpoint para reservar butacas
-app.MapPost("/api/Butacas/ReservarButacas", (List<string> coordenadasButacas) =>
-{
-    var resultado = butacaService.ReservarButacas(coordenadasButacas);
-
-    if (resultado)
-    {
-        return Results.Ok(new { mensaje = "Butacas reservadas con éxito." });
-    }
-
-    return Results.BadRequest(new { mensaje = "Error al reservar butacas. Puede que alguna ya esté ocupada o no exista." });
-}).WithName("ReservarButacas");
-
-// Endpoint para inicializar las butacas desde el front-end
+// Endpoint para inicializar las butacas desde el front-end REVISA EL ASYNC
 app.MapPost("/api/Butacas/InicializarButacas", async (HttpRequest request) =>
 {
     try
@@ -218,9 +224,50 @@ app.MapPost("/api/Butacas/InicializarButacas", async (HttpRequest request) =>
     }
 }).WithName("InicializarButacas");
 
+// Endpoint para reservar butacas
+app.MapPost("/api/Butacas/ReservarButacas", (List<string> coordenadasButacas) =>
+{
+    if (coordenadasButacas == null || !coordenadasButacas.Any())
+    {
+        return Results.BadRequest(new { mensaje = "La lista de coordenadas no puede estar vacía." });
+    }
+
+    var resultado = butacaService.ReservarButacas(coordenadasButacas);
+
+    if (resultado)
+    {
+        return Results.Ok(new { mensaje = "Butacas reservadas con éxito." });
+    }
+
+    return Results.BadRequest(new { mensaje = "Error al reservar butacas. Puede que alguna ya esté ocupada o no exista." });
+}).WithName("ReservarButacas");
+
+// Endpoint para liberar butacas
+app.MapPost("/api/Butacas/LiberarButacas", (List<string> coordenadasButacas) =>
+{
+    if (coordenadasButacas == null || !coordenadasButacas.Any())
+    {
+        return Results.BadRequest(new { mensaje = "La lista de coordenadas no puede estar vacía." });
+    }
+
+    var resultado = butacaService.LiberarButacas(coordenadasButacas);
+
+    if (resultado)
+    {
+        return Results.Ok(new { mensaje = "Butacas liberadas con éxito." });
+    }
+
+    return Results.BadRequest(new { mensaje = "Error al liberar butacas. Puede que alguna no esté ocupada o no exista." });
+}).WithName("LiberarButacas");
+
 // Endpoint para calcular el precio total incluyendo suplementos
 app.MapPost("/api/Butacas/CalcularPrecio", (List<string> coordenadasButacas) =>
 {
+    if (coordenadasButacas == null || !coordenadasButacas.Any())
+    {
+        return Results.BadRequest(new { mensaje = "La lista de coordenadas no puede estar vacía." });
+    }
+
     var suplementoTotal = butacaService.CalcularSuplemento(coordenadasButacas);
     return Results.Ok(new { precioTotal = suplementoTotal });
 }).WithName("CalcularPrecio");
@@ -229,7 +276,7 @@ app.MapPost("/api/Butacas/CalcularPrecio", (List<string> coordenadasButacas) =>
 app.MapGet("/api/Butacas/GetButacasVIP", () =>
 {
     var butacasVIP = butacaService.ObtenerButacas().Where(b => b.Categoria == "VIP").ToList();
-    if (!butacasVIP.Any())
+    if (butacasVIP == null || !butacasVIP.Any())
     {
         return Results.NotFound(new { mensaje = "No se encontraron butacas VIP." });
     }
@@ -243,6 +290,7 @@ app.MapPost("/api/Butacas/ReestablecerButacas", () =>
     butacaService.ReestablecerButacas();
     return Results.Ok(new { mensaje = "Butacas reestablecidas al estado inicial." });
 }).WithName("ReestablecerButacas");
+
 
 // ==================== ENDPOINTS DE PRODUCTOS ====================
 
