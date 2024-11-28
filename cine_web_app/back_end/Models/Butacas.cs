@@ -15,5 +15,6 @@ namespace cine_web_app.back_end.Models
         public bool EstaOcupado { get; set; } // true o false
         public string Descripcion { get; set; } // Coordenadas o detalles adicionales
         public int Suplemento { get; set; } // 0 para Estandar, 5 para VIP
+        public string Sala {get; set;} // sala para cada butacas
     }
 }
