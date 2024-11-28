@@ -236,41 +236,22 @@ namespace cine_web_app.back_end.Services
                         },
                         new Pelicula
                         {
-                            Id = 9,
-                            Titulo = "X-Men Apocalypse",
-                            Descripcion = "Apocalypse, el primer y más poderoso mutante...",
-                            FechaEstreno = new DateTime(2016, 5, 27),
-                            Genero = "Sci-fi",
-                            Director = "Bryan Singer",
-                            Actores = "James McAvoy, Michael Fassbender, Jennifer Lawrence, Oscar Isaac, Nicholas Hoult, Rose Byrne, Evan Peters, Sophie Turner",
-                            Duracion = "2 horas 24 minutos",
-                            Calificacion = 7.0,
-                            EdadRecomendada = 12,
-                            ImagenEdadRecomendada = "/cine_web_app/front-end/images/12.jpg",
-                            Imagen = "/cine_web_app/front-end/images/X-Men_Apocalypse_Banner.jpg",
-                            Cartel = "/cine_web_app/front-end/images/X-MEN_Apocalypse.jpg",
-                            Sesiones = CrearSesionesXMen(),
-                            EnCartelera = true, // Actualmente en cartelera
-                            EnVentaAnticipada = true // Si está en venta anticipada
-                        },
-                        new Pelicula
-                        {
-                            Id = 10,
-                            Titulo = "X-Men Apocalypse",
-                            Descripcion = "Apocalypse, el primer y más poderoso mutante...",
-                            FechaEstreno = new DateTime(2016, 5, 27),
-                            Genero = "Sci-fi",
-                            Director = "Bryan Singer",
-                            Actores = "James McAvoy, Michael Fassbender, Jennifer Lawrence, Oscar Isaac, Nicholas Hoult, Rose Byrne, Evan Peters, Sophie Turner",
-                            Duracion = "2 horas 24 minutos",
-                            Calificacion = 7.0,
-                            EdadRecomendada = 12,
-                            ImagenEdadRecomendada = "/cine_web_app/front-end/images/12.jpg",
-                            Imagen = "/cine_web_app/front-end/images/X-Men_Apocalypse_Banner.jpg",
-                            Cartel = "/cine_web_app/front-end/images/X-MEN_Apocalypse.jpg",
-                            Sesiones = CrearSesionesXMen(),
-                            EnCartelera = true, // Actualmente en cartelera
-                            EnVentaAnticipada = true // Si está en venta anticipada
+                            Id = 9, // Cambia el ID según tu necesidad
+                            Titulo = "Wicked",
+                            Descripcion = "Tras dos décadas como uno de los musicales más aclamados y longevos en escena, WICKED llega en noviembre a la gran pantalla para convertirse en un esperadísimo y espectacular evento cinematográfico que definirá una era.",
+                            FechaEstreno = new DateTime(2024, 11, 22),
+                            Genero = "Musical, Fantasía, Romance",
+                            Director = "Jon M. Chu",
+                            Duracion = "2h 40m",
+                            Actores = "Peter Dinklage, Jeff Goldblum, Michelle Yeoh, Bronwyn James, Bowen Yang, Cynthia Erivo, Keala Settle, Ariana Grande, Marissa Bode, Jonathan Bailey, Ethan Slater",
+                            Calificacion = 0.0, // No hay calificación definida aún
+                            Imagen = "/cine_web_app/front-end/images/Banner-Wicked.jpg", // Ruta de la imagen del banner
+                            Cartel = "/cine_web_app/front-end/images/Wicked-Cartel.jpg", // Ruta del cartel
+                            EdadRecomendada = 0,
+                            ImagenEdadRecomendada = "/cine_web_app/front-end/images/Todos.jpg", // Ajusta según el ícono de edades
+                            Sesiones = CrearSesionesWicked(), // Método para generar sesiones
+                            EnCartelera = false, // Cambia según la lógica de tu aplicación
+                            EnVentaAnticipada = true // Cambia según la lógica de tu aplicación
                         },
                     }
                 },
@@ -425,6 +406,25 @@ namespace cine_web_app.back_end.Services
                             EnCartelera = true,
                             EnVentaAnticipada = true
                         },
+                        new Pelicula
+                        {
+                            Id = 9, // Cambia el ID según tu necesidad
+                            Titulo = "Wicked",
+                            Descripcion = "Tras dos décadas como uno de los musicales más aclamados y longevos en escena, WICKED llega en noviembre a la gran pantalla para convertirse en un esperadísimo y espectacular evento cinematográfico que definirá una era.",
+                            FechaEstreno = new DateTime(2024, 11, 22),
+                            Genero = "Musical, Fantasía, Romance",
+                            Director = "Jon M. Chu",
+                            Duracion = "2h 40m",
+                            Actores = "Peter Dinklage, Jeff Goldblum, Michelle Yeoh, Bronwyn James, Bowen Yang, Cynthia Erivo, Keala Settle, Ariana Grande, Marissa Bode, Jonathan Bailey, Ethan Slater",
+                            Calificacion = 0.0, // No hay calificación definida aún
+                            Imagen = "/cine_web_app/front-end/images/Banner-Wicked.jpg", // Ruta de la imagen del banner
+                            Cartel = "/cine_web_app/front-end/images/Wicked-Cartel.jpg", // Ruta del cartel
+                            EdadRecomendada = 0,
+                            ImagenEdadRecomendada = "/cine_web_app/front-end/images/Todos.jpg", // Ajusta según el ícono de edades
+                            Sesiones = CrearSesionesWicked(), // Método para generar sesiones
+                            EnCartelera = false, // Cambia según la lógica de tu aplicación
+                            EnVentaAnticipada = true // Cambia según la lógica de tu aplicación
+                        },
                     }
                 }
             };
@@ -474,8 +474,52 @@ namespace cine_web_app.back_end.Services
                 }
             };
         }
-
-
+        private Dictionary<string, Dictionary<string, List<Sesion>>> CrearSesionesWicked()
+        {
+            return new Dictionary<string, Dictionary<string, List<Sesion>>>
+            {
+                {
+                    "Gran Casa", new Dictionary<string, List<Sesion>>
+                    {
+                        { "2024-11-11", new List<Sesion>
+                            {
+                                new Sesion { Hora = "16:00", Sala = "1", EsISense = true, EsVOSE = false },
+                                new Sesion { Hora = "18:45", Sala = "5", EsISense = false, EsVOSE = true },
+                                new Sesion { Hora = "21:30", Sala = "7", EsISense = true, EsVOSE = true }
+                            }
+                        },
+                        { "2024-11-12", new List<Sesion>
+                            {
+                                new Sesion { Hora = "14:30", Sala = "3", EsISense = false, EsVOSE = false },
+                                new Sesion { Hora = "18:00", Sala = "6", EsISense = true, EsVOSE = false },
+                                new Sesion { Hora = "20:30", Sala = "4", EsISense = true, EsVOSE = true }
+                            }
+                        }
+                        // Agrega más días y sesiones para Gran Casa si es necesario
+                    }
+                },
+                {
+                    "Puerto Venecia", new Dictionary<string, List<Sesion>>
+                    {
+                        { "2024-11-11", new List<Sesion>
+                            {
+                                new Sesion { Hora = "15:00", Sala = "2", EsISense = false, EsVOSE = true },
+                                new Sesion { Hora = "18:30", Sala = "8", EsISense = true, EsVOSE = false },
+                                new Sesion { Hora = "21:00", Sala = "9", EsISense = true, EsVOSE = true }
+                            }
+                        },
+                        { "2024-11-12", new List<Sesion>
+                            {
+                                new Sesion { Hora = "16:15", Sala = "5", EsISense = false, EsVOSE = false },
+                                new Sesion { Hora = "19:45", Sala = "7", EsISense = true, EsVOSE = true },
+                                new Sesion { Hora = "22:15", Sala = "3", EsISense = true, EsVOSE = false }
+                            }
+                        }
+                        // Agrega más días y sesiones para Puerto Venecia si es necesario
+                    }
+                }
+            };
+        }
        private Dictionary<string, Dictionary<string, List<Sesion>>> CrearSesionesXMen()
         {
             return new Dictionary<string, Dictionary<string, List<Sesion>>>
