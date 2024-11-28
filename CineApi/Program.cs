@@ -107,38 +107,45 @@ app.MapGet("/api/Cine/GetCineConPeliculas", (int cineId) =>
 .WithTags("Cine"); // Asignar el endpoint al grupo "Cine"
 
 // Endpoint para obtener información de selección de asientos
-app.MapGet("/api/Cine/GetSeatSelectionInfo", (string cineName, string movieTitle, string sessionDate, string sessionTime) =>
+app.MapGet("/api/Cine/GetSeatSelectionInfo", (string cineName, string movieTitle, string sessionDate, string sessionTime, CineService cineService) =>
 {
+    // Buscar el cine por nombre
     var cine = cineService.ObtenerCines().FirstOrDefault(c => c.Nombre == cineName);
     if (cine == null)
     {
         return Results.NotFound("Cine no encontrado");
     }
 
+    // Buscar la película por título
     var pelicula = cine.Peliculas?.FirstOrDefault(p => p.Titulo == movieTitle);
     if (pelicula == null)
     {
         return Results.NotFound("Película no encontrada en este cine");
     }
 
+    // Verificar que hay sesiones para este cine
     if (pelicula.Sesiones == null || !pelicula.Sesiones.TryGetValue(cineName, out var sesionesPorFecha))
     {
         return Results.NotFound("No hay sesiones para este cine");
     }
 
+    // Buscar las sesiones en la fecha específica
     if (!sesionesPorFecha.TryGetValue(sessionDate, out var sesiones) || sesiones == null)
     {
         return Results.NotFound("No hay sesiones para esta fecha");
     }
 
+    // Buscar la sesión por hora
     var sesion = sesiones.FirstOrDefault(s => s.Hora == sessionTime);
     if (sesion == null)
     {
         return Results.NotFound("Sesión no encontrada en este horario");
     }
 
+    // Crear el objeto de respuesta con el ID de la sesión
     var seatSelectionInfo = new
     {
+        SessionId = sesion.Id, // Añadimos el Id de la sesión
         MovieTitle = pelicula.Titulo,
         CineName = cine.Nombre,
         SessionDate = sessionDate,
@@ -149,9 +156,11 @@ app.MapGet("/api/Cine/GetSeatSelectionInfo", (string cineName, string movieTitle
         BannerImage = pelicula.Imagen
     };
 
+    // Devolver la respuesta
     return Results.Ok(seatSelectionInfo);
 }).WithName("GetSeatSelectionInfo")
 .WithTags("Cine"); // Asignar el endpoint al grupo "Cine"
+
 
 
 // ==================== ENDPOINTS DE PELÍCULAS ====================

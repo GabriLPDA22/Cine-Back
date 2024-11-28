@@ -439,16 +439,16 @@ namespace cine_web_app.back_end.Services
                     {
                         { "2024-11-11", new List<Sesion>
                             {
-                                new Sesion { Hora = "16:30", Sala = "10", EsISense = true, EsVOSE = false },
-                                new Sesion { Hora = "18:05", Sala = "8", EsISense = false, EsVOSE = true }
+                                new Sesion {Id = 1, Hora = "16:30", Sala = "10", EsISense = true, EsVOSE = false },
+                                new Sesion { Id = 2, Hora = "18:05", Sala = "8", EsISense = false, EsVOSE = true }
                             }
                         },
                         { "2024-11-12", new List<Sesion>
                             {
-                                new Sesion { Hora = "15:30", Sala = "3", EsISense = false, EsVOSE = false },
-                                new Sesion { Hora = "17:45", Sala = "9", EsISense = true, EsVOSE = false },
-                                new Sesion { Hora = "19:50", Sala = "6", EsISense = true, EsVOSE = true },
-                                new Sesion { Hora = "22:10", Sala = "2", EsISense = false, EsVOSE = true }
+                                new Sesion { Id = 1 ,Hora = "15:30", Sala = "3", EsISense = false, EsVOSE = false },
+                                new Sesion { Id = 2 ,Hora = "17:45", Sala = "9", EsISense = true, EsVOSE = false },
+                                new Sesion { Id = 3 ,Hora = "19:50", Sala = "6", EsISense = true, EsVOSE = true },
+                                new Sesion { Id = 4 ,Hora = "22:10", Sala = "2", EsISense = false, EsVOSE = true }
                             }
                         }
                         // Agrega más días y sesiones para Gran Casa según sea necesario
@@ -459,14 +459,14 @@ namespace cine_web_app.back_end.Services
                     {
                         { "2024-11-11", new List<Sesion>
                             {
-                                new Sesion { Hora = "17:00", Sala = "7", EsISense = true, EsVOSE = true },
-                                new Sesion { Hora = "19:30", Sala = "2", EsISense = false, EsVOSE = false }
+                                new Sesion { Id = 1, Hora = "17:00", Sala = "7", EsISense = true, EsVOSE = true },
+                                new Sesion { Id = 2, Hora = "19:30", Sala = "2", EsISense = false, EsVOSE = false }
                             }
                         },
                         { "2024-11-12", new List<Sesion>
                             {
-                                new Sesion { Hora = "16:00", Sala = "5", EsISense = true, EsVOSE = false },
-                                new Sesion { Hora = "20:00", Sala = "3", EsISense = false, EsVOSE = true }
+                                new Sesion { Id = 1, Hora = "16:00", Sala = "5", EsISense = true, EsVOSE = false },
+                                new Sesion { Id = 2, Hora = "20:00", Sala = "3", EsISense = false, EsVOSE = true }
                             }
                         }
                         // Agrega más días y sesiones para Puerto Venecia según sea necesario
@@ -483,16 +483,16 @@ namespace cine_web_app.back_end.Services
                     {
                         { "2024-11-11", new List<Sesion>
                             {
-                                new Sesion { Hora = "16:00", Sala = "1", EsISense = true, EsVOSE = false },
-                                new Sesion { Hora = "18:45", Sala = "5", EsISense = false, EsVOSE = true },
-                                new Sesion { Hora = "21:30", Sala = "7", EsISense = true, EsVOSE = true }
+                                new Sesion { Id = 1, Hora = "16:00", Sala = "1", EsISense = true, EsVOSE = false },
+                                new Sesion { Id = 2, Hora = "18:45", Sala = "5", EsISense = false, EsVOSE = true },
+                                new Sesion { Id = 3, Hora = "21:30", Sala = "7", EsISense = true, EsVOSE = true }
                             }
                         },
                         { "2024-11-12", new List<Sesion>
                             {
-                                new Sesion { Hora = "14:30", Sala = "3", EsISense = false, EsVOSE = false },
-                                new Sesion { Hora = "18:00", Sala = "6", EsISense = true, EsVOSE = false },
-                                new Sesion { Hora = "20:30", Sala = "4", EsISense = true, EsVOSE = true }
+                                new Sesion { Id = 1, Hora = "14:30", Sala = "3", EsISense = false, EsVOSE = false },
+                                new Sesion { Id = 2, Hora = "18:00", Sala = "6", EsISense = true, EsVOSE = false },
+                                new Sesion { Id = 3, Hora = "20:30", Sala = "4", EsISense = true, EsVOSE = true }
                             }
                         }
                         // Agrega más días y sesiones para Gran Casa si es necesario
@@ -503,16 +503,16 @@ namespace cine_web_app.back_end.Services
                     {
                         { "2024-11-11", new List<Sesion>
                             {
-                                new Sesion { Hora = "15:00", Sala = "2", EsISense = false, EsVOSE = true },
-                                new Sesion { Hora = "18:30", Sala = "8", EsISense = true, EsVOSE = false },
-                                new Sesion { Hora = "21:00", Sala = "9", EsISense = true, EsVOSE = true }
+                                new Sesion { Id = 1, Hora = "15:00", Sala = "2", EsISense = false, EsVOSE = true },
+                                new Sesion { Id = 2, Hora = "18:30", Sala = "8", EsISense = true, EsVOSE = false },
+                                new Sesion { Id = 3, Hora = "21:00", Sala = "9", EsISense = true, EsVOSE = true }
                             }
                         },
                         { "2024-11-12", new List<Sesion>
                             {
-                                new Sesion { Hora = "16:15", Sala = "5", EsISense = false, EsVOSE = false },
-                                new Sesion { Hora = "19:45", Sala = "7", EsISense = true, EsVOSE = true },
-                                new Sesion { Hora = "22:15", Sala = "3", EsISense = true, EsVOSE = false }
+                                new Sesion { Id = 1, Hora = "16:15", Sala = "5", EsISense = false, EsVOSE = false },
+                                new Sesion { Id = 2, Hora = "19:45", Sala = "7", EsISense = true, EsVOSE = true },
+                                new Sesion { Id = 3, Hora = "22:15", Sala = "3", EsISense = true, EsVOSE = false }
                             }
                         }
                         // Agrega más días y sesiones para Puerto Venecia si es necesario
@@ -529,17 +529,17 @@ namespace cine_web_app.back_end.Services
                     {
                         { "2024-11-11", new List<Sesion>
                             {
-                                new Sesion { Hora = "15:00", Sala = "1", EsISense = true, EsVOSE = false },
-                                new Sesion { Hora = "17:30", Sala = "3", EsISense = false, EsVOSE = true },
-                                new Sesion { Hora = "20:00", Sala = "2", EsISense = false, EsVOSE = false },
-                                new Sesion { Hora = "22:30", Sala = "4", EsISense = true, EsVOSE = true }
+                                new Sesion { Id = 1, Hora = "15:00", Sala = "1", EsISense = true, EsVOSE = false },
+                                new Sesion { Id = 2, Hora = "17:30", Sala = "3", EsISense = false, EsVOSE = true },
+                                new Sesion { Id = 3, Hora = "20:00", Sala = "2", EsISense = false, EsVOSE = false },
+                                new Sesion { Id = 4, Hora = "22:30", Sala = "4", EsISense = true, EsVOSE = true }
                             }
                         },
                         { "2024-11-12", new List<Sesion>
                             {
-                                new Sesion { Hora = "16:00", Sala = "7", EsISense = false, EsVOSE = true },
-                                new Sesion { Hora = "18:45", Sala = "9", EsISense = true, EsVOSE = false },
-                                new Sesion { Hora = "21:00", Sala = "5", EsISense = true, EsVOSE = true }
+                                new Sesion {Id = 1, Hora = "16:00", Sala = "7", EsISense = false, EsVOSE = true },
+                                new Sesion {Id = 2, Hora = "18:45", Sala = "9", EsISense = true, EsVOSE = false },
+                                new Sesion {Id = 3, Hora = "21:00", Sala = "5", EsISense = true, EsVOSE = true }
                             }
                         }
                         // Agrega más fechas y sesiones para Gran Casa según sea necesario
@@ -550,16 +550,16 @@ namespace cine_web_app.back_end.Services
                     {
                         { "2024-11-13", new List<Sesion>
                             {
-                                new Sesion { Hora = "14:30", Sala = "6", EsISense = false, EsVOSE = false },
-                                new Sesion { Hora = "17:00", Sala = "3", EsISense = true, EsVOSE = true },
-                                new Sesion { Hora = "20:00", Sala = "10", EsISense = false, EsVOSE = false }
+                                new Sesion { Id = 1, Hora = "14:30", Sala = "6", EsISense = false, EsVOSE = false },
+                                new Sesion { Id = 2, Hora = "17:00", Sala = "3", EsISense = true, EsVOSE = true },
+                                new Sesion { Id = 3, Hora = "20:00", Sala = "10", EsISense = false, EsVOSE = false }
                             }
                         },
                         { "2024-11-14", new List<Sesion>
                             {
-                                new Sesion { Hora = "15:15", Sala = "4", EsISense = false, EsVOSE = false },
-                                new Sesion { Hora = "18:10", Sala = "7", EsISense = true, EsVOSE = false },
-                                new Sesion { Hora = "20:30", Sala = "2", EsISense = true, EsVOSE = true }
+                                new Sesion { Id = 1, Hora = "15:15", Sala = "4", EsISense = false, EsVOSE = false },
+                                new Sesion { Id = 2, Hora = "18:10", Sala = "7", EsISense = true, EsVOSE = false },
+                                new Sesion { Id = 3 ,Hora = "20:30", Sala = "2", EsISense = true, EsVOSE = true }
                             }
                         }
                         // Agrega más fechas y sesiones para Puerto Venecia según sea necesario
@@ -576,15 +576,15 @@ namespace cine_web_app.back_end.Services
                     {
                         { "2024-11-11", new List<Sesion>
                             {
-                                new Sesion { Hora = "14:00", Sala = "2", EsISense = false, EsVOSE = false },
-                                new Sesion { Hora = "17:15", Sala = "5", EsISense = false, EsVOSE = true }
+                                new Sesion { Id = 1, Hora = "14:00", Sala = "2", EsISense = false, EsVOSE = false },
+                                new Sesion { Id = 2, Hora = "17:15", Sala = "5", EsISense = false, EsVOSE = true }
                             }
                         },
                         { "2024-11-12", new List<Sesion>
                             {
-                                new Sesion { Hora = "13:30", Sala = "3", EsISense = false, EsVOSE = false },
-                                new Sesion { Hora = "16:45", Sala = "7", EsISense = true, EsVOSE = false },
-                                new Sesion { Hora = "20:00", Sala = "6", EsISense = true, EsVOSE = true }
+                                new Sesion { Id = 1, Hora = "13:30", Sala = "3", EsISense = false, EsVOSE = false },
+                                new Sesion { Id = 2, Hora = "16:45", Sala = "7", EsISense = true, EsVOSE = false },
+                                new Sesion { Id = 3, Hora = "20:00", Sala = "6", EsISense = true, EsVOSE = true }
                             }
                         }
                         // Agrega más fechas para "Gran Casa" según sea necesario
@@ -595,9 +595,9 @@ namespace cine_web_app.back_end.Services
                     {
                         { "2024-11-13", new List<Sesion>
                             {
-                                new Sesion { Hora = "15:00", Sala = "8", EsISense = true, EsVOSE = false },
-                                new Sesion { Hora = "18:20", Sala = "4", EsISense = false, EsVOSE = true },
-                                new Sesion { Hora = "21:30", Sala = "9", EsISense = false, EsVOSE = false }
+                                new Sesion { Id = 1, Hora = "15:00", Sala = "8", EsISense = true, EsVOSE = false },
+                                new Sesion { Id = 2, Hora = "18:20", Sala = "4", EsISense = false, EsVOSE = true },
+                                new Sesion { Id = 3, Hora = "21:30", Sala = "9", EsISense = false, EsVOSE = false }
                             }
                         }
                         // Agrega más fechas para "Puerto Venecia" según sea necesario
@@ -614,15 +614,15 @@ namespace cine_web_app.back_end.Services
                     {
                         { "2024-11-11", new List<Sesion>
                             {
-                                new Sesion { Hora = "14:00", Sala = "2", EsISense = true, EsVOSE = false },
-                                new Sesion { Hora = "17:15", Sala = "5", EsISense = false, EsVOSE = true }
+                                new Sesion { Id = 1, Hora = "14:00", Sala = "2", EsISense = true, EsVOSE = false },
+                                new Sesion { Id = 2, Hora = "17:15", Sala = "5", EsISense = false, EsVOSE = true }
                             }
                         },
                         { "2024-11-12", new List<Sesion>
                             {
-                                new Sesion { Hora = "13:30", Sala = "3", EsISense = false, EsVOSE = false },
-                                new Sesion { Hora = "16:45", Sala = "7", EsISense = true, EsVOSE = false },
-                                new Sesion { Hora = "20:00", Sala = "6", EsISense = true, EsVOSE = true }
+                                new Sesion { Id = 1, Hora = "13:30", Sala = "3", EsISense = false, EsVOSE = false },
+                                new Sesion { Id = 2, Hora = "16:45", Sala = "7", EsISense = true, EsVOSE = false },
+                                new Sesion { Id = 3, Hora = "20:00", Sala = "6", EsISense = true, EsVOSE = true }
                             }
                         }
                         // Agrega más días y sesiones para Gran Casa
@@ -633,16 +633,16 @@ namespace cine_web_app.back_end.Services
                     {
                         { "2024-11-13", new List<Sesion>
                             {
-                                new Sesion { Hora = "15:00", Sala = "8", EsISense = true, EsVOSE = false },
-                                new Sesion { Hora = "18:20", Sala = "4", EsISense = false, EsVOSE = true },
-                                new Sesion { Hora = "21:30", Sala = "9", EsISense = false, EsVOSE = false }
+                                new Sesion { Id = 1, Hora = "15:00", Sala = "8", EsISense = true, EsVOSE = false },
+                                new Sesion { Id = 2, Hora = "18:20", Sala = "4", EsISense = false, EsVOSE = true },
+                                new Sesion { Id = 3, Hora = "21:30", Sala = "9", EsISense = false, EsVOSE = false }
                             }
                         },
                         { "2024-11-14", new List<Sesion>
                             {
-                                new Sesion { Hora = "13:45", Sala = "2", EsISense = true, EsVOSE = true },
-                                new Sesion { Hora = "17:00", Sala = "6", EsISense = false, EsVOSE = false },
-                                new Sesion { Hora = "20:15", Sala = "10", EsISense = true, EsVOSE = false }
+                                new Sesion { Id = 1, Hora = "13:45", Sala = "2", EsISense = true, EsVOSE = true },
+                                new Sesion { Id = 2, Hora = "17:00", Sala = "6", EsISense = false, EsVOSE = false },
+                                new Sesion { Id = 3, Hora = "20:15", Sala = "10", EsISense = true, EsVOSE = false }
                             }
                         }
                         // Agrega más días y sesiones para Puerto Venecia
@@ -659,15 +659,15 @@ namespace cine_web_app.back_end.Services
                     {
                         { "2024-11-11", new List<Sesion>
                             {
-                                new Sesion { Hora = "16:00", Sala = "5", EsISense = true, EsVOSE = false },
-                                new Sesion { Hora = "19:00", Sala = "3", EsISense = false, EsVOSE = true }
+                                new Sesion { Id = 1, Hora = "16:00", Sala = "5", EsISense = true, EsVOSE = false },
+                                new Sesion { Id = 2, Hora = "19:00", Sala = "3", EsISense = false, EsVOSE = true }
                             }
                         },
                         { "2024-11-12", new List<Sesion>
                             {
-                                new Sesion { Hora = "15:30", Sala = "7", EsISense = false, EsVOSE = false },
-                                new Sesion { Hora = "18:45", Sala = "2", EsISense = true, EsVOSE = false },
-                                new Sesion { Hora = "21:10", Sala = "9", EsISense = false, EsVOSE = true }
+                                new Sesion { Id = 1, Hora = "15:30", Sala = "7", EsISense = false, EsVOSE = false },
+                                new Sesion { Id = 2, Hora = "18:45", Sala = "2", EsISense = true, EsVOSE = false },
+                                new Sesion { Id = 3, Hora = "21:10", Sala = "9", EsISense = false, EsVOSE = true }
                             }
                         }
                         // Agrega más días y sesiones para Gran Casa según sea necesario
@@ -678,16 +678,16 @@ namespace cine_web_app.back_end.Services
                     {
                         { "2024-11-13", new List<Sesion>
                             {
-                                new Sesion { Hora = "14:20", Sala = "4", EsISense = true, EsVOSE = true },
-                                new Sesion { Hora = "17:40", Sala = "6", EsISense = false, EsVOSE = false },
-                                new Sesion { Hora = "20:50", Sala = "10", EsISense = true, EsVOSE = false }
+                                new Sesion { Id = 1, Hora = "14:20", Sala = "4", EsISense = true, EsVOSE = true },
+                                new Sesion { Id = 2, Hora = "17:40", Sala = "6", EsISense = false, EsVOSE = false },
+                                new Sesion { Id = 3, Hora = "20:50", Sala = "10", EsISense = true, EsVOSE = false }
                             }
                         },
                         { "2024-11-14", new List<Sesion>
                             {
-                                new Sesion { Hora = "16:15", Sala = "8", EsISense = false, EsVOSE = true },
-                                new Sesion { Hora = "19:30", Sala = "5", EsISense = true, EsVOSE = false },
-                                new Sesion { Hora = "22:45", Sala = "1", EsISense = false, EsVOSE = true }
+                                new Sesion { Id = 1, Hora = "16:15", Sala = "8", EsISense = false, EsVOSE = true },
+                                new Sesion { Id = 2, Hora = "19:30", Sala = "5", EsISense = true, EsVOSE = false },
+                                new Sesion { Id = 3, Hora = "22:45", Sala = "1", EsISense = false, EsVOSE = true }
                             }
                         }
                         // Agrega más días y sesiones para Puerto Venecia según sea necesario
@@ -705,64 +705,64 @@ namespace cine_web_app.back_end.Services
                         // Lunes 11 de noviembre
                         { "2024-11-11", new List<Sesion>
                             {
-                                new Sesion { Hora = "14:00", Sala = "2", EsISense = true, EsVOSE = false },
-                                new Sesion { Hora = "16:30", Sala = "5", EsISense = false, EsVOSE = true },
-                                new Sesion { Hora = "19:00", Sala = "4", EsISense = true, EsVOSE = false },
-                                new Sesion { Hora = "21:30", Sala = "3", EsISense = false, EsVOSE = true }
+                                new Sesion { Id = 1, Hora = "14:00", Sala = "2", EsISense = true, EsVOSE = false },
+                                new Sesion { Id = 2, Hora = "16:30", Sala = "5", EsISense = false, EsVOSE = true },
+                                new Sesion { Id = 3, Hora = "19:00", Sala = "4", EsISense = true, EsVOSE = false },
+                                new Sesion { Id = 4, Hora = "21:30", Sala = "3", EsISense = false, EsVOSE = true }
                             }
                         },
                         // Martes 12 de noviembre
                         { "2024-11-12", new List<Sesion>
                             {
-                                new Sesion { Hora = "15:00", Sala = "6", EsISense = false, EsVOSE = true },
-                                new Sesion { Hora = "17:30", Sala = "2", EsISense = true, EsVOSE = false },
-                                new Sesion { Hora = "20:00", Sala = "5", EsISense = false, EsVOSE = false },
-                                new Sesion { Hora = "22:30", Sala = "7", EsISense = true, EsVOSE = true }
+                                new Sesion { Id = 1, Hora = "15:00", Sala = "6", EsISense = false, EsVOSE = true },
+                                new Sesion { Id = 2, Hora = "17:30", Sala = "2", EsISense = true, EsVOSE = false },
+                                new Sesion { Id = 3, Hora = "20:00", Sala = "5", EsISense = false, EsVOSE = false },
+                                new Sesion { Id = 4, Hora = "22:30", Sala = "7", EsISense = true, EsVOSE = true }
                             }
                         },
                         // Miércoles 13 de noviembre
                         { "2024-11-13", new List<Sesion>
                             {
-                                new Sesion { Hora = "13:45", Sala = "1", EsISense = false, EsVOSE = false },
-                                new Sesion { Hora = "16:15", Sala = "3", EsISense = true, EsVOSE = true },
-                                new Sesion { Hora = "18:45", Sala = "4", EsISense = false, EsVOSE = true },
-                                new Sesion { Hora = "21:00", Sala = "8", EsISense = true, EsVOSE = false }
+                                new Sesion { Id = 1, Hora = "13:45", Sala = "1", EsISense = false, EsVOSE = false },
+                                new Sesion { Id = 2, Hora = "16:15", Sala = "3", EsISense = true, EsVOSE = true },
+                                new Sesion { Id = 3, Hora = "18:45", Sala = "4", EsISense = false, EsVOSE = true },
+                                new Sesion { Id = 4, Hora = "21:00", Sala = "8", EsISense = true, EsVOSE = false }
                             }
                         },
                         // Jueves 14 de noviembre
                         { "2024-11-14", new List<Sesion>
                             {
-                                new Sesion { Hora = "14:30", Sala = "6", EsISense = false, EsVOSE = true },
-                                new Sesion { Hora = "17:00", Sala = "3", EsISense = true, EsVOSE = false },
-                                new Sesion { Hora = "19:30", Sala = "2", EsISense = false, EsVOSE = false },
-                                new Sesion { Hora = "22:00", Sala = "7", EsISense = true, EsVOSE = true }
+                                new Sesion { Id = 1, Hora = "14:30", Sala = "6", EsISense = false, EsVOSE = true },
+                                new Sesion { Id = 2, Hora = "17:00", Sala = "3", EsISense = true, EsVOSE = false },
+                                new Sesion { Id = 3, Hora = "19:30", Sala = "2", EsISense = false, EsVOSE = false },
+                                new Sesion { Id = 4, Hora = "22:00", Sala = "7", EsISense = true, EsVOSE = true }
                             }
                         },
                         // Viernes 15 de noviembre
                         { "2024-11-15", new List<Sesion>
                             {
-                                new Sesion { Hora = "16:30", Sala = "1", EsISense = true, EsVOSE = false },
-                                new Sesion { Hora = "19:00", Sala = "5", EsISense = false, EsVOSE = true },
-                                new Sesion { Hora = "21:30", Sala = "4", EsISense = false, EsVOSE = false },
-                                new Sesion { Hora = "23:45", Sala = "6", EsISense = true, EsVOSE = true }
+                                new Sesion { Id = 1, Hora = "16:30", Sala = "1", EsISense = true, EsVOSE = false },
+                                new Sesion { Id = 2, Hora = "19:00", Sala = "5", EsISense = false, EsVOSE = true },
+                                new Sesion { Id = 3, Hora = "21:30", Sala = "4", EsISense = false, EsVOSE = false },
+                                new Sesion { Id = 4, Hora = "23:45", Sala = "6", EsISense = true, EsVOSE = true }
                             }
                         },
                         // Sábado 16 de noviembre
                         { "2024-11-16", new List<Sesion>
                             {
-                                new Sesion { Hora = "13:30", Sala = "3", EsISense = false, EsVOSE = false },
-                                new Sesion { Hora = "16:00", Sala = "7", EsISense = true, EsVOSE = false },
-                                new Sesion { Hora = "18:30", Sala = "5", EsISense = false, EsVOSE = true },
-                                new Sesion { Hora = "21:00", Sala = "2", EsISense = true, EsVOSE = true }
+                                new Sesion { Id = 1, Hora = "13:30", Sala = "3", EsISense = false, EsVOSE = false },
+                                new Sesion { Id = 2, Hora = "16:00", Sala = "7", EsISense = true, EsVOSE = false },
+                                new Sesion { Id = 3, Hora = "18:30", Sala = "5", EsISense = false, EsVOSE = true },
+                                new Sesion { Id = 4, Hora = "21:00", Sala = "2", EsISense = true, EsVOSE = true }
                             }
                         },
                         // Domingo 17 de noviembre
                         { "2024-11-17", new List<Sesion>
                             {
-                                new Sesion { Hora = "15:00", Sala = "2", EsISense = true, EsVOSE = false },
-                                new Sesion { Hora = "17:30", Sala = "3", EsISense = false, EsVOSE = true },
-                                new Sesion { Hora = "20:00", Sala = "4", EsISense = true, EsVOSE = false },
-                                new Sesion { Hora = "22:30", Sala = "6", EsISense = false, EsVOSE = true }
+                                new Sesion { Id = 1, Hora = "15:00", Sala = "2", EsISense = true, EsVOSE = false },
+                                new Sesion { Id = 2, Hora = "17:30", Sala = "3", EsISense = false, EsVOSE = true },
+                                new Sesion { Id = 3, Hora = "20:00", Sala = "4", EsISense = true, EsVOSE = false },
+                                new Sesion { Id = 4, Hora = "22:30", Sala = "6", EsISense = false, EsVOSE = true }
                             }
                         }
                     }
@@ -772,18 +772,18 @@ namespace cine_web_app.back_end.Services
                     {
                         { "2024-11-11", new List<Sesion>
                             {
-                                new Sesion { Hora = "14:00", Sala = "5", EsISense = false, EsVOSE = true },
-                                new Sesion { Hora = "16:30", Sala = "7", EsISense = true, EsVOSE = false },
-                                new Sesion { Hora = "19:00", Sala = "2", EsISense = true, EsVOSE = true },
-                                new Sesion { Hora = "21:30", Sala = "3", EsISense = false, EsVOSE = false }
+                                new Sesion { Id = 1, Hora = "14:00", Sala = "5", EsISense = false, EsVOSE = true },
+                                new Sesion { Id = 2, Hora = "16:30", Sala = "7", EsISense = true, EsVOSE = false },
+                                new Sesion { Id = 3, Hora = "19:00", Sala = "2", EsISense = true, EsVOSE = true },
+                                new Sesion { Id = 4, Hora = "21:30", Sala = "3", EsISense = false, EsVOSE = false }
                             }
                         },
                         { "2024-11-12", new List<Sesion>
                             {
-                                new Sesion { Hora = "15:30", Sala = "1", EsISense = true, EsVOSE = false },
-                                new Sesion { Hora = "18:00", Sala = "4", EsISense = false, EsVOSE = true },
-                                new Sesion { Hora = "20:30", Sala = "5", EsISense = true, EsVOSE = false },
-                                new Sesion { Hora = "23:00", Sala = "7", EsISense = false, EsVOSE = true }
+                                new Sesion { Id = 1, Hora = "15:30", Sala = "1", EsISense = true, EsVOSE = false },
+                                new Sesion { Id = 2, Hora = "18:00", Sala = "4", EsISense = false, EsVOSE = true },
+                                new Sesion { Id = 3, Hora = "20:30", Sala = "5", EsISense = true, EsVOSE = false },
+                                new Sesion { Id = 4, Hora = "23:00", Sala = "7", EsISense = false, EsVOSE = true }
                             }
                         },
                         // Añadir más días y sesiones para Puerto Venecia según sea necesario.
@@ -800,16 +800,16 @@ namespace cine_web_app.back_end.Services
                     {
                         { "2024-11-11", new List<Sesion>
                             {
-                                new Sesion { Hora = "16:30", Sala = "10", EsISense = true, EsVOSE = false },
-                                new Sesion { Hora = "18:05", Sala = "8", EsISense = false, EsVOSE = true }
+                                new Sesion { Id = 1, Hora = "16:30", Sala = "10", EsISense = true, EsVOSE = false },
+                                new Sesion { Id = 2, Hora = "18:05", Sala = "8", EsISense = false, EsVOSE = true }
                             }
                         },
                         { "2024-11-12", new List<Sesion>
                             {
-                                new Sesion { Hora = "15:30", Sala = "3", EsISense = false, EsVOSE = false },
-                                new Sesion { Hora = "17:45", Sala = "9", EsISense = true, EsVOSE = false },
-                                new Sesion { Hora = "19:50", Sala = "6", EsISense = true, EsVOSE = true },
-                                new Sesion { Hora = "22:10", Sala = "2", EsISense = false, EsVOSE = true }
+                                new Sesion { Id = 1, Hora = "15:30", Sala = "3", EsISense = false, EsVOSE = false },
+                                new Sesion { Id = 2, Hora = "17:45", Sala = "9", EsISense = true, EsVOSE = false },
+                                new Sesion { Id = 3, Hora = "19:50", Sala = "6", EsISense = true, EsVOSE = true },
+                                new Sesion { Id = 4, Hora = "22:10", Sala = "2", EsISense = false, EsVOSE = true }
                             }
                         }
                         // Agrega más días y sesiones para Gran Casa según sea necesario
@@ -820,14 +820,14 @@ namespace cine_web_app.back_end.Services
                     {
                         { "2024-11-11", new List<Sesion>
                             {
-                                new Sesion { Hora = "17:00", Sala = "7", EsISense = true, EsVOSE = true },
-                                new Sesion { Hora = "19:30", Sala = "2", EsISense = false, EsVOSE = false }
+                                new Sesion { Id = 1, Hora = "17:00", Sala = "7", EsISense = true, EsVOSE = true },
+                                new Sesion { Id = 2, Hora = "19:30", Sala = "2", EsISense = false, EsVOSE = false }
                             }
                         },
                         { "2024-11-12", new List<Sesion>
                             {
-                                new Sesion { Hora = "16:00", Sala = "5", EsISense = true, EsVOSE = false },
-                                new Sesion { Hora = "20:00", Sala = "3", EsISense = false, EsVOSE = true }
+                                new Sesion { Id = 1, Hora = "16:00", Sala = "5", EsISense = true, EsVOSE = false },
+                                new Sesion { Id = 2, Hora = "20:00", Sala = "3", EsISense = false, EsVOSE = true }
                             }
                         }
                         // Agrega más días y sesiones para Puerto Venecia según sea necesario
@@ -844,16 +844,16 @@ namespace cine_web_app.back_end.Services
                     {
                         { "2024-11-11", new List<Sesion>
                             {
-                                new Sesion { Hora = "15:00", Sala = "1", EsISense = false, EsVOSE = false },
-                                new Sesion { Hora = "17:15", Sala = "2", EsISense = true, EsVOSE = true },
-                                new Sesion { Hora = "19:30", Sala = "4", EsISense = false, EsVOSE = false }
+                                new Sesion { Id = 1, Hora = "15:00", Sala = "1", EsISense = false, EsVOSE = false },
+                                new Sesion { Id = 2, Hora = "17:15", Sala = "2", EsISense = true, EsVOSE = true },
+                                new Sesion { Id = 3, Hora = "19:30", Sala = "4", EsISense = false, EsVOSE = false }
                             }
                         },
                         { "2024-11-13", new List<Sesion>
                             {
-                                new Sesion { Hora = "14:30", Sala = "3", EsISense = true, EsVOSE = false },
-                                new Sesion { Hora = "16:45", Sala = "5", EsISense = false, EsVOSE = true },
-                                new Sesion { Hora = "19:00", Sala = "6", EsISense = true, EsVOSE = true }
+                                new Sesion { Id = 1, Hora = "14:30", Sala = "3", EsISense = true, EsVOSE = false },
+                                new Sesion { Id = 2, Hora = "16:45", Sala = "5", EsISense = false, EsVOSE = true },
+                                new Sesion { Id = 3, Hora = "19:00", Sala = "6", EsISense = true, EsVOSE = true }
                             }
                         }
                         // Agrega más días y sesiones para Gran Casa según sea necesario
@@ -864,14 +864,14 @@ namespace cine_web_app.back_end.Services
                     {
                         { "2024-11-12", new List<Sesion>
                             {
-                                new Sesion { Hora = "16:00", Sala = "2", EsISense = false, EsVOSE = true },
-                                new Sesion { Hora = "18:30", Sala = "4", EsISense = true, EsVOSE = false }
+                                new Sesion { Id = 1, Hora = "16:00", Sala = "2", EsISense = false, EsVOSE = true },
+                                new Sesion { Id = 2,  Hora = "18:30", Sala = "4", EsISense = true, EsVOSE = false }
                             }
                         },
                         { "2024-11-13", new List<Sesion>
                             {
-                                new Sesion { Hora = "15:00", Sala = "5", EsISense = true, EsVOSE = false },
-                                new Sesion { Hora = "17:30", Sala = "6", EsISense = false, EsVOSE = true }
+                                new Sesion { Id = 1, Hora = "15:00", Sala = "5", EsISense = true, EsVOSE = false },
+                                new Sesion { Id = 2, Hora = "17:30", Sala = "6", EsISense = false, EsVOSE = true }
                             }
                         }
                         // Agrega más días y sesiones para Puerto Venecia según sea necesario

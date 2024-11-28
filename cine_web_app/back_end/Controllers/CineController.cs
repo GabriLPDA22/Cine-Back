@@ -60,9 +60,10 @@ namespace cine_web_app.back_end.Controllers
                 return NotFound("Sesión no encontrada en este horario");
             }
 
-            // Devolver la información para la selección de asientos
+            // Devolver la información para la selección de asientos, incluyendo el Id de la sesión
             var seatSelectionInfo = new
             {
+                SessionId = sesion.Id, // Aquí añadimos el Id de la sesión
                 MovieTitle = pelicula.Titulo,
                 CineName = cine.Nombre,
                 SessionDate = sessionDate,
