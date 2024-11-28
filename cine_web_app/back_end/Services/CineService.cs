@@ -520,7 +520,7 @@ namespace cine_web_app.back_end.Services
                 }
             };
         }
-       private Dictionary<string, Dictionary<string, List<Sesion>>> CrearSesionesXMen()
+        private Dictionary<string, Dictionary<string, List<Sesion>>> CrearSesionesXMen()
         {
             return new Dictionary<string, Dictionary<string, List<Sesion>>>
             {
@@ -567,9 +567,6 @@ namespace cine_web_app.back_end.Services
                 }
             };
         }
-
-
-        // Método de creación de sesiones para Venom
         private Dictionary<string, Dictionary<string, List<Sesion>>> CrearSesionesVenom()
         {
             return new Dictionary<string, Dictionary<string, List<Sesion>>>
@@ -608,11 +605,7 @@ namespace cine_web_app.back_end.Services
                 }
             };
         }
-
-
-
-        // Método de creación de sesiones para Terrifier 3
-       private Dictionary<string, Dictionary<string, List<Sesion>>> CrearSesionesTerrifier()
+        private Dictionary<string, Dictionary<string, List<Sesion>>> CrearSesionesTerrifier()
         {
             return new Dictionary<string, Dictionary<string, List<Sesion>>>
             {
@@ -657,9 +650,6 @@ namespace cine_web_app.back_end.Services
                 }
             };
         }
-
-
-        // Método de creación de sesiones para The Batman
         private Dictionary<string, Dictionary<string, List<Sesion>>> CrearSesionesBatman()
         {
             return new Dictionary<string, Dictionary<string, List<Sesion>>>
