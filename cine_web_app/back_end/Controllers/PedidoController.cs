@@ -1,7 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using cine_web_app.back_end.Models;
 using cine_web_app.back_end.Services;
-using System.Text.Json;
+using System;
+using System.Collections.Generic;
 
 namespace cine_web_app.back_end.Controllers
 {
@@ -45,7 +46,6 @@ namespace cine_web_app.back_end.Controllers
                 return BadRequest("El pedido no puede ser nulo.");
             }
 
-
             // Validación de campos obligatorios
             if (string.IsNullOrEmpty(pedido.NombreCliente) ||
                 string.IsNullOrEmpty(pedido.TituloPelicula) ||
@@ -58,7 +58,8 @@ namespace cine_web_app.back_end.Controllers
             _pedidoService.AgregarPedido(pedido);
 
             // Retornar el ID del pedido recién creado
-            return Ok(new { Message = "Pedido creado exitosamente", PedidoId = pedido.Id });
+            return Ok(new { Message = "Pedido creado correctamente", PedidoId = pedido.Id });
         }
+
     }
 }

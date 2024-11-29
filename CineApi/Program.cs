@@ -3,6 +3,8 @@ using cine_web_app.back_end.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
+using Microsoft.AspNetCore.Mvc;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -372,34 +374,44 @@ app.MapGet("/api/Pedido/GetPedidoPorId/{id}", (int id) =>
 .WithTags("Pedidos");
 
 
-// Endpoint para crear un nuevo pedido
 app.MapPost("/api/Pedido/CreatePedido", (Pedido pedido) =>
 {
-    if (pedido == null)
+    // Validar que el pedido y el SesionId no sean nulos o inválidos
+    if (pedido == null || pedido.SesionId <= 0)
     {
-        return Results.BadRequest("El pedido no puede ser nulo.");
+        return Results.BadRequest("El pedido o el SesionId no puede ser nulo o inválido.");
     }
 
     // Validación de campos obligatorios
     if (string.IsNullOrEmpty(pedido.NombreCliente) ||
         string.IsNullOrEmpty(pedido.TituloPelicula) ||
-        string.IsNullOrEmpty(pedido.Cine))
+        string.IsNullOrEmpty(pedido.Cine) ||
+        pedido.ButacasReservadas == null || !pedido.ButacasReservadas.Any())
     {
         return Results.BadRequest("Faltan datos obligatorios en el pedido.");
     }
 
-
-    // Agregar el pedido al servicio
-    pedidoService.AgregarPedido(pedido);
-
-    // Retornar el ID del pedido recién creado
-    return Results.Ok(new
+    try
     {
-        Message = "Pedido creado correctamente",
-        PedidoId = pedido.Id
-    });
+        // Intentar agregar el pedido y reservar las butacas
+        pedidoService.AgregarPedido(pedido);
+
+        // Retornar el ID del pedido recién creado y las butacas reservadas
+        return Results.Ok(new
+        {
+            Message = "Pedido creado correctamente",
+            PedidoId = pedido.Id,
+            ButacasReservadas = pedido.ButacasReservadas // Asegúrate de devolver las butacas reservadas
+        });
+    }
+    catch (InvalidOperationException ex)
+    {
+        // Si alguna de las butacas no está disponible, devolvemos un error
+        return Results.BadRequest(new { Message = ex.Message });
+    }
 }).WithName("CreatePedido")
-.WithTags("Pedidos");
+  .WithTags("Pedidos");
+
 
 // ==================== EJECUCIÓN DE LA APLICACIÓN ====================
 app.Run();
