@@ -1,8 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using cine_web_app.back_end.Models;
 using cine_web_app.back_end.Services;
-using System;
-using System.Collections.Generic;
 
 namespace cine_web_app.back_end.Controllers
 {
@@ -12,13 +10,11 @@ namespace cine_web_app.back_end.Controllers
     {
         private readonly PedidoService _pedidoService;
 
-        // Inyectar PedidoService en el controlador
         public PedidoController(PedidoService pedidoService)
         {
             _pedidoService = pedidoService;
         }
 
-        // Endpoint para obtener todos los pedidos
         [HttpGet("GetPedidos")]
         public IActionResult GetPedidos()
         {
@@ -26,8 +22,7 @@ namespace cine_web_app.back_end.Controllers
             return Ok(pedidos);
         }
 
-        // Endpoint para obtener un pedido por Id
-        [HttpGet("GetPedidoPorId")]
+        [HttpGet("GetPedidoPorId/{id}")]
         public IActionResult GetPedidoPorId(int id)
         {
             var pedido = _pedidoService.ObtenerPedidoPorId(id);
@@ -54,12 +49,21 @@ namespace cine_web_app.back_end.Controllers
                 return BadRequest("Faltan datos obligatorios en el pedido.");
             }
 
-            // Agregar el pedido al servicio
             _pedidoService.AgregarPedido(pedido);
 
-            // Retornar el ID del pedido recién creado
             return Ok(new { Message = "Pedido creado correctamente", PedidoId = pedido.Id });
         }
+        [HttpGet("GetButacasReservadas")]
+public IActionResult GetButacasReservadas()
+{
+    // Obtener todas las butacas reservadas de los pedidos
+    var butacasReservadas = _pedidoService.ObtenerPedidos()
+                                          .SelectMany(p => p.ButacasReservadas)
+                                          .ToList();
+
+    // Retornar las butacas reservadas
+    return Ok(butacasReservadas);
+}
 
     }
 }

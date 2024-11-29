@@ -354,15 +354,14 @@ app.MapGet("/api/Productos/GetCategorias", () =>
 // ==================== ENDPOINTS DE PEDIDOS ====================
 
 // Endpoint para obtener todos los pedidos
-app.MapGet("/api/Pedido/GetPedidos", () =>
+app.MapGet("/api/Pedido/GetPedidos", (PedidoService pedidoService) =>
 {
     var pedidos = pedidoService.ObtenerPedidos();
     return Results.Ok(pedidos);
-}).WithName("GetPedidos")
-.WithTags("Pedidos");
+}).WithName("GetPedidos").WithTags("Pedidos");
 
 // Endpoint para obtener un pedido por ID
-app.MapGet("/api/Pedido/GetPedidoPorId/{id}", (int id) =>
+app.MapGet("/api/Pedido/GetPedidoPorId/{id}", (int id, PedidoService pedidoService) =>
 {
     var pedido = pedidoService.ObtenerPedidoPorId(id);
     if (pedido == null)
@@ -370,19 +369,16 @@ app.MapGet("/api/Pedido/GetPedidoPorId/{id}", (int id) =>
         return Results.NotFound("Pedido no encontrado");
     }
     return Results.Ok(pedido);
-}).WithName("GetPedidoPorId")
-.WithTags("Pedidos");
+}).WithName("GetPedidoPorId").WithTags("Pedidos");
 
-
-app.MapPost("/api/Pedido/CreatePedido", (Pedido pedido) =>
+// Endpoint para crear un pedido
+app.MapPost("/api/Pedido/CreatePedido", (Pedido pedido, PedidoService pedidoService) =>
 {
-    // Validar que el pedido y el SesionId no sean nulos o inválidos
     if (pedido == null || pedido.SesionId <= 0)
     {
         return Results.BadRequest("El pedido o el SesionId no puede ser nulo o inválido.");
     }
 
-    // Validación de campos obligatorios
     if (string.IsNullOrEmpty(pedido.NombreCliente) ||
         string.IsNullOrEmpty(pedido.TituloPelicula) ||
         string.IsNullOrEmpty(pedido.Cine) ||
@@ -393,23 +389,28 @@ app.MapPost("/api/Pedido/CreatePedido", (Pedido pedido) =>
 
     try
     {
-        // Intentar agregar el pedido y reservar las butacas
         pedidoService.AgregarPedido(pedido);
-
-        // Retornar el ID del pedido recién creado y las butacas reservadas
         return Results.Ok(new
         {
             Message = "Pedido creado correctamente",
             PedidoId = pedido.Id,
-            ButacasReservadas = pedido.ButacasReservadas // Asegúrate de devolver las butacas reservadas
+            ButacasReservadas = pedido.ButacasReservadas
         });
     }
-    catch (InvalidOperationException ex)
+    catch (Exception ex)
     {
-        // Si alguna de las butacas no está disponible, devolvemos un error
         return Results.BadRequest(new { Message = ex.Message });
     }
-}).WithName("CreatePedido")
+}).WithName("CreatePedido").WithTags("Pedidos");
+// Endpoint para obtener todas las butacas reservadas
+app.MapGet("/api/Pedido/GetButacasReservadas", () =>
+{
+    var butacasReservadas = pedidoService.ObtenerPedidos()
+                                         .SelectMany(p => p.ButacasReservadas)
+                                         .ToList();
+
+    return Results.Ok(butacasReservadas);
+}).WithName("GetButacasReservadas")
   .WithTags("Pedidos");
 
 
