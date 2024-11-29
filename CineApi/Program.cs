@@ -386,7 +386,7 @@ app.MapPost("/api/Pedido/CreatePedido", (Pedido pedido, PedidoService pedidoServ
     {
         return Results.BadRequest("Faltan datos obligatorios en el pedido.");
     }
-
+ 
     try
     {
         pedidoService.AgregarPedido(pedido);
