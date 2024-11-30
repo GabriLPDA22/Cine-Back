@@ -35,5 +35,19 @@ namespace cine_web_app.back_end.Services
             // Agregar el pedido a la lista
             _pedidos.Add(pedido);
         }
+
+        public List<string> ObtenerButacasReservadas(string cineName, string date, int sesionId)
+        {
+            // Validar los parámetros
+            if (string.IsNullOrEmpty(cineName) || string.IsNullOrEmpty(date) || sesionId <= 0)
+                throw new ArgumentException("Los parámetros cineName, date y sesionId son obligatorios.");
+
+            // Filtrar las butacas reservadas basándose en los parámetros
+            return _pedidos
+                .Where(p => p.Cine == cineName && p.Fecha == date && p.SesionId == sesionId)
+                .SelectMany(p => p.ButacasReservadas)
+                .Distinct() // Eliminar duplicados, en caso de que existan
+                .ToList();
+        }
     }
 }

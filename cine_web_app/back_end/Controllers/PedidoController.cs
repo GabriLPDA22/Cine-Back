@@ -53,17 +53,27 @@ namespace cine_web_app.back_end.Controllers
 
             return Ok(new { Message = "Pedido creado correctamente", PedidoId = pedido.Id });
         }
-        [HttpGet("GetButacasReservadas")]
-public IActionResult GetButacasReservadas()
-{
-    // Obtener todas las butacas reservadas de los pedidos
-    var butacasReservadas = _pedidoService.ObtenerPedidos()
-                                          .SelectMany(p => p.ButacasReservadas)
-                                          .ToList();
 
-    // Retornar las butacas reservadas
-    return Ok(butacasReservadas);
-}
+        [HttpGet("GetButacasReservadas")]
+        public IActionResult GetButacasReservadas(string cineName, string date, int sesionId)
+        {
+            try
+            {
+                var butacasReservadas = _pedidoService.ObtenerButacasReservadas(cineName, date, sesionId);
+
+                if (!butacasReservadas.Any())
+                {
+                    return NotFound("No se encontraron butacas reservadas para los parámetros proporcionados.");
+                }
+
+                return Ok(butacasReservadas);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
 
     }
 }

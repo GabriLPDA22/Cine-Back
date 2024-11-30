@@ -386,7 +386,7 @@ app.MapPost("/api/Pedido/CreatePedido", (Pedido pedido, PedidoService pedidoServ
     {
         return Results.BadRequest("Faltan datos obligatorios en el pedido.");
     }
- 
+
     try
     {
         pedidoService.AgregarPedido(pedido);
@@ -402,17 +402,31 @@ app.MapPost("/api/Pedido/CreatePedido", (Pedido pedido, PedidoService pedidoServ
         return Results.BadRequest(new { Message = ex.Message });
     }
 }).WithName("CreatePedido").WithTags("Pedidos");
-// Endpoint para obtener todas las butacas reservadas
-app.MapGet("/api/Pedido/GetButacasReservadas", () =>
+
+// Endpoint para obtener butacas reservadas filtradas
+app.MapGet("/api/Pedido/GetButacasReservadas", (string cineName, string date, int sesionId, PedidoService pedidoService) =>
 {
-    var butacasReservadas = pedidoService.ObtenerPedidos()
-                                         .SelectMany(p => p.ButacasReservadas)
-                                         .ToList();
+    if (string.IsNullOrEmpty(cineName) || string.IsNullOrEmpty(date) || sesionId <= 0)
+    {
+        return Results.BadRequest("Faltan parámetros obligatorios: cineName, date o sesionId.");
+    }
 
-    return Results.Ok(butacasReservadas);
-}).WithName("GetButacasReservadas")
-  .WithTags("Pedidos");
+    try
+    {
+        var butacasReservadas = pedidoService.ObtenerButacasReservadas(cineName, date, sesionId);
 
+        if (!butacasReservadas.Any())
+        {
+            return Results.NotFound("No se encontraron butacas reservadas para los parámetros proporcionados.");
+        }
+
+        return Results.Ok(butacasReservadas);
+    }
+    catch (ArgumentException ex)
+    {
+        return Results.BadRequest(ex.Message);
+    }
+}).WithName("GetButacasReservadas").WithTags("Pedidos");
 
 // ==================== EJECUCIÓN DE LA APLICACIÓN ====================
 app.Run();
