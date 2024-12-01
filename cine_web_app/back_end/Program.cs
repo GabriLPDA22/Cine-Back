@@ -5,7 +5,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using Microsoft.AspNetCore.Mvc;
 
-
 var builder = WebApplication.CreateBuilder(args);
 
 // ==================== CONFIGURACIÓN DE SERVICIOS ====================
@@ -17,7 +16,6 @@ builder.Services.AddSingleton<ProductoService>();
 builder.Services.AddSingleton<CineService>();
 builder.Services.AddSingleton<ButacaService>();
 builder.Services.AddSingleton<PedidoService>(); // Registro del servicio de pedidos
-
 
 // Configuración de CORS
 builder.Services.AddCors(options =>
