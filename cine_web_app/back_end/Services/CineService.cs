@@ -1451,7 +1451,7 @@ namespace cine_web_app.back_end.Services
                 },
                 {
                     "Puerto Venecia", new Dictionary<string, List<Sesion>>
-                    {
+                    {  
                         { "2024-11-13", new List<Sesion>
                             {
                                 new Sesion { Id = 1, Hora = "15:00", Sala = "8", EsISense = true, EsVOSE = false },
