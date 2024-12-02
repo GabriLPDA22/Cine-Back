@@ -94,10 +94,10 @@ namespace cine_web_app.back_end.Services
                             Duracion = "1 hora 55 minutos",
                             Actores = "Tom Holland, Zendaya, Benedict Cumberbatch, Jacob Batalon, Willem Dafoe, Alfred Molina, Jamie Foxx",
                             Calificacion = 8.2,
-                            Imagen = "/cine_web_app/front-end/images/Banner-Spiderman-no-way-home.jpg",
-                            Cartel = "/cine_web_app/front-end/images/Spiderman-No-Way-Home-Cartel.jpg",
+                            Imagen = "/../images/Banner-Spiderman-no-way-home.jpg",
+                            Cartel = "/../images/Spiderman-No-Way-Home-Cartel.jpg",
                             EdadRecomendada = 12,
-                            ImagenEdadRecomendada = "/cine_web_app/front-end/images/12.jpg",
+                            ImagenEdadRecomendada = "/../images/12.jpg",
                             Sesiones = CrearSesionesSpiderMan(),
                             EnCartelera = false, // Ya no está en cartelera
                             EnVentaAnticipada = false // Tampoco está en venta anticipada
@@ -114,9 +114,9 @@ namespace cine_web_app.back_end.Services
                             Duracion = "2 horas 24 minutos",
                             Calificacion = 7.0,
                             EdadRecomendada = 12,
-                            ImagenEdadRecomendada = "/cine_web_app/front-end/images/12.jpg",
-                            Imagen = "/cine_web_app/front-end/images/X-Men_Apocalypse_Banner.jpg",
-                            Cartel = "/cine_web_app/front-end/images/X-MEN_Apocalypse.jpg",
+                            ImagenEdadRecomendada = "/../images/12.jpg",
+                            Imagen = "/../images/X-Men_Apocalypse_Banner.jpg",
+                            Cartel = "/../images/X-MEN_Apocalypse.jpg",
                             Sesiones = CrearSesionesXMen(),
                             EnCartelera = true, // Actualmente en cartelera
                             EnVentaAnticipada = true // Si está en venta anticipada
@@ -132,10 +132,10 @@ namespace cine_web_app.back_end.Services
                             Actores = "Rhys Ifans, Chiwetel Ejiofor, Tom Hardy, Stephen Graham, Alanna Ubach, Juno Temple, Clark Backo, Peggy Lu",
                             Duracion = "1 hora 48 minutos",
                             Calificacion = 6.4,
-                            Imagen = "/cine_web_app/front-end/images/Venom-3-Banner.jpg",
-                            Cartel = "/cine_web_app/front-end/images/Venom_3.jpg",
+                            Imagen = "/../images/Venom-3-Banner.jpg",
+                            Cartel = "/../images/Venom_3.jpg",
                             EdadRecomendada = 12,
-                            ImagenEdadRecomendada = "/cine_web_app/front-end/images/12.jpg",
+                            ImagenEdadRecomendada = "/../images/12.jpg",
                             Sesiones = CrearSesionesVenom(),
                             EnCartelera = true, // Actualmente en cartelera
                             EnVentaAnticipada = false // No está en venta anticipada
@@ -151,10 +151,10 @@ namespace cine_web_app.back_end.Services
                             Calificacion = 7.5,
                             Director = "Damien Leone",
                             Actores = "Felissa Rose, Samantha Scaffidi, David Howard Thornton, Lauren LaVera, Chris Jericho, Elliott Fullam",
-                            Imagen = "/cine_web_app/front-end/images/banner-terrifier-3.jpg", // Ruta del banner
-                            Cartel = "/cine_web_app/front-end/images/terrifier-3.jpg", // Ruta del cartel
+                            Imagen = "/../images/banner-terrifier-3.jpg", // Ruta del banner
+                            Cartel = "/../images/terrifier-3.jpg", // Ruta del cartel
                             EdadRecomendada = 18, // Marcado como para mayores de 18 años
-                            ImagenEdadRecomendada = "/cine_web_app/front-end/images/18.jpg",
+                            ImagenEdadRecomendada = "/../images/18.jpg",
                             Sesiones = CrearSesionesTerrifier(),
                             EnCartelera = true, // Actualmente en cartelera
                             EnVentaAnticipada = false // No está en venta anticipada
@@ -169,10 +169,10 @@ namespace cine_web_app.back_end.Services
                             Director = "Matt Reeves",
                             Actores = "Robert Pattinson, Zoë Kravitz, Colin Farrell",
                             Calificacion = 7.9,
-                            Imagen = "/cine_web_app/front-end/images/Banner-The-Batman.jpg",
-                            Cartel = "/cine_web_app/front-end/images/The-Batman-Cartel.jpg",
+                            Imagen = "/../images/Banner-The-Batman.jpg",
+                            Cartel = "/../images/The-Batman-Cartel.jpg",
                             EdadRecomendada = 12,
-                            ImagenEdadRecomendada = "/cine_web_app/front-end/images/12.jpg",
+                            ImagenEdadRecomendada = "/../images/12.jpg",
                             Sesiones = CrearSesionesBatman(),
                             EnCartelera = true, // Actualmente en cartelera
                             EnVentaAnticipada = true // No está en venta anticipada
@@ -188,10 +188,10 @@ namespace cine_web_app.back_end.Services
                             Duracion = "2h 27m",
                             Actores = "Paul Mescal, Denzel Washington, Connie Nielsen, Joseph Quinn, Derek Jacobi, Fred Hechinger, Lior Raz, Pedro Pascal",
                             Calificacion = 8.5,
-                            Imagen = "/cine_web_app/front-end/images/Banner-Gladiator-II.jpg",
-                            Cartel = "/cine_web_app/front-end/images/Gladiator-II-Cartel.jpg",
+                            Imagen = "/../images/Banner-Gladiator-II.jpg",
+                            Cartel = "/../images/Gladiator-II-Cartel.jpg",
                             EdadRecomendada = 16,
-                            ImagenEdadRecomendada = "/cine_web_app/front-end/images/16.jpg",
+                            ImagenEdadRecomendada = "/../images/16.jpg",
                             Sesiones = CrearSesionesGladiator2(),  // Asegúrate de definir las sesiones para Gladiator II
                             EnCartelera = true,
                             EnVentaAnticipada = true
@@ -207,10 +207,10 @@ namespace cine_web_app.back_end.Services
                             Actores = "Paul Mescal, Denzel Washington, Connie Nielsen, Joseph Quinn, Derek Jacobi, Fred Hechinger, Lior Raz, Pedro Pascal",
                             Duracion = "2h 3m",
                             Calificacion = 8.5,
-                            Imagen = "/cine_web_app/front-end/images/Banner-Red-One.jpg",
-                            Cartel = "/cine_web_app/front-end/images/Red-One-Cartel.jpg",
+                            Imagen = "/../images/Banner-Red-One.jpg",
+                            Cartel = "/../images/Red-One-Cartel.jpg",
                             EdadRecomendada = 7,
-                            ImagenEdadRecomendada = "/cine_web_app/front-end/images/7.jpg",
+                            ImagenEdadRecomendada = "/../images/7.jpg",
                             Sesiones = CrearSesionesRedOne(), // Asegúrate de definir las sesiones para Red One
                             EnCartelera = true,
                             EnVentaAnticipada = true
@@ -226,10 +226,10 @@ namespace cine_web_app.back_end.Services
                             Actores = "Bill Nighy, Lupita Nyong'o, Stephanie Hsu, Mark Hamill, Ving Rhames, Catherine O'Hara, Matt Berry, Pedro Pascal, Kit Connor",
                             Duracion = "1h 41m",
                             Calificacion = 9.0, // Ajusta esta calificación según sea necesario
-                            Imagen = "/cine_web_app/front-end/images/Banner-Robot-Salvaje.jpg", // Cambia el nombre si necesitas una imagen específica
-                            Cartel = "/cine_web_app/front-end/images/Robot-Salvaje-Cartel.jpg", // Cambia el nombre si necesitas una imagen específica
+                            Imagen = "/../images/Banner-Robot-Salvaje.jpg", // Cambia el nombre si necesitas una imagen específica
+                            Cartel = "/../images/Robot-Salvaje-Cartel.jpg", // Cambia el nombre si necesitas una imagen específica
                             EdadRecomendada = 0, // Edad para todos los públicos
-                            ImagenEdadRecomendada = "/cine_web_app/front-end/images/Todos.jpg", // Cambia el nombre si necesitas una imagen específica
+                            ImagenEdadRecomendada = "/../images/Todos.jpg", // Cambia el nombre si necesitas una imagen específica
                             Sesiones = CrearSesionesRobotSalvaje(), // Asegúrate de definir las sesiones para Robot Salvaje
                             EnCartelera = true,
                             EnVentaAnticipada = true
@@ -245,10 +245,10 @@ namespace cine_web_app.back_end.Services
                             Duracion = "2h 40m",
                             Actores = "Peter Dinklage, Jeff Goldblum, Michelle Yeoh, Bronwyn James, Bowen Yang, Cynthia Erivo, Keala Settle, Ariana Grande, Marissa Bode, Jonathan Bailey, Ethan Slater",
                             Calificacion = 6.7, 
-                            Imagen = "/cine_web_app/front-end/images/Banner-Wicked.jpg", // Ruta de la imagen del banner
-                            Cartel = "/cine_web_app/front-end/images/Wicked-Cartel.jpg", // Ruta del cartel
+                            Imagen = "/../images/Banner-Wicked.jpg", // Ruta de la imagen del banner
+                            Cartel = "/../images/Wicked-Cartel.jpg", // Ruta del cartel
                             EdadRecomendada = 0,
-                            ImagenEdadRecomendada = "/cine_web_app/front-end/images/Todos.jpg", // Ajusta según el ícono de edades
+                            ImagenEdadRecomendada = "/../images/Todos.jpg", // Ajusta según el ícono de edades
                             Sesiones = CrearSesionesWicked(), // Método para generar sesiones
                             EnCartelera = false, // Cambia según la lógica de tu aplicación
                             EnVentaAnticipada = true // Cambia según la lógica de tu aplicación
@@ -272,10 +272,10 @@ namespace cine_web_app.back_end.Services
                             Duracion = "1 hora 55 minutos",
                             Actores = "Tom Holland, Zendaya, Benedict Cumberbatch, Jacob Batalon, Willem Dafoe, Alfred Molina, Jamie Foxx",
                             Calificacion = 8.2,
-                            Imagen = "/cine_web_app/front-end/images/Banner-Spiderman-no-way-home.jpg",
-                            Cartel = "/cine_web_app/front-end/images/Spiderman-No-Way-Home-Cartel.jpg",
+                            Imagen = "/../images/Banner-Spiderman-no-way-home.jpg",
+                            Cartel = "/../images/Spiderman-No-Way-Home-Cartel.jpg",
                             EdadRecomendada = 12,
-                            ImagenEdadRecomendada = "/cine_web_app/front-end/images/12.jpg",
+                            ImagenEdadRecomendada = "/../images/12.jpg",
                             Sesiones = CrearSesionesSpiderMan()
                         },
                         new Pelicula
@@ -290,9 +290,9 @@ namespace cine_web_app.back_end.Services
                             Duracion = "2 horas 24 minutos",
                             Calificacion = 7.0,
                             EdadRecomendada = 12,
-                            ImagenEdadRecomendada = "/cine_web_app/front-end/images/12.jpg",
-                            Imagen = "/cine_web_app/front-end/images/X-Men_Apocalypse_Banner.jpg",
-                            Cartel = "/cine_web_app/front-end/images/X-MEN_Apocalypse.jpg",
+                            ImagenEdadRecomendada = "/../images/12.jpg",
+                            Imagen = "/../images/X-Men_Apocalypse_Banner.jpg",
+                            Cartel = "/../images/X-MEN_Apocalypse.jpg",
                             Sesiones = CrearSesionesXMen()
                         },
                         new Pelicula
@@ -306,10 +306,10 @@ namespace cine_web_app.back_end.Services
                             Actores = "Rhys Ifans, Chiwetel Ejiofor, Tom Hardy, Stephen Graham, Alanna Ubach, Juno Temple, Clark Backo, Peggy Lu",
                             Duracion = "1 hora 48 minutos",
                             Calificacion = 6.4,
-                            Imagen = "/cine_web_app/front-end/images/Venom-3-Banner.jpg",
-                            Cartel = "/cine_web_app/front-end/images/Venom_3.jpg",
+                            Imagen = "/../images/Venom-3-Banner.jpg",
+                            Cartel = "/../images/Venom_3.jpg",
                             EdadRecomendada = 12,
-                            ImagenEdadRecomendada = "/cine_web_app/front-end/images/12.jpg",
+                            ImagenEdadRecomendada = "/../images/12.jpg",
                             Sesiones = CrearSesionesVenom()
                         },
                         new Pelicula
@@ -323,10 +323,10 @@ namespace cine_web_app.back_end.Services
                             Calificacion = 7.5,
                             Director = "Damien Leone",
                             Actores = "Felissa Rose, Samantha Scaffidi, David Howard Thornton, Lauren LaVera, Chris Jericho, Elliott Fullam",
-                            Imagen = "/cine_web_app/front-end/images/banner-terrifier-3.jpg", // Ruta del banner
-                            Cartel = "/cine_web_app/front-end/images/terrifier-3.jpg", // Ruta del cartel
+                            Imagen = "/../images/banner-terrifier-3.jpg", // Ruta del banner
+                            Cartel = "/../images/terrifier-3.jpg", // Ruta del cartel
                             EdadRecomendada = 18, // Marcado como para mayores de 18 años
-                            ImagenEdadRecomendada = "/cine_web_app/front-end/images/18.jpg",
+                            ImagenEdadRecomendada = "/../images/18.jpg",
                             Sesiones = CrearSesionesTerrifier(),
                             EnCartelera = true, // Actualmente en cartelera
                             EnVentaAnticipada = false // No está en venta anticipada
@@ -341,10 +341,10 @@ namespace cine_web_app.back_end.Services
                             Director = "Matt Reeves",
                             Actores = "Robert Pattinson, Zoë Kravitz, Colin Farrell",
                             Calificacion = 7.9,
-                            Imagen = "/cine_web_app/front-end/images/Banner-The-Batman.jpg",
-                            Cartel = "/cine_web_app/front-end/images/The-Batman-Cartel.jpg",
+                            Imagen = "/../images/Banner-The-Batman.jpg",
+                            Cartel = "/../images/The-Batman-Cartel.jpg",
                             EdadRecomendada = 12,
-                            ImagenEdadRecomendada = "/cine_web_app/front-end/images/12.jpg",
+                            ImagenEdadRecomendada = "/../images/12.jpg",
                             Sesiones = CrearSesionesBatman(),
                             EnCartelera = true, // Actualmente en cartelera
                             EnVentaAnticipada = true // No está en venta anticipada
@@ -360,10 +360,10 @@ namespace cine_web_app.back_end.Services
                             Duracion = "2h 27m",
                             Actores = "Paul Mescal, Denzel Washington, Connie Nielsen, Joseph Quinn, Derek Jacobi, Fred Hechinger, Lior Raz, Pedro Pascal",
                             Calificacion = 8.5,
-                            Imagen = "/cine_web_app/front-end/images/Banner-Gladiator-II.jpg",
-                            Cartel = "/cine_web_app/front-end/images/Gladiator-II-Cartel.jpg",
+                            Imagen = "/../images/Banner-Gladiator-II.jpg",
+                            Cartel = "/../images/Gladiator-II-Cartel.jpg",
                             EdadRecomendada = 16,
-                            ImagenEdadRecomendada = "/cine_web_app/front-end/images/16.jpg",
+                            ImagenEdadRecomendada = "/../images/16.jpg",
                             Sesiones = CrearSesionesGladiator2(),  // Asegúrate de definir las sesiones para Gladiator II
                             EnCartelera = true,
                             EnVentaAnticipada = true
@@ -379,10 +379,10 @@ namespace cine_web_app.back_end.Services
                             Actores = "Paul Mescal, Denzel Washington, Connie Nielsen, Joseph Quinn, Derek Jacobi, Fred Hechinger, Lior Raz, Pedro Pascal",
                             Duracion = "2h 3m",
                             Calificacion = 8.5,
-                            Imagen = "/cine_web_app/front-end/images/Banner-Red-One.jpg",
-                            Cartel = "/cine_web_app/front-end/images/Red-One-Cartel.jpg",
+                            Imagen = "/../images/Banner-Red-One.jpg",
+                            Cartel = "/../images/Red-One-Cartel.jpg",
                             EdadRecomendada = 7,
-                            ImagenEdadRecomendada = "/cine_web_app/front-end/images/7.jpg",
+                            ImagenEdadRecomendada = "/../images/7.jpg",
                             Sesiones = CrearSesionesRedOne(), // Asegúrate de definir las sesiones para Red One
                             EnCartelera = true,
                             EnVentaAnticipada = true
@@ -398,10 +398,10 @@ namespace cine_web_app.back_end.Services
                             Actores = "Bill Nighy, Lupita Nyong'o, Stephanie Hsu, Mark Hamill, Ving Rhames, Catherine O'Hara, Matt Berry, Pedro Pascal, Kit Connor",
                             Duracion = "1h 41m",
                             Calificacion = 9.0, // Ajusta esta calificación según sea necesario
-                            Imagen = "/cine_web_app/front-end/images/Banner-Robot-Salvaje.jpg", // Cambia el nombre si necesitas una imagen específica
-                            Cartel = "/cine_web_app/front-end/images/Robot-Salvaje-Cartel.jpg", // Cambia el nombre si necesitas una imagen específica
+                            Imagen = "/../images/Banner-Robot-Salvaje.jpg", // Cambia el nombre si necesitas una imagen específica
+                            Cartel = "/../images/Robot-Salvaje-Cartel.jpg", // Cambia el nombre si necesitas una imagen específica
                             EdadRecomendada = 0, // Edad para todos los públicos
-                            ImagenEdadRecomendada = "/cine_web_app/front-end/images/Todos.jpg", // Cambia el nombre si necesitas una imagen específica
+                            ImagenEdadRecomendada = "/../images/Todos.jpg", // Cambia el nombre si necesitas una imagen específica
                             Sesiones = CrearSesionesRobotSalvaje(), // Asegúrate de definir las sesiones para Robot Salvaje
                             EnCartelera = true,
                             EnVentaAnticipada = true
@@ -417,10 +417,10 @@ namespace cine_web_app.back_end.Services
                             Duracion = "2h 40m",
                             Actores = "Peter Dinklage, Jeff Goldblum, Michelle Yeoh, Bronwyn James, Bowen Yang, Cynthia Erivo, Keala Settle, Ariana Grande, Marissa Bode, Jonathan Bailey, Ethan Slater",
                             Calificacion = 6.7, 
-                            Imagen = "/cine_web_app/front-end/images/Banner-Wicked.jpg", // Ruta de la imagen del banner
-                            Cartel = "/cine_web_app/front-end/images/Wicked-Cartel.jpg", // Ruta del cartel
+                            Imagen = "/../images/Banner-Wicked.jpg", // Ruta de la imagen del banner
+                            Cartel = "/../images/Wicked-Cartel.jpg", // Ruta del cartel
                             EdadRecomendada = 0,
-                            ImagenEdadRecomendada = "/cine_web_app/front-end/images/Todos.jpg", // Ajusta según el ícono de edades
+                            ImagenEdadRecomendada = "/../images/Todos.jpg", // Ajusta según el ícono de edades
                             Sesiones = CrearSesionesWicked(), // Método para generar sesiones
                             EnCartelera = false, // Cambia según la lógica de tu aplicación
                             EnVentaAnticipada = true // Cambia según la lógica de tu aplicación
@@ -444,10 +444,10 @@ namespace cine_web_app.back_end.Services
                             Duracion = "1 hora 55 minutos",
                             Actores = "Tom Holland, Zendaya, Benedict Cumberbatch, Jacob Batalon, Willem Dafoe, Alfred Molina, Jamie Foxx",
                             Calificacion = 8.2,
-                            Imagen = "/cine_web_app/front-end/images/Banner-Spiderman-no-way-home.jpg",
-                            Cartel = "/cine_web_app/front-end/images/Spiderman-No-Way-Home-Cartel.jpg",
+                            Imagen = "/../images/Banner-Spiderman-no-way-home.jpg",
+                            Cartel = "/../images/Spiderman-No-Way-Home-Cartel.jpg",
                             EdadRecomendada = 12,
-                            ImagenEdadRecomendada = "/cine_web_app/front-end/images/12.jpg",
+                            ImagenEdadRecomendada = "/../images/12.jpg",
                             Sesiones = CrearSesionesSpiderMan()
                         },
                         new Pelicula
@@ -462,9 +462,9 @@ namespace cine_web_app.back_end.Services
                             Duracion = "2 horas 24 minutos",
                             Calificacion = 7.0,
                             EdadRecomendada = 12,
-                            ImagenEdadRecomendada = "/cine_web_app/front-end/images/12.jpg",
-                            Imagen = "/cine_web_app/front-end/images/X-Men_Apocalypse_Banner.jpg",
-                            Cartel = "/cine_web_app/front-end/images/X-MEN_Apocalypse.jpg",
+                            ImagenEdadRecomendada = "/../images/12.jpg",
+                            Imagen = "/../images/X-Men_Apocalypse_Banner.jpg",
+                            Cartel = "/../images/X-MEN_Apocalypse.jpg",
                             Sesiones = CrearSesionesXMen()
                         },
                         new Pelicula
@@ -478,10 +478,10 @@ namespace cine_web_app.back_end.Services
                             Actores = "Rhys Ifans, Chiwetel Ejiofor, Tom Hardy, Stephen Graham, Alanna Ubach, Juno Temple, Clark Backo, Peggy Lu",
                             Duracion = "1 hora 48 minutos",
                             Calificacion = 6.4,
-                            Imagen = "/cine_web_app/front-end/images/Venom-3-Banner.jpg",
-                            Cartel = "/cine_web_app/front-end/images/Venom_3.jpg",
+                            Imagen = "/../images/Venom-3-Banner.jpg",
+                            Cartel = "/../images/Venom_3.jpg",
                             EdadRecomendada = 12,
-                            ImagenEdadRecomendada = "/cine_web_app/front-end/images/12.jpg",
+                            ImagenEdadRecomendada = "/../images/12.jpg",
                             Sesiones = CrearSesionesVenom()
                         },
                         new Pelicula
@@ -495,10 +495,10 @@ namespace cine_web_app.back_end.Services
                             Calificacion = 7.5,
                             Director = "Damien Leone",
                             Actores = "Felissa Rose, Samantha Scaffidi, David Howard Thornton, Lauren LaVera, Chris Jericho, Elliott Fullam",
-                            Imagen = "/cine_web_app/front-end/images/banner-terrifier-3.jpg", // Ruta del banner
-                            Cartel = "/cine_web_app/front-end/images/terrifier-3.jpg", // Ruta del cartel
+                            Imagen = "/../images/banner-terrifier-3.jpg", // Ruta del banner
+                            Cartel = "/../images/terrifier-3.jpg", // Ruta del cartel
                             EdadRecomendada = 18, // Marcado como para mayores de 18 años
-                            ImagenEdadRecomendada = "/cine_web_app/front-end/images/18.jpg",
+                            ImagenEdadRecomendada = "/../images/18.jpg",
                             Sesiones = CrearSesionesTerrifier(),
                             EnCartelera = true, // Actualmente en cartelera
                             EnVentaAnticipada = false // No está en venta anticipada
@@ -513,10 +513,10 @@ namespace cine_web_app.back_end.Services
                             Director = "Matt Reeves",
                             Actores = "Robert Pattinson, Zoë Kravitz, Colin Farrell",
                             Calificacion = 7.9,
-                            Imagen = "/cine_web_app/front-end/images/Banner-The-Batman.jpg",
-                            Cartel = "/cine_web_app/front-end/images/The-Batman-Cartel.jpg",
+                            Imagen = "/../images/Banner-The-Batman.jpg",
+                            Cartel = "/../images/The-Batman-Cartel.jpg",
                             EdadRecomendada = 12,
-                            ImagenEdadRecomendada = "/cine_web_app/front-end/images/12.jpg",
+                            ImagenEdadRecomendada = "/../images/12.jpg",
                             Sesiones = CrearSesionesBatman(),
                             EnCartelera = true, // Actualmente en cartelera
                             EnVentaAnticipada = true // No está en venta anticipada
@@ -532,10 +532,10 @@ namespace cine_web_app.back_end.Services
                             Duracion = "2h 27m",
                             Actores = "Paul Mescal, Denzel Washington, Connie Nielsen, Joseph Quinn, Derek Jacobi, Fred Hechinger, Lior Raz, Pedro Pascal",
                             Calificacion = 8.5,
-                            Imagen = "/cine_web_app/front-end/images/Banner-Gladiator-II.jpg",
-                            Cartel = "/cine_web_app/front-end/images/Gladiator-II-Cartel.jpg",
+                            Imagen = "/../images/Banner-Gladiator-II.jpg",
+                            Cartel = "/../images/Gladiator-II-Cartel.jpg",
                             EdadRecomendada = 16,
-                            ImagenEdadRecomendada = "/cine_web_app/front-end/images/16.jpg",
+                            ImagenEdadRecomendada = "/../images/16.jpg",
                             Sesiones = CrearSesionesGladiator2(),  // Asegúrate de definir las sesiones para Gladiator II
                             EnCartelera = true,
                             EnVentaAnticipada = true
@@ -551,10 +551,10 @@ namespace cine_web_app.back_end.Services
                             Actores = "Paul Mescal, Denzel Washington, Connie Nielsen, Joseph Quinn, Derek Jacobi, Fred Hechinger, Lior Raz, Pedro Pascal",
                             Duracion = "2h 3m",
                             Calificacion = 8.5,
-                            Imagen = "/cine_web_app/front-end/images/Banner-Red-One.jpg",
-                            Cartel = "/cine_web_app/front-end/images/Red-One-Cartel.jpg",
+                            Imagen = "/../images/Banner-Red-One.jpg",
+                            Cartel = "/../images/Red-One-Cartel.jpg",
                             EdadRecomendada = 7,
-                            ImagenEdadRecomendada = "/cine_web_app/front-end/images/7.jpg",
+                            ImagenEdadRecomendada = "/../images/7.jpg",
                             Sesiones = CrearSesionesRedOne(), // Asegúrate de definir las sesiones para Red One
                             EnCartelera = true,
                             EnVentaAnticipada = true
@@ -570,10 +570,10 @@ namespace cine_web_app.back_end.Services
                             Actores = "Bill Nighy, Lupita Nyong'o, Stephanie Hsu, Mark Hamill, Ving Rhames, Catherine O'Hara, Matt Berry, Pedro Pascal, Kit Connor",
                             Duracion = "1h 41m",
                             Calificacion = 9.0, // Ajusta esta calificación según sea necesario
-                            Imagen = "/cine_web_app/front-end/images/Banner-Robot-Salvaje.jpg", // Cambia el nombre si necesitas una imagen específica
-                            Cartel = "/cine_web_app/front-end/images/Robot-Salvaje-Cartel.jpg", // Cambia el nombre si necesitas una imagen específica
+                            Imagen = "/../images/Banner-Robot-Salvaje.jpg", // Cambia el nombre si necesitas una imagen específica
+                            Cartel = "/../images/Robot-Salvaje-Cartel.jpg", // Cambia el nombre si necesitas una imagen específica
                             EdadRecomendada = 0, // Edad para todos los públicos
-                            ImagenEdadRecomendada = "/cine_web_app/front-end/images/Todos.jpg", // Cambia el nombre si necesitas una imagen específica
+                            ImagenEdadRecomendada = "/../images/Todos.jpg", // Cambia el nombre si necesitas una imagen específica
                             Sesiones = CrearSesionesRobotSalvaje(), // Asegúrate de definir las sesiones para Robot Salvaje
                             EnCartelera = true,
                             EnVentaAnticipada = true
@@ -589,10 +589,10 @@ namespace cine_web_app.back_end.Services
                             Duracion = "2h 40m",
                             Actores = "Peter Dinklage, Jeff Goldblum, Michelle Yeoh, Bronwyn James, Bowen Yang, Cynthia Erivo, Keala Settle, Ariana Grande, Marissa Bode, Jonathan Bailey, Ethan Slater",
                             Calificacion = 6.7, 
-                            Imagen = "/cine_web_app/front-end/images/Banner-Wicked.jpg", // Ruta de la imagen del banner
-                            Cartel = "/cine_web_app/front-end/images/Wicked-Cartel.jpg", // Ruta del cartel
+                            Imagen = "/../images/Banner-Wicked.jpg", // Ruta de la imagen del banner
+                            Cartel = "/../images/Wicked-Cartel.jpg", // Ruta del cartel
                             EdadRecomendada = 0,
-                            ImagenEdadRecomendada = "/cine_web_app/front-end/images/Todos.jpg", // Ajusta según el ícono de edades
+                            ImagenEdadRecomendada = "/../images/Todos.jpg", // Ajusta según el ícono de edades
                             Sesiones = CrearSesionesWicked(), // Método para generar sesiones
                             EnCartelera = false, // Cambia según la lógica de tu aplicación
                             EnVentaAnticipada = true // Cambia según la lógica de tu aplicación
@@ -616,10 +616,10 @@ namespace cine_web_app.back_end.Services
                             Duracion = "1 hora 55 minutos",
                             Actores = "Tom Holland, Zendaya, Benedict Cumberbatch, Jacob Batalon, Willem Dafoe, Alfred Molina, Jamie Foxx",
                             Calificacion = 8.2,
-                            Imagen = "/cine_web_app/front-end/images/Banner-Spiderman-no-way-home.jpg",
-                            Cartel = "/cine_web_app/front-end/images/Spiderman-No-Way-Home-Cartel.jpg",
+                            Imagen = "/../images/Banner-Spiderman-no-way-home.jpg",
+                            Cartel = "/../images/Spiderman-No-Way-Home-Cartel.jpg",
                             EdadRecomendada = 12,
-                            ImagenEdadRecomendada = "/cine_web_app/front-end/images/12.jpg",
+                            ImagenEdadRecomendada = "/../images/12.jpg",
                             Sesiones = CrearSesionesSpiderMan()
                         },
                         new Pelicula
@@ -634,9 +634,9 @@ namespace cine_web_app.back_end.Services
                             Duracion = "2 horas 24 minutos",
                             Calificacion = 7.0,
                             EdadRecomendada = 12,
-                            ImagenEdadRecomendada = "/cine_web_app/front-end/images/12.jpg",
-                            Imagen = "/cine_web_app/front-end/images/X-Men_Apocalypse_Banner.jpg",
-                            Cartel = "/cine_web_app/front-end/images/X-MEN_Apocalypse.jpg",
+                            ImagenEdadRecomendada = "/../images/12.jpg",
+                            Imagen = "/../images/X-Men_Apocalypse_Banner.jpg",
+                            Cartel = "/../images/X-MEN_Apocalypse.jpg",
                             Sesiones = CrearSesionesXMen()
                         },
                         new Pelicula
@@ -650,10 +650,10 @@ namespace cine_web_app.back_end.Services
                             Actores = "Rhys Ifans, Chiwetel Ejiofor, Tom Hardy, Stephen Graham, Alanna Ubach, Juno Temple, Clark Backo, Peggy Lu",
                             Duracion = "1 hora 48 minutos",
                             Calificacion = 6.4,
-                            Imagen = "/cine_web_app/front-end/images/Venom-3-Banner.jpg",
-                            Cartel = "/cine_web_app/front-end/images/Venom_3.jpg",
+                            Imagen = "/../images/Venom-3-Banner.jpg",
+                            Cartel = "/../images/Venom_3.jpg",
                             EdadRecomendada = 12,
-                            ImagenEdadRecomendada = "/cine_web_app/front-end/images/12.jpg",
+                            ImagenEdadRecomendada = "/../images/12.jpg",
                             Sesiones = CrearSesionesVenom()
                         },
                         new Pelicula
@@ -667,10 +667,10 @@ namespace cine_web_app.back_end.Services
                             Calificacion = 7.5,
                             Director = "Damien Leone",
                             Actores = "Felissa Rose, Samantha Scaffidi, David Howard Thornton, Lauren LaVera, Chris Jericho, Elliott Fullam",
-                            Imagen = "/cine_web_app/front-end/images/banner-terrifier-3.jpg", // Ruta del banner
-                            Cartel = "/cine_web_app/front-end/images/terrifier-3.jpg", // Ruta del cartel
+                            Imagen = "/../images/banner-terrifier-3.jpg", // Ruta del banner
+                            Cartel = "/../images/terrifier-3.jpg", // Ruta del cartel
                             EdadRecomendada = 18, // Marcado como para mayores de 18 años
-                            ImagenEdadRecomendada = "/cine_web_app/front-end/images/18.jpg",
+                            ImagenEdadRecomendada = "/../images/18.jpg",
                             Sesiones = CrearSesionesTerrifier(),
                             EnCartelera = true, // Actualmente en cartelera
                             EnVentaAnticipada = false // No está en venta anticipada
@@ -685,10 +685,10 @@ namespace cine_web_app.back_end.Services
                             Director = "Matt Reeves",
                             Actores = "Robert Pattinson, Zoë Kravitz, Colin Farrell",
                             Calificacion = 7.9,
-                            Imagen = "/cine_web_app/front-end/images/Banner-The-Batman.jpg",
-                            Cartel = "/cine_web_app/front-end/images/The-Batman-Cartel.jpg",
+                            Imagen = "/../images/Banner-The-Batman.jpg",
+                            Cartel = "/../images/The-Batman-Cartel.jpg",
                             EdadRecomendada = 12,
-                            ImagenEdadRecomendada = "/cine_web_app/front-end/images/12.jpg",
+                            ImagenEdadRecomendada = "/../images/12.jpg",
                             Sesiones = CrearSesionesBatman(),
                             EnCartelera = true, // Actualmente en cartelera
                             EnVentaAnticipada = true // No está en venta anticipada
@@ -704,10 +704,10 @@ namespace cine_web_app.back_end.Services
                             Duracion = "2h 27m",
                             Actores = "Paul Mescal, Denzel Washington, Connie Nielsen, Joseph Quinn, Derek Jacobi, Fred Hechinger, Lior Raz, Pedro Pascal",
                             Calificacion = 8.5,
-                            Imagen = "/cine_web_app/front-end/images/Banner-Gladiator-II.jpg",
-                            Cartel = "/cine_web_app/front-end/images/Gladiator-II-Cartel.jpg",
+                            Imagen = "/../images/Banner-Gladiator-II.jpg",
+                            Cartel = "/../images/Gladiator-II-Cartel.jpg",
                             EdadRecomendada = 16,
-                            ImagenEdadRecomendada = "/cine_web_app/front-end/images/16.jpg",
+                            ImagenEdadRecomendada = "/../images/16.jpg",
                             Sesiones = CrearSesionesGladiator2(),  // Asegúrate de definir las sesiones para Gladiator II
                             EnCartelera = true,
                             EnVentaAnticipada = true
@@ -723,10 +723,10 @@ namespace cine_web_app.back_end.Services
                             Actores = "Paul Mescal, Denzel Washington, Connie Nielsen, Joseph Quinn, Derek Jacobi, Fred Hechinger, Lior Raz, Pedro Pascal",
                             Duracion = "2h 3m",
                             Calificacion = 8.5,
-                            Imagen = "/cine_web_app/front-end/images/Banner-Red-One.jpg",
-                            Cartel = "/cine_web_app/front-end/images/Red-One-Cartel.jpg",
+                            Imagen = "/../images/Banner-Red-One.jpg",
+                            Cartel = "/../images/Red-One-Cartel.jpg",
                             EdadRecomendada = 7,
-                            ImagenEdadRecomendada = "/cine_web_app/front-end/images/7.jpg",
+                            ImagenEdadRecomendada = "/../images/7.jpg",
                             Sesiones = CrearSesionesRedOne(), // Asegúrate de definir las sesiones para Red One
                             EnCartelera = true,
                             EnVentaAnticipada = true
@@ -742,10 +742,10 @@ namespace cine_web_app.back_end.Services
                             Actores = "Bill Nighy, Lupita Nyong'o, Stephanie Hsu, Mark Hamill, Ving Rhames, Catherine O'Hara, Matt Berry, Pedro Pascal, Kit Connor",
                             Duracion = "1h 41m",
                             Calificacion = 9.0, // Ajusta esta calificación según sea necesario
-                            Imagen = "/cine_web_app/front-end/images/Banner-Robot-Salvaje.jpg", // Cambia el nombre si necesitas una imagen específica
-                            Cartel = "/cine_web_app/front-end/images/Robot-Salvaje-Cartel.jpg", // Cambia el nombre si necesitas una imagen específica
+                            Imagen = "/../images/Banner-Robot-Salvaje.jpg", // Cambia el nombre si necesitas una imagen específica
+                            Cartel = "/../images/Robot-Salvaje-Cartel.jpg", // Cambia el nombre si necesitas una imagen específica
                             EdadRecomendada = 0, // Edad para todos los públicos
-                            ImagenEdadRecomendada = "/cine_web_app/front-end/images/Todos.jpg", // Cambia el nombre si necesitas una imagen específica
+                            ImagenEdadRecomendada = "/../images/Todos.jpg", // Cambia el nombre si necesitas una imagen específica
                             Sesiones = CrearSesionesRobotSalvaje(), // Asegúrate de definir las sesiones para Robot Salvaje
                             EnCartelera = true,
                             EnVentaAnticipada = true
@@ -761,10 +761,10 @@ namespace cine_web_app.back_end.Services
                             Duracion = "2h 40m",
                             Actores = "Peter Dinklage, Jeff Goldblum, Michelle Yeoh, Bronwyn James, Bowen Yang, Cynthia Erivo, Keala Settle, Ariana Grande, Marissa Bode, Jonathan Bailey, Ethan Slater",
                             Calificacion = 6.7, 
-                            Imagen = "/cine_web_app/front-end/images/Banner-Wicked.jpg", // Ruta de la imagen del banner
-                            Cartel = "/cine_web_app/front-end/images/Wicked-Cartel.jpg", // Ruta del cartel
+                            Imagen = "/../images/Banner-Wicked.jpg", // Ruta de la imagen del banner
+                            Cartel = "/../images/Wicked-Cartel.jpg", // Ruta del cartel
                             EdadRecomendada = 0,
-                            ImagenEdadRecomendada = "/cine_web_app/front-end/images/Todos.jpg", // Ajusta según el ícono de edades
+                            ImagenEdadRecomendada = "/../images/Todos.jpg", // Ajusta según el ícono de edades
                             Sesiones = CrearSesionesWicked(), // Método para generar sesiones
                             EnCartelera = false, // Cambia según la lógica de tu aplicación
                             EnVentaAnticipada = true // Cambia según la lógica de tu aplicación
