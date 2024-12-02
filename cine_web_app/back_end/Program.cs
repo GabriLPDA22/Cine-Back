@@ -22,11 +22,10 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("PermitirFrontend", policy =>
     {
-        policy.WithOrigins("http://127.0.0.1:5500", "https://127.0.0.1:5500")
+        policy.WithOrigins("http://3.210.64.89:80", "https://3.210.64.89:443")
               .AllowAnyHeader()
               .AllowAnyMethod();
     });
-});
 
 var app = builder.Build();
 
