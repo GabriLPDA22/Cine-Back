@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\CineWebApp.BackEnd.props" />
-</Project>
