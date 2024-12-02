@@ -1,0 +1,16 @@
+D:\FRAN\esquizofrenia\ayuda\back\cine_web_app\back_end\bin\Debug\net6.0\appsettings.json
+D:\FRAN\esquizofrenia\ayuda\back\cine_web_app\back_end\bin\Debug\net6.0\CineWebApp.BackEnd.deps.json
+D:\FRAN\esquizofrenia\ayuda\back\cine_web_app\back_end\bin\Debug\net6.0\CineWebApp.BackEnd.dll
+D:\FRAN\esquizofrenia\ayuda\back\cine_web_app\back_end\bin\Debug\net6.0\CineWebApp.BackEnd.pdb
+D:\FRAN\esquizofrenia\ayuda\back\cine_web_app\back_end\obj\Debug\net6.0\CineWebApp.BackEnd.csproj.AssemblyReference.cache
+D:\FRAN\esquizofrenia\ayuda\back\cine_web_app\back_end\obj\Debug\net6.0\CineWebApp.BackEnd.GeneratedMSBuildEditorConfig.editorconfig
+D:\FRAN\esquizofrenia\ayuda\back\cine_web_app\back_end\obj\Debug\net6.0\CineWebApp.BackEnd.AssemblyInfoInputs.cache
+D:\FRAN\esquizofrenia\ayuda\back\cine_web_app\back_end\obj\Debug\net6.0\CineWebApp.BackEnd.AssemblyInfo.cs
+D:\FRAN\esquizofrenia\ayuda\back\cine_web_app\back_end\obj\Debug\net6.0\CineWebApp.BackEnd.csproj.CoreCompileInputs.cache
+D:\FRAN\esquizofrenia\ayuda\back\cine_web_app\back_end\obj\Debug\net6.0\CineWebApp.BackEnd.sourcelink.json
+D:\FRAN\esquizofrenia\ayuda\back\cine_web_app\back_end\obj\Debug\net6.0\CineWebApp.BackEnd.dll
+D:\FRAN\esquizofrenia\ayuda\back\cine_web_app\back_end\obj\Debug\net6.0\refint\CineWebApp.BackEnd.dll
+D:\FRAN\esquizofrenia\ayuda\back\cine_web_app\back_end\obj\Debug\net6.0\CineWebApp.BackEnd.pdb
+D:\FRAN\esquizofrenia\ayuda\back\cine_web_app\back_end\obj\Debug\net6.0\ref\CineWebApp.BackEnd.dll
+D:\FRAN\esquizofrenia\ayuda\back\cine_web_app\back_end\obj\Debug\net6.0\CineWebApp.BackEnd.RazorAssemblyInfo.cache
+D:\FRAN\esquizofrenia\ayuda\back\cine_web_app\back_end\obj\Debug\net6.0\CineWebApp.BackEnd.RazorAssemblyInfo.cs

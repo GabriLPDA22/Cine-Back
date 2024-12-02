@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "HtBmL1NcdIWjwtbPg6j1HnSzM0UPAQ5nJclXW0CVmwo=",
+  "Source": "CineWebApp.BackEnd",
+  "BasePath": "_content/CineWebApp.BackEnd",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
