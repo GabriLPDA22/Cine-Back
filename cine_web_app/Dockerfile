@@ -3,12 +3,12 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /source
 
 # Copiar los archivos del proyecto
-COPY ../back_end/*.csproj .
+COPY ./back_end/*.csproj .
 RUN dotnet restore
 
 # Copiar todo el código fuente y compilar la aplicación
-COPY ../back_end/ .
-RUN dotnet publish -c Release -o /app
+COPY ./back_end/ .
+RUN dotnet build CineWebApp.BackEnd.csproj -c Release -o /app
 
 # Etapa 2: Runtime
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
@@ -21,4 +21,4 @@ COPY --from=build /app .
 EXPOSE 80
 
 # Definir el comando para ejecutar la aplicación
-ENTRYPOINT ["dotnet", "CineWebApp.dll"]
+ENTRYPOINT ["dotnet", "CineWebApp.BackEnd.dll"]
