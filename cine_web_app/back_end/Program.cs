@@ -20,13 +20,16 @@ builder.Services.AddSingleton<PedidoService>(); // Registro del servicio de pedi
 // Configuración de CORS
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowSpecificOrigins",
-        policy =>
-        {
-            policy.WithOrigins("http://3.210.64.89:3000") // Cambia esto al origen del frontend
-                  .AllowAnyHeader()
-                  .AllowAnyMethod();
-        });
+    options.AddPolicy("AllowAll",
+             builder =>
+             {
+                 builder
+                 .AllowAnyOrigin() 
+                 .AllowAnyMethod()
+                 .AllowAnyHeader()
+                 .AllowCredentials();
+             });
+
 });
 var app = builder.Build();
 
@@ -38,7 +41,7 @@ if (app.Environment.IsDevelopment())
 }
 
 // ==================== CONFIGURACIÓN DE CORS ====================
-app.UseCors("PermitirFrontend");
+app.UseCors("AllowAll");
 
 // ==================== OBTENCIÓN DE SERVICIOS ====================
 var cineService = app.Services.GetRequiredService<CineService>();
