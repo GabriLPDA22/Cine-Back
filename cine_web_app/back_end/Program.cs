@@ -20,13 +20,14 @@ builder.Services.AddSingleton<PedidoService>(); // Registro del servicio de pedi
 // Configuración de CORS
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("PermitirFrontend", policy =>
-    {
-        policy.WithOrigins("http://3.210.64.89:80", "https://3.210.64.89:443")
-              .AllowAnyHeader()
-              .AllowAnyMethod();
-    });
-
+    options.AddPolicy("AllowSpecificOrigins",
+        policy =>
+        {
+            policy.WithOrigins("http://3.210.64.89:3000") // Cambia esto al origen del frontend
+                  .AllowAnyHeader()
+                  .AllowAnyMethod();
+        });
+});
 var app = builder.Build();
 
 // ==================== CONFIGURACIÓN DE SWAGGER ====================
