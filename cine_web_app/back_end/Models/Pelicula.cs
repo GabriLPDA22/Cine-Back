@@ -8,7 +8,7 @@ namespace cine_web_app.back_end.Models
         public int Id { get; set; }
         public string Titulo { get; set; }
         public string Descripcion { get; set; }
-        public DateTime FechaEstreno { get; set; }
+        public string FechaEstreno { get; set; }
         public string Genero { get; set; }
         public string Duracion { get; set; }
         public double Calificacion { get; set; }

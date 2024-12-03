@@ -5,7 +5,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using Microsoft.AspNetCore.Mvc;
 
-
 var builder = WebApplication.CreateBuilder(args);
 
 // ==================== CONFIGURACIÓN DE SERVICIOS ====================
@@ -18,18 +17,18 @@ builder.Services.AddSingleton<CineService>();
 builder.Services.AddSingleton<ButacaService>();
 builder.Services.AddSingleton<PedidoService>(); // Registro del servicio de pedidos
 
-
 // Configuración de CORS
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("PermitirFrontend", policy =>
     {
-        policy.WithOrigins("http://127.0.0.1:5500", "https://127.0.0.1:5500")
-              .AllowAnyHeader()
-              .AllowAnyMethod();
+        // Especificar orígenes explícitos
+        policy.WithOrigins("http://3.210.64.89:3000")
+              .AllowAnyHeader()       // Permite cualquier encabezado
+              .AllowAnyMethod()       // Permite cualquier método (GET, POST, etc.)
+              .AllowCredentials();    // Permite el uso de credenciales
     });
 });
-
 var app = builder.Build();
 
 // ==================== CONFIGURACIÓN DE SWAGGER ====================
@@ -38,6 +37,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseSwagger();
+app.UseSwaggerUI();
+
 
 // ==================== CONFIGURACIÓN DE CORS ====================
 app.UseCors("PermitirFrontend");
