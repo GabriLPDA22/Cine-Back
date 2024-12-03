@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace El_Butacazo_Back.Controllers
+namespace cine_web_app.back_end.Controllers
 {
     [ApiController]
     [Route("[controller]")]
