@@ -38,6 +38,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseSwagger();
+app.UseSwaggerUI();
+
+
 // ==================== CONFIGURACIÓN DE CORS ====================
 app.UseCors("PermitirFrontend");
 
