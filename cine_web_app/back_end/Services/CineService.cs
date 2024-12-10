@@ -88,7 +88,7 @@ namespace cine_web_app.back_end.Services
                             Id = 1,
                             Titulo = "Spider-Man: No Way Home",
                             Descripcion = "Cuando la identidad de Spider-Man es revelada, Peter Parker se enfrenta a las consecuencias que afectan a su vida personal y a sus seres queridos. Desesperado, busca la ayuda del Doctor Strange para restaurar el secreto, pero el hechizo sale mal, desatando un caos multiversal donde viejos enemigos regresan y nuevas alianzas se forman.",
-                            FechaEstreno = "2021, 12, 17",
+                            FechaEstreno = new DateTime(2021, 12, 17),
                             Genero = "acción, aventura, ciencia ficción",
                             Director = "Jon Watts",
                             Duracion = "1 hora 55 minutos",
@@ -107,7 +107,7 @@ namespace cine_web_app.back_end.Services
                             Id = 2,
                             Titulo = "X-Men Apocalypse",
                             Descripcion = "Años después de la muerte de Máximo, Lucio, ahora adulto, se enfrenta a nuevas amenazas que ponen en riesgo al Imperio Romano. Inspirado por el sacrificio del gladiador, Lucio deberá enfrentarse a la corrupción y al poder en su intento por restaurar la justicia y el honor en Roma.",
-                            FechaEstreno = "2016, 5, 27",
+                            FechaEstreno = new DateTime(2016, 5, 27),
                             Genero = "Sci-fi",
                             Director = "Bryan Singer",
                             Actores = "James McAvoy, Michael Fassbender, Jennifer Lawrence, Oscar Isaac, Nicholas Hoult, Rose Byrne, Evan Peters, Sophie Turner",
@@ -126,7 +126,7 @@ namespace cine_web_app.back_end.Services
                             Id = 3,
                             Titulo = "Venom: El Último Baile",
                             Descripcion = "Eddie Brock intenta reavivar su carrera entrevistando al asesino en serie Cletus Kasady, quien se convierte en el anfitrión del simbionte Carnage y escapa de prisión después de una fallida ejecución.",
-                            FechaEstreno = "2024, 10, 25",
+                            FechaEstreno = new DateTime(2024, 10, 25),
                             Genero = "Sci-fi",
                             Director = "Kelly Marcel",
                             Actores = "Rhys Ifans, Chiwetel Ejiofor, Tom Hardy, Stephen Graham, Alanna Ubach, Juno Temple, Clark Backo, Peggy Lu",
@@ -145,7 +145,7 @@ namespace cine_web_app.back_end.Services
                             Id = 4,
                             Titulo = "Terrifier 3",
                             Descripcion = "Este año la Navidad llega antes. El payaso Art desata el caos entre los desprevenidos habitantes del condado de Miles...",
-                            FechaEstreno = "2024, 10, 31",
+                            FechaEstreno = new DateTime(2024, 10, 31),
                             Genero = "Terror",
                             Duracion = "2 horas 5 minutos",
                             Calificacion = 7.5,
@@ -164,7 +164,7 @@ namespace cine_web_app.back_end.Services
                             Id = 5,
                             Titulo = "The Batman",
                             Descripcion = "Bruce Wayne, en sus primeros años como el Caballero Oscuro, enfrenta a un asesino en serie conocido como el Riddler. Mientras investiga los crímenes, descubre secretos oscuros sobre su familia y la corrupción en Gotham. Con la ayuda de Catwoman, busca hacer justicia en una ciudad sumida en el caos.",
-                            FechaEstreno = "2022, 3, 4",
+                            FechaEstreno = new DateTime(2022, 3, 4),
                             Genero = "Acción, Crimen, Drama",
                             Director = "Matt Reeves",
                             Actores = "Robert Pattinson, Zoë Kravitz, Colin Farrell",
@@ -182,7 +182,7 @@ namespace cine_web_app.back_end.Services
                             Id = 6,
                             Titulo = "Gladiator II",
                             Descripcion = "Años después de la muerte de Máximo, Lucio, ahora adulto, se enfrenta a nuevas amenazas que ponen en riesgo al Imperio Romano. Inspirado por el sacrificio del gladiador, Lucio deberá enfrentarse a la corrupción y al poder en su intento por restaurar la justicia y el honor en Roma.",
-                            FechaEstreno = "2024, 11, 15",
+                            FechaEstreno = new DateTime(2024, 11, 15),
                             Genero = "Acción, Aventura, Drama",
                             Director = "Ridley Scott",
                             Duracion = "2h 27m",
@@ -201,7 +201,7 @@ namespace cine_web_app.back_end.Services
                             Id = 7,
                             Titulo = "Red One",
                             Descripcion = "Tras el secuestro de Papá Noel, nombre en clave: RED ONE, el Jefe de Seguridad del Polo Norte (Dwayne Johnson) debe formar equipo con el cazarrecompensas más infame del mundo (Chris Evans) en una misión trotamundos llena de acción para salvar la Navidad. No te pierdas #RedOne, protagonizada por Dwayne Johnson y Chris Evans. Disfruta de la película a partir del 6 de noviembre solo en cines.",
-                            FechaEstreno = "2024, 11, 6",
+                            FechaEstreno = new DateTime(2024, 11, 6),
                             Genero = "Acción, Comedia, Aventura",
                             Director = "Jake Kasdan",
                             Actores = "Paul Mescal, Denzel Washington, Connie Nielsen, Joseph Quinn, Derek Jacobi, Fred Hechinger, Lior Raz, Pedro Pascal",
@@ -220,7 +220,7 @@ namespace cine_web_app.back_end.Services
                             Id = 8, // Ajusta el ID según corresponda
                             Titulo = "Robot Salvaje",
                             Descripcion = "La película sigue el épico viaje de un robot -la unidad 7134 de Roz, 'Roz' para abreviar- que naufraga en una isla deshabitada y debe aprender a adaptarse al duro entorno, entablando gradualmente relaciones con los animales de la isla y convirtiéndose en padre adoptivo de un gosling huérfano.",
-                            FechaEstreno = "2024, 10, 11",
+                            FechaEstreno = new DateTime(2024, 10, 11),
                             Genero = "Aventura, Animación",
                             Director = "Chris Sanders",
                             Actores = "Bill Nighy, Lupita Nyong'o, Stephanie Hsu, Mark Hamill, Ving Rhames, Catherine O'Hara, Matt Berry, Pedro Pascal, Kit Connor",
@@ -239,7 +239,7 @@ namespace cine_web_app.back_end.Services
                             Id = 9, // Cambia el ID según tu necesidad
                             Titulo = "Wicked",
                             Descripcion = "Tras dos décadas como uno de los musicales más aclamados y longevos en escena, WICKED llega en noviembre a la gran pantalla para convertirse en un esperadísimo y espectacular evento cinematográfico que definirá una era.",
-                            FechaEstreno = "2024, 11, 22",
+                            FechaEstreno = new DateTime(2024, 11, 22),
                             Genero = "Musical, Fantasía, Romance",
                             Director = "Jon M. Chu",
                             Duracion = "2h 40m",
@@ -266,7 +266,7 @@ namespace cine_web_app.back_end.Services
                             Id = 1,
                             Titulo = "Spider-Man: No Way Home",
                             Descripcion = "Cuando la identidad de Spider-Man es revelada, Peter Parker se enfrenta a las consecuencias que afectan a su vida personal y a sus seres queridos. Desesperado, busca la ayuda del Doctor Strange para restaurar el secreto, pero el hechizo sale mal, desatando un caos multiversal donde viejos enemigos regresan y nuevas alianzas se forman.",
-                            FechaEstreno = "2021, 12, 17",
+                            FechaEstreno = new DateTime(2021, 12, 17),
                             Genero = "acción, aventura, ciencia ficción",
                             Director = "Jon Watts",
                             Duracion = "1 hora 55 minutos",
@@ -276,14 +276,16 @@ namespace cine_web_app.back_end.Services
                             Cartel = "/cine_web_app/front-end/images/Spiderman-No-Way-Home-Cartel.jpg",
                             EdadRecomendada = 12,
                             ImagenEdadRecomendada = "/cine_web_app/front-end/images/12.jpg",
-                            Sesiones = CrearSesionesSpiderMan()
+                            Sesiones = CrearSesionesSpiderMan(),
+                            EnCartelera = false, // Ya no está en cartelera
+                            EnVentaAnticipada = false // Tampoco está en venta anticipada
                         },
                         new Pelicula
                         {
                             Id = 2,
                             Titulo = "X-Men Apocalypse",
                             Descripcion = "Años después de la muerte de Máximo, Lucio, ahora adulto, se enfrenta a nuevas amenazas que ponen en riesgo al Imperio Romano. Inspirado por el sacrificio del gladiador, Lucio deberá enfrentarse a la corrupción y al poder en su intento por restaurar la justicia y el honor en Roma.",
-                            FechaEstreno = "2016, 5, 27",
+                            FechaEstreno = new DateTime(2016, 5, 27),
                             Genero = "Sci-fi",
                             Director = "Bryan Singer",
                             Actores = "James McAvoy, Michael Fassbender, Jennifer Lawrence, Oscar Isaac, Nicholas Hoult, Rose Byrne, Evan Peters, Sophie Turner",
@@ -293,14 +295,16 @@ namespace cine_web_app.back_end.Services
                             ImagenEdadRecomendada = "/cine_web_app/front-end/images/12.jpg",
                             Imagen = "/cine_web_app/front-end/images/X-Men_Apocalypse_Banner.jpg",
                             Cartel = "/cine_web_app/front-end/images/X-MEN_Apocalypse.jpg",
-                            Sesiones = CrearSesionesXMen()
+                            Sesiones = CrearSesionesXMen(),
+                            EnCartelera = true, // Actualmente en cartelera
+                            EnVentaAnticipada = true // Si está en venta anticipada
                         },
                         new Pelicula
                         {
                             Id = 3,
                             Titulo = "Venom: El Último Baile",
                             Descripcion = "Eddie Brock intenta reavivar su carrera entrevistando al asesino en serie Cletus Kasady, quien se convierte en el anfitrión del simbionte Carnage y escapa de prisión después de una fallida ejecución.",
-                            FechaEstreno = "2024, 10, 25",
+                            FechaEstreno = new DateTime(2024, 10, 25),
                             Genero = "Sci-fi",
                             Director = "Kelly Marcel",
                             Actores = "Rhys Ifans, Chiwetel Ejiofor, Tom Hardy, Stephen Graham, Alanna Ubach, Juno Temple, Clark Backo, Peggy Lu",
@@ -310,14 +314,16 @@ namespace cine_web_app.back_end.Services
                             Cartel = "/cine_web_app/front-end/images/Venom_3.jpg",
                             EdadRecomendada = 12,
                             ImagenEdadRecomendada = "/cine_web_app/front-end/images/12.jpg",
-                            Sesiones = CrearSesionesVenom()
+                            Sesiones = CrearSesionesVenom(),
+                            EnCartelera = true, // Actualmente en cartelera
+                            EnVentaAnticipada = false // No está en venta anticipada
                         },
                         new Pelicula
                         {
                             Id = 4,
                             Titulo = "Terrifier 3",
                             Descripcion = "Este año la Navidad llega antes. El payaso Art desata el caos entre los desprevenidos habitantes del condado de Miles...",
-                            FechaEstreno = "2024, 10, 31",
+                            FechaEstreno = new DateTime(2024, 10, 31),
                             Genero = "Terror",
                             Duracion = "2 horas 5 minutos",
                             Calificacion = 7.5,
@@ -336,7 +342,7 @@ namespace cine_web_app.back_end.Services
                             Id = 5,
                             Titulo = "The Batman",
                             Descripcion = "Bruce Wayne, en sus primeros años como el Caballero Oscuro, enfrenta a un asesino en serie conocido como el Riddler. Mientras investiga los crímenes, descubre secretos oscuros sobre su familia y la corrupción en Gotham. Con la ayuda de Catwoman, busca hacer justicia en una ciudad sumida en el caos.",
-                            FechaEstreno = "2022, 3, 4",
+                            FechaEstreno = new DateTime(2022, 3, 4),
                             Genero = "Acción, Crimen, Drama",
                             Director = "Matt Reeves",
                             Actores = "Robert Pattinson, Zoë Kravitz, Colin Farrell",
@@ -354,7 +360,7 @@ namespace cine_web_app.back_end.Services
                             Id = 6,
                             Titulo = "Gladiator II",
                             Descripcion = "Años después de la muerte de Máximo, Lucio, ahora adulto, se enfrenta a nuevas amenazas que ponen en riesgo al Imperio Romano. Inspirado por el sacrificio del gladiador, Lucio deberá enfrentarse a la corrupción y al poder en su intento por restaurar la justicia y el honor en Roma.",
-                            FechaEstreno = "2024, 11, 15",
+                            FechaEstreno = new DateTime(2024, 11, 15),
                             Genero = "Acción, Aventura, Drama",
                             Director = "Ridley Scott",
                             Duracion = "2h 27m",
@@ -373,7 +379,7 @@ namespace cine_web_app.back_end.Services
                             Id = 7,
                             Titulo = "Red One",
                             Descripcion = "Tras el secuestro de Papá Noel, nombre en clave: RED ONE, el Jefe de Seguridad del Polo Norte (Dwayne Johnson) debe formar equipo con el cazarrecompensas más infame del mundo (Chris Evans) en una misión trotamundos llena de acción para salvar la Navidad. No te pierdas #RedOne, protagonizada por Dwayne Johnson y Chris Evans. Disfruta de la película a partir del 6 de noviembre solo en cines.",
-                            FechaEstreno = "2024, 11, 6",
+                            FechaEstreno = new DateTime(2024, 11, 6),
                             Genero = "Acción, Comedia, Aventura",
                             Director = "Jake Kasdan",
                             Actores = "Paul Mescal, Denzel Washington, Connie Nielsen, Joseph Quinn, Derek Jacobi, Fred Hechinger, Lior Raz, Pedro Pascal",
@@ -392,7 +398,7 @@ namespace cine_web_app.back_end.Services
                             Id = 8, // Ajusta el ID según corresponda
                             Titulo = "Robot Salvaje",
                             Descripcion = "La película sigue el épico viaje de un robot -la unidad 7134 de Roz, 'Roz' para abreviar- que naufraga en una isla deshabitada y debe aprender a adaptarse al duro entorno, entablando gradualmente relaciones con los animales de la isla y convirtiéndose en padre adoptivo de un gosling huérfano.",
-                            FechaEstreno = "2024, 10, 11",
+                            FechaEstreno = new DateTime(2024, 10, 11),
                             Genero = "Aventura, Animación",
                             Director = "Chris Sanders",
                             Actores = "Bill Nighy, Lupita Nyong'o, Stephanie Hsu, Mark Hamill, Ving Rhames, Catherine O'Hara, Matt Berry, Pedro Pascal, Kit Connor",
@@ -411,7 +417,7 @@ namespace cine_web_app.back_end.Services
                             Id = 9, // Cambia el ID según tu necesidad
                             Titulo = "Wicked",
                             Descripcion = "Tras dos décadas como uno de los musicales más aclamados y longevos en escena, WICKED llega en noviembre a la gran pantalla para convertirse en un esperadísimo y espectacular evento cinematográfico que definirá una era.",
-                            FechaEstreno = "2024, 11, 22",
+                            FechaEstreno = new DateTime(2024, 11, 22),
                             Genero = "Musical, Fantasía, Romance",
                             Director = "Jon M. Chu",
                             Duracion = "2h 40m",
@@ -438,7 +444,7 @@ namespace cine_web_app.back_end.Services
                             Id = 1,
                             Titulo = "Spider-Man: No Way Home",
                             Descripcion = "Cuando la identidad de Spider-Man es revelada, Peter Parker se enfrenta a las consecuencias que afectan a su vida personal y a sus seres queridos. Desesperado, busca la ayuda del Doctor Strange para restaurar el secreto, pero el hechizo sale mal, desatando un caos multiversal donde viejos enemigos regresan y nuevas alianzas se forman.",
-                            FechaEstreno = "2021, 12, 17",
+                            FechaEstreno = new DateTime(2021, 12, 17),
                             Genero = "acción, aventura, ciencia ficción",
                             Director = "Jon Watts",
                             Duracion = "1 hora 55 minutos",
@@ -448,14 +454,16 @@ namespace cine_web_app.back_end.Services
                             Cartel = "/cine_web_app/front-end/images/Spiderman-No-Way-Home-Cartel.jpg",
                             EdadRecomendada = 12,
                             ImagenEdadRecomendada = "/cine_web_app/front-end/images/12.jpg",
-                            Sesiones = CrearSesionesSpiderMan()
+                            Sesiones = CrearSesionesSpiderMan(),
+                            EnCartelera = false, // Ya no está en cartelera
+                            EnVentaAnticipada = false // Tampoco está en venta anticipada
                         },
                         new Pelicula
                         {
                             Id = 2,
                             Titulo = "X-Men Apocalypse",
                             Descripcion = "Años después de la muerte de Máximo, Lucio, ahora adulto, se enfrenta a nuevas amenazas que ponen en riesgo al Imperio Romano. Inspirado por el sacrificio del gladiador, Lucio deberá enfrentarse a la corrupción y al poder en su intento por restaurar la justicia y el honor en Roma.",
-                            FechaEstreno = "2016, 5, 27",
+                            FechaEstreno = new DateTime(2016, 5, 27),
                             Genero = "Sci-fi",
                             Director = "Bryan Singer",
                             Actores = "James McAvoy, Michael Fassbender, Jennifer Lawrence, Oscar Isaac, Nicholas Hoult, Rose Byrne, Evan Peters, Sophie Turner",
@@ -465,14 +473,16 @@ namespace cine_web_app.back_end.Services
                             ImagenEdadRecomendada = "/cine_web_app/front-end/images/12.jpg",
                             Imagen = "/cine_web_app/front-end/images/X-Men_Apocalypse_Banner.jpg",
                             Cartel = "/cine_web_app/front-end/images/X-MEN_Apocalypse.jpg",
-                            Sesiones = CrearSesionesXMen()
+                            Sesiones = CrearSesionesXMen(),
+                            EnCartelera = true, // Actualmente en cartelera
+                            EnVentaAnticipada = true // Si está en venta anticipada
                         },
                         new Pelicula
                         {
                             Id = 3,
                             Titulo = "Venom: El Último Baile",
                             Descripcion = "Eddie Brock intenta reavivar su carrera entrevistando al asesino en serie Cletus Kasady, quien se convierte en el anfitrión del simbionte Carnage y escapa de prisión después de una fallida ejecución.",
-                            FechaEstreno = "2024, 10, 25",
+                            FechaEstreno = new DateTime(2024, 10, 25),
                             Genero = "Sci-fi",
                             Director = "Kelly Marcel",
                             Actores = "Rhys Ifans, Chiwetel Ejiofor, Tom Hardy, Stephen Graham, Alanna Ubach, Juno Temple, Clark Backo, Peggy Lu",
@@ -482,14 +492,16 @@ namespace cine_web_app.back_end.Services
                             Cartel = "/cine_web_app/front-end/images/Venom_3.jpg",
                             EdadRecomendada = 12,
                             ImagenEdadRecomendada = "/cine_web_app/front-end/images/12.jpg",
-                            Sesiones = CrearSesionesVenom()
+                            Sesiones = CrearSesionesVenom(),
+                            EnCartelera = true, // Actualmente en cartelera
+                            EnVentaAnticipada = false // No está en venta anticipada
                         },
                         new Pelicula
                         {
                             Id = 4,
                             Titulo = "Terrifier 3",
                             Descripcion = "Este año la Navidad llega antes. El payaso Art desata el caos entre los desprevenidos habitantes del condado de Miles...",
-                            FechaEstreno = "2024, 10, 31",
+                            FechaEstreno = new DateTime(2024, 10, 31),
                             Genero = "Terror",
                             Duracion = "2 horas 5 minutos",
                             Calificacion = 7.5,
@@ -508,7 +520,7 @@ namespace cine_web_app.back_end.Services
                             Id = 5,
                             Titulo = "The Batman",
                             Descripcion = "Bruce Wayne, en sus primeros años como el Caballero Oscuro, enfrenta a un asesino en serie conocido como el Riddler. Mientras investiga los crímenes, descubre secretos oscuros sobre su familia y la corrupción en Gotham. Con la ayuda de Catwoman, busca hacer justicia en una ciudad sumida en el caos.",
-                            FechaEstreno = "2022, 3, 4",
+                            FechaEstreno = new DateTime(2022, 3, 4),
                             Genero = "Acción, Crimen, Drama",
                             Director = "Matt Reeves",
                             Actores = "Robert Pattinson, Zoë Kravitz, Colin Farrell",
@@ -526,7 +538,7 @@ namespace cine_web_app.back_end.Services
                             Id = 6,
                             Titulo = "Gladiator II",
                             Descripcion = "Años después de la muerte de Máximo, Lucio, ahora adulto, se enfrenta a nuevas amenazas que ponen en riesgo al Imperio Romano. Inspirado por el sacrificio del gladiador, Lucio deberá enfrentarse a la corrupción y al poder en su intento por restaurar la justicia y el honor en Roma.",
-                            FechaEstreno = "2024, 11, 15",
+                            FechaEstreno = new DateTime(2024, 11, 15),
                             Genero = "Acción, Aventura, Drama",
                             Director = "Ridley Scott",
                             Duracion = "2h 27m",
@@ -545,7 +557,7 @@ namespace cine_web_app.back_end.Services
                             Id = 7,
                             Titulo = "Red One",
                             Descripcion = "Tras el secuestro de Papá Noel, nombre en clave: RED ONE, el Jefe de Seguridad del Polo Norte (Dwayne Johnson) debe formar equipo con el cazarrecompensas más infame del mundo (Chris Evans) en una misión trotamundos llena de acción para salvar la Navidad. No te pierdas #RedOne, protagonizada por Dwayne Johnson y Chris Evans. Disfruta de la película a partir del 6 de noviembre solo en cines.",
-                            FechaEstreno = "2024, 11, 6",
+                            FechaEstreno = new DateTime(2024, 11, 6),
                             Genero = "Acción, Comedia, Aventura",
                             Director = "Jake Kasdan",
                             Actores = "Paul Mescal, Denzel Washington, Connie Nielsen, Joseph Quinn, Derek Jacobi, Fred Hechinger, Lior Raz, Pedro Pascal",
@@ -564,7 +576,7 @@ namespace cine_web_app.back_end.Services
                             Id = 8, // Ajusta el ID según corresponda
                             Titulo = "Robot Salvaje",
                             Descripcion = "La película sigue el épico viaje de un robot -la unidad 7134 de Roz, 'Roz' para abreviar- que naufraga en una isla deshabitada y debe aprender a adaptarse al duro entorno, entablando gradualmente relaciones con los animales de la isla y convirtiéndose en padre adoptivo de un gosling huérfano.",
-                            FechaEstreno = "2024, 10, 11",
+                            FechaEstreno = new DateTime(2024, 10, 11),
                             Genero = "Aventura, Animación",
                             Director = "Chris Sanders",
                             Actores = "Bill Nighy, Lupita Nyong'o, Stephanie Hsu, Mark Hamill, Ving Rhames, Catherine O'Hara, Matt Berry, Pedro Pascal, Kit Connor",
@@ -583,7 +595,7 @@ namespace cine_web_app.back_end.Services
                             Id = 9, // Cambia el ID según tu necesidad
                             Titulo = "Wicked",
                             Descripcion = "Tras dos décadas como uno de los musicales más aclamados y longevos en escena, WICKED llega en noviembre a la gran pantalla para convertirse en un esperadísimo y espectacular evento cinematográfico que definirá una era.",
-                            FechaEstreno = "2024, 11, 22",
+                            FechaEstreno = new DateTime(2024, 11, 22),
                             Genero = "Musical, Fantasía, Romance",
                             Director = "Jon M. Chu",
                             Duracion = "2h 40m",
@@ -610,7 +622,7 @@ namespace cine_web_app.back_end.Services
                             Id = 1,
                             Titulo = "Spider-Man: No Way Home",
                             Descripcion = "Cuando la identidad de Spider-Man es revelada, Peter Parker se enfrenta a las consecuencias que afectan a su vida personal y a sus seres queridos. Desesperado, busca la ayuda del Doctor Strange para restaurar el secreto, pero el hechizo sale mal, desatando un caos multiversal donde viejos enemigos regresan y nuevas alianzas se forman.",
-                            FechaEstreno = "2021, 12, 17",
+                            FechaEstreno = new DateTime(2021, 12, 17),
                             Genero = "acción, aventura, ciencia ficción",
                             Director = "Jon Watts",
                             Duracion = "1 hora 55 minutos",
@@ -620,14 +632,16 @@ namespace cine_web_app.back_end.Services
                             Cartel = "/cine_web_app/front-end/images/Spiderman-No-Way-Home-Cartel.jpg",
                             EdadRecomendada = 12,
                             ImagenEdadRecomendada = "/cine_web_app/front-end/images/12.jpg",
-                            Sesiones = CrearSesionesSpiderMan()
+                            Sesiones = CrearSesionesSpiderMan(),
+                            EnCartelera = false, // Ya no está en cartelera
+                            EnVentaAnticipada = false // Tampoco está en venta anticipada
                         },
                         new Pelicula
                         {
                             Id = 2,
                             Titulo = "X-Men Apocalypse",
                             Descripcion = "Años después de la muerte de Máximo, Lucio, ahora adulto, se enfrenta a nuevas amenazas que ponen en riesgo al Imperio Romano. Inspirado por el sacrificio del gladiador, Lucio deberá enfrentarse a la corrupción y al poder en su intento por restaurar la justicia y el honor en Roma.",
-                            FechaEstreno = "2016, 5, 27",
+                            FechaEstreno = new DateTime(2016, 5, 27),
                             Genero = "Sci-fi",
                             Director = "Bryan Singer",
                             Actores = "James McAvoy, Michael Fassbender, Jennifer Lawrence, Oscar Isaac, Nicholas Hoult, Rose Byrne, Evan Peters, Sophie Turner",
@@ -637,14 +651,16 @@ namespace cine_web_app.back_end.Services
                             ImagenEdadRecomendada = "/cine_web_app/front-end/images/12.jpg",
                             Imagen = "/cine_web_app/front-end/images/X-Men_Apocalypse_Banner.jpg",
                             Cartel = "/cine_web_app/front-end/images/X-MEN_Apocalypse.jpg",
-                            Sesiones = CrearSesionesXMen()
+                            Sesiones = CrearSesionesXMen(),
+                            EnCartelera = true, // Actualmente en cartelera
+                            EnVentaAnticipada = true // Si está en venta anticipada
                         },
                         new Pelicula
                         {
                             Id = 3,
                             Titulo = "Venom: El Último Baile",
                             Descripcion = "Eddie Brock intenta reavivar su carrera entrevistando al asesino en serie Cletus Kasady, quien se convierte en el anfitrión del simbionte Carnage y escapa de prisión después de una fallida ejecución.",
-                            FechaEstreno = "2024, 10, 25",
+                            FechaEstreno = new DateTime(2024, 10, 25),
                             Genero = "Sci-fi",
                             Director = "Kelly Marcel",
                             Actores = "Rhys Ifans, Chiwetel Ejiofor, Tom Hardy, Stephen Graham, Alanna Ubach, Juno Temple, Clark Backo, Peggy Lu",
@@ -654,14 +670,16 @@ namespace cine_web_app.back_end.Services
                             Cartel = "/cine_web_app/front-end/images/Venom_3.jpg",
                             EdadRecomendada = 12,
                             ImagenEdadRecomendada = "/cine_web_app/front-end/images/12.jpg",
-                            Sesiones = CrearSesionesVenom()
+                            Sesiones = CrearSesionesVenom(),
+                            EnCartelera = true, // Actualmente en cartelera
+                            EnVentaAnticipada = false // No está en venta anticipada
                         },
                         new Pelicula
                         {
                             Id = 4,
                             Titulo = "Terrifier 3",
                             Descripcion = "Este año la Navidad llega antes. El payaso Art desata el caos entre los desprevenidos habitantes del condado de Miles...",
-                            FechaEstreno = "2024, 10, 31",
+                            FechaEstreno = new DateTime(2024, 10, 31),
                             Genero = "Terror",
                             Duracion = "2 horas 5 minutos",
                             Calificacion = 7.5,
@@ -680,7 +698,7 @@ namespace cine_web_app.back_end.Services
                             Id = 5,
                             Titulo = "The Batman",
                             Descripcion = "Bruce Wayne, en sus primeros años como el Caballero Oscuro, enfrenta a un asesino en serie conocido como el Riddler. Mientras investiga los crímenes, descubre secretos oscuros sobre su familia y la corrupción en Gotham. Con la ayuda de Catwoman, busca hacer justicia en una ciudad sumida en el caos.",
-                            FechaEstreno = "2022, 3, 4",
+                            FechaEstreno = new DateTime(2022, 3, 4),
                             Genero = "Acción, Crimen, Drama",
                             Director = "Matt Reeves",
                             Actores = "Robert Pattinson, Zoë Kravitz, Colin Farrell",
@@ -698,7 +716,7 @@ namespace cine_web_app.back_end.Services
                             Id = 6,
                             Titulo = "Gladiator II",
                             Descripcion = "Años después de la muerte de Máximo, Lucio, ahora adulto, se enfrenta a nuevas amenazas que ponen en riesgo al Imperio Romano. Inspirado por el sacrificio del gladiador, Lucio deberá enfrentarse a la corrupción y al poder en su intento por restaurar la justicia y el honor en Roma.",
-                            FechaEstreno = "2024, 11, 15",
+                            FechaEstreno = new DateTime(2024, 11, 15),
                             Genero = "Acción, Aventura, Drama",
                             Director = "Ridley Scott",
                             Duracion = "2h 27m",
@@ -717,7 +735,7 @@ namespace cine_web_app.back_end.Services
                             Id = 7,
                             Titulo = "Red One",
                             Descripcion = "Tras el secuestro de Papá Noel, nombre en clave: RED ONE, el Jefe de Seguridad del Polo Norte (Dwayne Johnson) debe formar equipo con el cazarrecompensas más infame del mundo (Chris Evans) en una misión trotamundos llena de acción para salvar la Navidad. No te pierdas #RedOne, protagonizada por Dwayne Johnson y Chris Evans. Disfruta de la película a partir del 6 de noviembre solo en cines.",
-                            FechaEstreno = "2024, 11, 6",
+                            FechaEstreno = new DateTime(2024, 11, 6),
                             Genero = "Acción, Comedia, Aventura",
                             Director = "Jake Kasdan",
                             Actores = "Paul Mescal, Denzel Washington, Connie Nielsen, Joseph Quinn, Derek Jacobi, Fred Hechinger, Lior Raz, Pedro Pascal",
@@ -736,7 +754,7 @@ namespace cine_web_app.back_end.Services
                             Id = 8, // Ajusta el ID según corresponda
                             Titulo = "Robot Salvaje",
                             Descripcion = "La película sigue el épico viaje de un robot -la unidad 7134 de Roz, 'Roz' para abreviar- que naufraga en una isla deshabitada y debe aprender a adaptarse al duro entorno, entablando gradualmente relaciones con los animales de la isla y convirtiéndose en padre adoptivo de un gosling huérfano.",
-                            FechaEstreno = "2024, 10, 11",
+                            FechaEstreno = new DateTime(2024, 10, 11),
                             Genero = "Aventura, Animación",
                             Director = "Chris Sanders",
                             Actores = "Bill Nighy, Lupita Nyong'o, Stephanie Hsu, Mark Hamill, Ving Rhames, Catherine O'Hara, Matt Berry, Pedro Pascal, Kit Connor",
@@ -755,7 +773,7 @@ namespace cine_web_app.back_end.Services
                             Id = 9, // Cambia el ID según tu necesidad
                             Titulo = "Wicked",
                             Descripcion = "Tras dos décadas como uno de los musicales más aclamados y longevos en escena, WICKED llega en noviembre a la gran pantalla para convertirse en un esperadísimo y espectacular evento cinematográfico que definirá una era.",
-                            FechaEstreno = "2024, 11, 22",
+                            FechaEstreno = new DateTime(2024, 11, 22),
                             Genero = "Musical, Fantasía, Romance",
                             Director = "Jon M. Chu",
                             Duracion = "2h 40m",
@@ -2281,3 +2299,9 @@ namespace cine_web_app.back_end.Services
         }
     }
 }
+
+
+
+
+
+
