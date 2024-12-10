@@ -23,7 +23,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("PermitirFrontend", policy =>
     {
         // Especificar orígenes explícitos
-        policy.WithOrigins("http://3.210.64.89:3000")
+        policy.WithOrigins("http://3.210.64.89:3000","http://localhost:3000")
               .AllowAnyHeader()       // Permite cualquier encabezado
               .AllowAnyMethod()       // Permite cualquier método (GET, POST, etc.)
               .AllowCredentials();    // Permite el uso de credenciales
