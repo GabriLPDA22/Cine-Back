@@ -808,7 +808,7 @@ namespace cine_web_app.back_end.Services
                                 new Sesion { Id = 2, Hora = "18:05", Sala = "8", EsISense = false, EsVOSE = true },
                                 new Sesion { Id = 3, Hora = "20:30", Sala = "3", EsISense = true, EsVOSE = true },
                                 new Sesion { Id = 4, Hora = "22:15", Sala = "5", EsISense = false, EsVOSE = true },
-                                new Sesion { Id = 5, Hora = "00:45", Sala = "7", EsISense = true, EsVOSE = false }
+                                new Sesion { Id = 5, Hora = "23:45", Sala = "7", EsISense = true, EsVOSE = false }
                             }
                         },
                         // Día 1
