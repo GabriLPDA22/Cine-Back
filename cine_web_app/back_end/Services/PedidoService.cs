@@ -35,6 +35,18 @@ namespace cine_web_app.back_end.Services
             // Agregar el pedido a la lista
             _pedidos.Add(pedido);
         }
+        // Método para eliminar un pedido por su ID
+        public bool EliminarPedido(int id)
+        {
+            var pedido = _pedidos.FirstOrDefault(p => p.Id == id);
+            if (pedido == null)
+            {
+                return false; // No se encontró el pedido
+            }
+
+            _pedidos.Remove(pedido); // Eliminar el pedido de la lista
+            return true; // Pedido eliminado
+        }
 
         public List<string> ObtenerButacasReservadas(string cineName, string date, int sesionId)
         {

@@ -53,6 +53,11 @@ namespace cine_web_app.back_end.Controllers
 
             return Ok(new { Message = "Pedido creado correctamente", PedidoId = pedido.Id });
         }
+       [HttpDelete("EliminarPedido")]
+        public IActionResult EliminarPedido([FromBody] Pedido pedido)
+        {
+            return Ok(new { Message = "Pedido borrado correctamente", PedidoId = pedido.Id });
+        }
 
         [HttpGet("GetButacasReservadas")]
         public IActionResult GetButacasReservadas(string cineName, string date, int sesionId)

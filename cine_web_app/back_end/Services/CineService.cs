@@ -100,9 +100,7 @@ namespace cine_web_app.back_end.Services
                             ImagenEdadRecomendada = "/../images/12.jpg",
                             Sesiones = CrearSesionesSpiderMan(),
                             EnCartelera = false, // Ya no está en cartelera
-                            EnVentaAnticipada = false, // Tampoco está en venta anticipada
-                            opiniones = "Esta pelicula es la hostia 10/10, recomendadda si o si",
-                            puntuacion = 4
+                            EnVentaAnticipada = false // Tampoco está en venta anticipada
                         },
                         new Pelicula
                         {

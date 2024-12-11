@@ -23,7 +23,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("PermitirFrontend", policy =>
     {
         // Especificar orígenes explícitos
-        policy.WithOrigins("http://3.210.64.89:3000","http://localhost:3000","http://localhost:5500","http://127.0.0.1:5500")
+        policy.WithOrigins("http://3.210.64.89:3000","http://localhost:3000", "http://localhost:22950")
               .AllowAnyHeader()       // Permite cualquier encabezado
               .AllowAnyMethod()       // Permite cualquier método (GET, POST, etc.)
               .AllowCredentials();    // Permite el uso de credenciales
@@ -405,6 +405,31 @@ app.MapPost("/api/Pedido/CreatePedido", (Pedido pedido, PedidoService pedidoServ
         return Results.BadRequest(new { Message = ex.Message });
     }
 }).WithName("CreatePedido").WithTags("Pedidos");
+
+// Endpoint para eliminar un pedido
+app.MapDelete("/api/Pedido/DeletePedido/{id}", (int id, PedidoService pedidoService) =>
+{
+    if (id <= 0)
+    {
+        return Results.BadRequest("El ID del pedido no es válido.");
+    }
+
+    try
+    {
+        bool pedidoEliminado = pedidoService.EliminarPedido(id);
+        
+        if (!pedidoEliminado)
+        {
+            return Results.NotFound(new { Message = "Pedido no encontrado." });
+        }
+
+        return Results.Ok(new { Message = "Pedido eliminado correctamente" });
+    }
+    catch (Exception ex)
+    {
+        return Results.BadRequest(new { Message = ex.Message });
+    }
+}).WithName("DeletePedido").WithTags("Pedidos");
 
 // Endpoint para obtener butacas reservadas filtradas
 app.MapGet("/api/Pedido/GetButacasReservadas", (string cineName, string date, int sesionId, PedidoService pedidoService) =>
