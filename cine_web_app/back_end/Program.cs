@@ -22,20 +22,18 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("PermitirFrontend", policy =>
     {
-        policy.WithOrigins("http://127.0.0.1:5500", "https://127.0.0.1:5500")
+        policy.WithOrigins("http://localhost:5173", "https://localhost:5173") // Cambia a la URL del frontend de Vite
               .AllowAnyHeader()
               .AllowAnyMethod();
     });
 });
 
+
 var app = builder.Build();
 
 // ==================== CONFIGURACIÓN DE SWAGGER ====================
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseSwagger();
+app.UseSwaggerUI();
 
 // ==================== CONFIGURACIÓN DE CORS ====================
 app.UseCors("PermitirFrontend");

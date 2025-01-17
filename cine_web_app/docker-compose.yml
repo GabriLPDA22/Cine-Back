@@ -1,11 +1,10 @@
-version: '3.8'
-
+version: '3'
 services:
-  cinewebapp:
-    build:
-      context: .
-      dockerfile: infra/Dockerfile
-    ports:
-      - "8080:80"
+  postgres:
+    image: postgres
+    container_name: postgres
     environment:
-      - ASPNETCORE_ENVIRONMENT=Production
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=ivTYnru!6q6YH
+    ports:
+      - 5432:5432
