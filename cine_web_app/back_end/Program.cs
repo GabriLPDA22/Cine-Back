@@ -425,4 +425,5 @@ app.MapGet("/api/Pedido/GetButacasReservadas", (string cineName, string date, in
 }).WithName("GetButacasReservadas").WithTags("Pedidos");
 
 // ==================== EJECUCIÓN DE LA APLICACIÓN ====================
+app.UseStaticFiles(); // Habilitar archivos estáticos
 app.Run();
