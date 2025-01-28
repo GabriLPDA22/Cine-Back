@@ -1,16 +1,36 @@
-using System.Text.Json.Serialization; // Asegúrate de agregar esta línea
-
-public class Users
+namespace cine_web_app.back_end.Models
 {
-    public int Id { get; set; }
-    public string Nombre { get; set; }
-    public string Correo { get; set; }
-    public string Password { get; set; }
-    public List<string> Roles { get; set; }
+    public class Users
+    {
+        public int UserID { get; set; }
+        public string Nombre { get; set; }
+        public string Correo { get; set; }
+        public string Password { get; set; }
+        public string GoogleId { get; set; } // ID único de Google
+        public string PictureUrl { get; set; } // Foto de perfil de Google
+        public string[] Roles { get; set; } 
+
+        // Constructor por defecto
+        public Users()
+        {
+            Roles = Array.Empty<string>(); // Inicializa el array vacío
+        }
+
+        // Constructor opcional para inicialización rápida
+        public Users(string nombre, string correo, string password, string googleId, string pictureUrl, string[] roles)
+        {
+            Nombre = nombre;
+            Correo = correo;
+            Password = password;
+            GoogleId = googleId;
+            PictureUrl = pictureUrl;
+            Roles = roles;
+        }
+
+        // Método opcional para depuración (ToString)
+        public override string ToString()
+        {
+            return $"{Nombre} ({Correo}) - GoogleID: {GoogleId}, Roles: {string.Join(", ", Roles)}";
+        }
+    }
 }
-
-
-// Un DTO (Data Transfer Object, por sus siglas en inglés) es un objeto simple utilizado para transferir datos entre diferentes partes de un sistema o aplicación, especialmente entre el cliente (frontend) y el servidor (backend), o entre diferentes capas de una aplicación.
-// ¿Por qué usar un DTO?
-// Los DTO se usan principalmente para estructurar y simplificar los datos que se envían o reciben, evitando exponer información sensible o innecesaria del modelo principal (como contraseñas, IDs internos, etc.). 
-// También ayudan a mantener una separación clara entre la lógica del negocio (modelos internos) y los datos que se exponen a través de la API o las vistas.

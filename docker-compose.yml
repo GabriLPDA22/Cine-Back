@@ -1,10 +1,17 @@
-version: '3'
+version: '3.8'
 services:
   postgres:
-    image: postgres
-    container_name: postgres
+    image: postgres:15.3
+    container_name: cinedb
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=ivTYnru!6q6YH
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
     ports:
-      - 5432:5432
+      - "5432:5432"
+    volumes:
+      - cinedb_data:/var/lib/postgresql/data
+
+volumes:
+  cinedb_data:
+

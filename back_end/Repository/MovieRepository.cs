@@ -1,10 +1,5 @@
 using Npgsql;
-using cine_web_app.back_end.Models;
 using CineAPI.Repositories.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace CineAPI.Repositories
 {
