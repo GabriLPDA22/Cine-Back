@@ -30,13 +30,11 @@ namespace CineAPI.Repositories
                 string query = @"
                     INSERT INTO Movies (
                         Titulo, Genero, Duracion, Clasificacion, Idioma, Sinopsis, FechaEstreno, Director, Actores, 
-                        Portada, Banner, Calificacion, EdadRecomendada, ImagenEdadRecomendada, EnCartelera, EnVentaAnticipada, 
-                        Puntuacion, Sesiones
+                        Portada, Banner, EdadRecomendada, ImagenEdadRecomendada, EnCartelera, EnVentaAnticipada
                     ) 
                     VALUES (
                         @Titulo, @Genero, @Duracion, @Clasificacion, @Idioma, @Sinopsis, @FechaEstreno, @Director, @Actores, 
-                        @Portada, @Banner, @Calificacion, @EdadRecomendada, @ImagenEdadRecomendada, @EnCartelera, @EnVentaAnticipada, 
-                        @Puntuacion, @Sesiones
+                        @Portada, @Banner, @EdadRecomendada, @ImagenEdadRecomendada, @EnCartelera, @EnVentaAnticipada
                     )";
                 using (var command = new NpgsqlCommand(query, connection))
                 {
@@ -73,7 +71,27 @@ namespace CineAPI.Repositories
                     {
                         while (await reader.ReadAsync())
                         {
-                            movies.Add(MapReaderToMovie(reader));
+                            // Mapeo directo sin MapReaderToMovie
+                            var movie = new Movies
+                            {
+                                PeliculaID = reader.GetInt32(reader.GetOrdinal("PeliculaID")),
+                                Titulo = reader.GetString(reader.GetOrdinal("Titulo")),
+                                Genero = reader.GetString(reader.GetOrdinal("Genero")),
+                                Duracion = reader.GetInt32(reader.GetOrdinal("Duracion")),
+                                Clasificacion = reader.GetString(reader.GetOrdinal("Clasificacion")),
+                                Idioma = reader.GetString(reader.GetOrdinal("Idioma")),
+                                Sinopsis = reader.GetString(reader.GetOrdinal("Sinopsis")),
+                                FechaEstreno = reader.GetDateTime(reader.GetOrdinal("FechaEstreno")),
+                                Director = reader.GetString(reader.GetOrdinal("Director")),
+                                Actores = reader.GetString(reader.GetOrdinal("Actores")),
+                                Portada = reader.GetString(reader.GetOrdinal("Portada")),
+                                Banner = reader.GetString(reader.GetOrdinal("Banner")),
+                                EdadRecomendada = reader.GetInt32(reader.GetOrdinal("EdadRecomendada")),
+                                ImagenEdadRecomendada = reader.GetString(reader.GetOrdinal("ImagenEdadRecomendada")),
+                                EnCartelera = reader.GetBoolean(reader.GetOrdinal("EnCartelera")),
+                                EnVentaAnticipada = reader.GetBoolean(reader.GetOrdinal("EnVentaAnticipada"))
+                            };
+                            movies.Add(movie);
                         }
                     }
                 }
@@ -95,7 +113,26 @@ namespace CineAPI.Repositories
                     {
                         if (await reader.ReadAsync())
                         {
-                            movie = MapReaderToMovie(reader);
+                            // Mapeo directo sin MapReaderToMovie
+                            movie = new Movies
+                            {
+                                PeliculaID = reader.GetInt32(reader.GetOrdinal("PeliculaID")),
+                                Titulo = reader.GetString(reader.GetOrdinal("Titulo")),
+                                Genero = reader.GetString(reader.GetOrdinal("Genero")),
+                                Duracion = reader.GetInt32(reader.GetOrdinal("Duracion")),
+                                Clasificacion = reader.GetString(reader.GetOrdinal("Clasificacion")),
+                                Idioma = reader.GetString(reader.GetOrdinal("Idioma")),
+                                Sinopsis = reader.GetString(reader.GetOrdinal("Sinopsis")),
+                                FechaEstreno = reader.GetDateTime(reader.GetOrdinal("FechaEstreno")),
+                                Director = reader.GetString(reader.GetOrdinal("Director")),
+                                Actores = reader.GetString(reader.GetOrdinal("Actores")),
+                                Portada = reader.GetString(reader.GetOrdinal("Portada")),
+                                Banner = reader.GetString(reader.GetOrdinal("Banner")),
+                                EdadRecomendada = reader.GetInt32(reader.GetOrdinal("EdadRecomendada")),
+                                ImagenEdadRecomendada = reader.GetString(reader.GetOrdinal("ImagenEdadRecomendada")),
+                                EnCartelera = reader.GetBoolean(reader.GetOrdinal("EnCartelera")),
+                                EnVentaAnticipada = reader.GetBoolean(reader.GetOrdinal("EnVentaAnticipada"))
+                            };
                         }
                     }
                 }
@@ -113,10 +150,9 @@ namespace CineAPI.Repositories
                     SET 
                         Titulo = @Titulo, Genero = @Genero, Duracion = @Duracion, Clasificacion = @Clasificacion, 
                         Idioma = @Idioma, Sinopsis = @Sinopsis, FechaEstreno = @FechaEstreno, Director = @Director, 
-                        Actores = @Actores, Portada = @Portada, Banner = @Banner, Calificacion = @Calificacion, 
+                        Actores = @Actores, Portada = @Portada, Banner = @Banner, 
                         EdadRecomendada = @EdadRecomendada, ImagenEdadRecomendada = @ImagenEdadRecomendada, 
-                        EnCartelera = @EnCartelera, EnVentaAnticipada = @EnVentaAnticipada, 
-                        Puntuacion = @Puntuacion, Sesiones = @Sesiones
+                        EnCartelera = @EnCartelera, EnVentaAnticipada = @EnVentaAnticipada
                     WHERE PeliculaID = @PeliculaID";
                 using (var command = new NpgsqlCommand(query, connection))
                 {
@@ -140,41 +176,10 @@ namespace CineAPI.Repositories
             command.Parameters.AddWithValue("@Actores", movie.Actores);
             command.Parameters.AddWithValue("@Portada", movie.Portada);
             command.Parameters.AddWithValue("@Banner", movie.Banner);
-            command.Parameters.AddWithValue("@Calificacion", movie.Calificacion);
             command.Parameters.AddWithValue("@EdadRecomendada", movie.EdadRecomendada);
             command.Parameters.AddWithValue("@ImagenEdadRecomendada", movie.ImagenEdadRecomendada);
             command.Parameters.AddWithValue("@EnCartelera", movie.EnCartelera);
             command.Parameters.AddWithValue("@EnVentaAnticipada", movie.EnVentaAnticipada);
-            command.Parameters.AddWithValue("@Puntuacion", movie.Puntuacion);
-            command.Parameters.AddWithValue("@Sesiones", JsonSerializer.Serialize(movie.Sesiones));
-        }
-
-        private Movies MapReaderToMovie(NpgsqlDataReader reader)
-        {
-            return new Movies
-            {
-                PeliculaID = reader.GetInt32(reader.GetOrdinal("PeliculaID")),
-                Titulo = reader.GetString(reader.GetOrdinal("Titulo")),
-                Genero = reader.GetString(reader.GetOrdinal("Genero")),
-                Duracion = reader.GetInt32(reader.GetOrdinal("Duracion")),
-                Clasificacion = reader.GetString(reader.GetOrdinal("Clasificacion")),
-                Idioma = reader.GetString(reader.GetOrdinal("Idioma")),
-                Sinopsis = reader.GetString(reader.GetOrdinal("Sinopsis")),
-                FechaEstreno = reader.GetDateTime(reader.GetOrdinal("FechaEstreno")),
-                Director = reader.GetString(reader.GetOrdinal("Director")),
-                Actores = reader.GetString(reader.GetOrdinal("Actores")),
-                Portada = reader.GetString(reader.GetOrdinal("Portada")),
-                Banner = reader.GetString(reader.GetOrdinal("Banner")),
-                Calificacion = reader.GetDouble(reader.GetOrdinal("Calificacion")),
-                EdadRecomendada = reader.GetInt32(reader.GetOrdinal("EdadRecomendada")),
-                ImagenEdadRecomendada = reader.GetString(reader.GetOrdinal("ImagenEdadRecomendada")),
-                EnCartelera = reader.GetBoolean(reader.GetOrdinal("EnCartelera")),
-                EnVentaAnticipada = reader.GetBoolean(reader.GetOrdinal("EnVentaAnticipada")),
-                Puntuacion = reader.GetInt32(reader.GetOrdinal("Puntuacion")),
-                Sesiones = JsonSerializer.Deserialize<Dictionary<string, Dictionary<string, List<Sesion>>>>(
-                    reader.GetString(reader.GetOrdinal("Sesiones"))
-                )!
-            };
         }
     }
 }

@@ -2,6 +2,7 @@ using CineAPI.Repositories;
 using CineAPI.Repositories.Interfaces;
 using CineAPI.Services;
 using CineAPI.Services.Interfaces;
+using Microsoft.OpenApi.Models; // Asegúrate de incluir esta línea
 using Npgsql;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,7 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 var databaseProvider = builder.Configuration["DatabaseProvider"] ?? "PostgreSQL"; // Por defecto, PostgreSQL
 
 // Obtener las cadenas de conexión desde appsettings.json
-var postgresConnection = builder.Configuration.GetConnectionString("CineDB");
+var postgresConnection = builder.Configuration.GetConnectionString("CineDB_PostgreSQL");
 
 // Validar la configuración del proveedor
 if (string.IsNullOrEmpty(databaseProvider))
@@ -35,7 +36,10 @@ else
 // Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Cine API", Version = "v1" });
+});
 
 var app = builder.Build();
 
@@ -43,7 +47,11 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Cine API v1");
+        c.RoutePrefix = string.Empty; // Esto coloca Swagger en la raíz de la aplicación
+    });
 }
 
 app.UseHttpsRedirection();

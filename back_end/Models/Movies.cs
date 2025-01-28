@@ -14,12 +14,8 @@ public class Movies
     public string Actores { get; set; } // Lista de actores (puede mejorarse con una relación)
     public string Portada { get; set; } // URL del cartel
     public string Banner { get; set; } // URL del banner
-    public double Calificacion { get; set; } // Promedio de calificación de usuarios
     public int EdadRecomendada { get; set; } // Edad recomendada
     public string ImagenEdadRecomendada { get; set; } // Imagen asociada a la edad recomendada
     public bool EnCartelera { get; set; } // Indica si está en cartelera
     public bool EnVentaAnticipada { get; set; } // Indica si está en venta anticipada
-    public int Puntuacion { get; set; } // Puntuación interna
-    public Dictionary<string, Dictionary<string, List<Sesion>>> Sesiones { get; set; } 
-    // Diccionario para gestionar las sesiones por cine y fecha
 }

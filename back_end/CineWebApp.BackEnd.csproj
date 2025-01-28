@@ -5,21 +5,16 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <InvariantGlobalization>true</InvariantGlobalization>
-    <UseAppHost>false</UseAppHost> <!-- Deshabilitar creación de apphost.exe -->
+    <UseAppHost>false</UseAppHost> 
     <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
   </PropertyGroup>
 
   <ItemGroup>
-    <!-- Dependencias de paquetes -->
-    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.1" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
-    <PackageReference Include="System.Text.Json" Version="8.0.5" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.1" />
-    <!-- Opcional, si usas EF Core -->
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.1" />
-    <!-- Para SQL Server -->
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.1" />  
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" /> 
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" /> 
+    <PackageReference Include="System.Text.Json" Version="8.0.5" /> 
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.2" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.2" />
   </ItemGroup>
-
-  <!-- Eliminada la sección que generaba duplicados -->
 </Project>

@@ -6,6 +6,6 @@ namespace cine_web_app.back_end.Models
         public string Nombre { get; set; }
 
         // Agregar la propiedad Peliculas para almacenar la lista de películas en cada cine
-        public List<Pelicula> Peliculas { get; set; }
+        
     }
 }
