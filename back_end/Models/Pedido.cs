@@ -1,9 +1,6 @@
-using System;
-using System.Collections.Generic;
-
 namespace cine_web_app.back_end.Models
 {
-public class Pedido
+    public class Pedido
 {
     public int Id { get; set; }
     public int SesionId { get; set; }  // Cambiar de string a int

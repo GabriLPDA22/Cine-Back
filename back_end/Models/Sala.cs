@@ -1,5 +1,3 @@
-using System;
-
 namespace cine_web_app.back_end.Models
 {
 

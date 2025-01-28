@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-
 namespace cine_web_app.back_end.Models
 {
     public class Cine
