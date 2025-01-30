@@ -2,7 +2,7 @@ using CineAPI.Repositories;
 using CineAPI.Repositories.Interfaces;
 using CineAPI.Services;
 using CineAPI.Services.Interfaces;
-using Microsoft.Extensions.Configuration;  // Asegúrate de incluir esta librería
+using Microsoft.Extensions.Configuration;
 using Microsoft.OpenApi.Models;
 using Npgsql;
 
@@ -34,56 +34,37 @@ if (databaseProvider == "PostgreSQL")
     // Configuración del repositorio y servicios para películas
     builder.Services.AddScoped<IMovieRepository>(provider =>
         new MovieRepository(postgresConnection));
-    builder.Services.AddScoped<IMovieService>(provider =>
-        new MovieService(provider.GetRequiredService<IMovieRepository>()));
-
-    // Configuración del repositorio y servicios para usuarios
-    builder.Services.AddScoped<IUserRepository>(provider =>
-        new UserRepository(postgresConnection));
-    builder.Services.AddScoped<IUserService>(provider =>
-        new UserService(provider.GetRequiredService<IUserRepository>()));
-}
-else
-{
-    throw new InvalidOperationException($"Proveedor de base de datos no reconocido: {databaseProvider}");
 }
 
-// Configuración de controladores y Swagger
-builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(c =>
+// Configuración de CORS
+builder.Services.AddCors(options =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Cine API", Version = "v1" });
+    options.AddPolicy("AllowLocalhost5173",
+        builder =>
+        {
+            builder.WithOrigins("http://localhost:5173")
+                   .AllowAnyHeader()
+                   .AllowAnyMethod();
+        });
 });
 
-// Configurar la autenticación y autorización por cookies
-builder.Services.AddAuthentication("Cookies")
-    .AddCookie(options =>
-    {
-        options.LoginPath = "/login";  
-        options.LogoutPath = "/logout";  
-        options.Cookie.HttpOnly = true;
-        options.Cookie.SecurePolicy = CookieSecurePolicy.Always;  
-        options.Cookie.SameSite = SameSiteMode.Strict;
-    });
+builder.Services.AddControllers();
 
 var app = builder.Build();
 
-// Configuración del pipeline HTTP
+// Configurar el pipeline de la aplicación
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI(c =>
-    {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Cine API v1");
-        c.RoutePrefix = string.Empty; // Esto coloca Swagger en la raíz de la aplicación
-    });
+    app.UseDeveloperExceptionPage();
 }
 
-app.UseHttpsRedirection();
-app.UseAuthentication();  
+app.UseRouting();
+
+// Usar la política de CORS configurada
+app.UseCors("AllowLocalhost5173");
+
 app.UseAuthorization();
+
 app.MapControllers();
 
-// Ejecutar la aplicación
 app.Run();
