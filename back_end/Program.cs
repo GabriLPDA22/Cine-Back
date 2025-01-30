@@ -36,6 +36,9 @@ if (databaseProvider == "PostgreSQL")
         new MovieRepository(postgresConnection));
 }
 
+// Registrar IMovieService y su implementación
+builder.Services.AddScoped<IMovieService, MovieService>();
+
 // Configuración de CORS
 builder.Services.AddCors(options =>
 {
@@ -48,6 +51,12 @@ builder.Services.AddCors(options =>
         });
 });
 
+// Configuración de Swagger
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "CineAPI", Version = "v1" });
+});
+
 builder.Services.AddControllers();
 
 var app = builder.Build();
@@ -56,6 +65,8 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
+    app.UseSwagger();
+    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "CineAPI v1"));
 }
 
 app.UseRouting();
