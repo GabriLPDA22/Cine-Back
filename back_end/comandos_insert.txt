@@ -1,0 +1,36 @@
+INSERT INTO Movies (
+    Titulo, 
+    Genero, 
+    Duracion, 
+    Idioma, 
+    Sinopsis, 
+    FechaEstreno, 
+    Director, 
+    Actores, 
+    Portada, 
+    Banner, 
+    Clasificacion, 
+    EdadRecomendada, 
+    ImagenEdadRecomendada, 
+    EnCartelera, 
+    EnVentaAnticipada
+) 
+VALUES (
+    'El Señor de los Anillos: La Comunidad del Anillo',  -- Titulo
+    'Fantasía',                                          -- Genero
+    178,                                                 -- Duracion
+    'Inglés',                                            -- Idioma
+    'La primera parte de la trilogía épica basada en la novela de J.R.R. Tolkien, que sigue a un joven hobbit llamado Frodo Baggins mientras lucha por destruir el Anillo Único.',  -- Sinopsis
+    '2001-12-19',                                        -- FechaEstreno
+    'Peter Jackson',                                     -- Director
+    'Elijah Wood, Ian McKellen, Viggo Mortensen',         -- Actores
+    'https://example.com/portada1.jpg',                  -- Portada
+    'https://example.com/banner1.jpg',                   -- Banner
+    'PG-13',                                             -- Clasificacion
+    13,                                                  -- EdadRecomendada
+    'https://example.com/edad_recomendada.jpg',          -- ImagenEdadRecomendada
+    TRUE,                                                -- EnCartelera
+    FALSE                                                -- EnVentaAnticipada
+);
+
+

@@ -1,0 +1,116 @@
+-- Crear tablas para la base de datos de un cine
+CREATE TABLE Cine (
+    CineID SERIAL PRIMARY KEY,
+    Nombre VARCHAR(100) NOT NULL,
+    Ubicacion VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE Sala (
+    SalaID SERIAL PRIMARY KEY,
+    Nombre VARCHAR(50) NOT NULL,
+    CineID INT NOT NULL,
+    FOREIGN KEY (CineID) REFERENCES Cine(CineID) ON DELETE CASCADE
+);
+
+CREATE TABLE Movies (
+    PeliculaID SERIAL PRIMARY KEY,
+    Titulo VARCHAR(100) NOT NULL,
+    Genero VARCHAR(50),
+    Duracion INT, -- en minutos
+    Clasificacion VARCHAR(10),
+    Idioma VARCHAR(50),
+    Sinopsis TEXT,
+    FechaEstreno DATE,
+    Director VARCHAR(100),
+    Actores VARCHAR(255),
+    Portada VARCHAR(255), -- URL del cartel
+    Banner VARCHAR(255), -- URL del banner
+    EdadRecomendada INT, -- Edad mínima recomendada
+    ImagenEdadRecomendada VARCHAR(255), -- Imagen asociada a la edad recomendada
+    EnCartelera BOOLEAN DEFAULT TRUE, -- Indica si está en cartelera
+    EnVentaAnticipada BOOLEAN DEFAULT FALSE -- Indica si está en venta anticipada
+);
+
+CREATE TABLE Sesion (
+    SesionID SERIAL PRIMARY KEY,
+    SalaID INT NOT NULL,
+    PeliculaID INT NOT NULL,
+    FechaHora TIMESTAMP NOT NULL,
+    FOREIGN KEY (SalaID) REFERENCES Sala(SalaID) ON DELETE CASCADE,
+    FOREIGN KEY (PeliculaID) REFERENCES Pelicula(PeliculaID) ON DELETE CASCADE
+);
+
+CREATE TABLE Butacas (
+    ButacaID SERIAL PRIMARY KEY,
+    SalaID INT NOT NULL,
+    Fila CHAR(1) NOT NULL,
+    Numero INT NOT NULL,
+    Disponible BOOLEAN DEFAULT TRUE,
+    FOREIGN KEY (SalaID) REFERENCES Sala(SalaID) ON DELETE CASCADE
+);
+
+CREATE TABLE Entrada (
+    EntradaID SERIAL PRIMARY KEY,
+    SesionID INT NOT NULL,
+    ButacaID INT NOT NULL,
+    Precio DECIMAL(10, 2) NOT NULL,
+    FOREIGN KEY (SesionID) REFERENCES Sesion(SesionID) ON DELETE CASCADE,
+    FOREIGN KEY (ButacaID) REFERENCES Butacas(ButacaID) ON DELETE CASCADE
+);
+
+CREATE TABLE Usuario (
+    UsuarioID SERIAL PRIMARY KEY,
+    Nombre VARCHAR(100) NOT NULL,
+    Correo VARCHAR(100) UNIQUE NOT NULL,
+    Contraseña VARCHAR(255) NOT NULL, -- Encriptada
+    Rol VARCHAR(20) DEFAULT 'cliente' -- Roles como admin, cliente, etc.
+);
+
+CREATE TABLE Roles (
+    RolID SERIAL PRIMARY KEY,
+    NombreRol VARCHAR(50) NOT NULL UNIQUE -- Ejemplo: 'Admin', 'Cliente', 'Empleado'
+);
+
+ALTER TABLE Usuario ADD CONSTRAINT fk_roles FOREIGN KEY (Rol) REFERENCES Roles(NombreRol);
+
+CREATE TABLE Pedido (
+    PedidoID SERIAL PRIMARY KEY,
+    UsuarioID INT,
+    Fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    Estado VARCHAR(20) DEFAULT 'pendiente',
+    MetodoPagoID INT NOT NULL,
+    FOREIGN KEY (UsuarioID) REFERENCES Usuario(UsuarioID) ON DELETE SET NULL,
+    FOREIGN KEY (MetodoPagoID) REFERENCES MetodoPago(MetodoPagoID)
+);
+
+CREATE TABLE MetodoPago (
+    MetodoPagoID SERIAL PRIMARY KEY,
+    NombreMetodo VARCHAR(50) NOT NULL UNIQUE -- Ejemplo: 'Tarjeta de crédito', 'Efectivo'
+);
+
+CREATE TABLE Producto (
+    ProductoID SERIAL PRIMARY KEY,
+    Nombre VARCHAR(100) NOT NULL,
+    Precio DECIMAL(10, 2) NOT NULL,
+    Categoria VARCHAR(50)
+);
+
+CREATE TABLE PedidoProducto (
+    PedidoID INT NOT NULL,
+    ProductoID INT NOT NULL,
+    Cantidad INT NOT NULL,
+    PRIMARY KEY (PedidoID, ProductoID),
+    FOREIGN KEY (PedidoID) REFERENCES Pedido(PedidoID) ON DELETE CASCADE,
+    FOREIGN KEY (ProductoID) REFERENCES Producto(ProductoID) ON DELETE CASCADE
+);
+
+CREATE TABLE Reseña (
+    ReseñaID SERIAL PRIMARY KEY,
+    UsuarioID INT NOT NULL,
+    PeliculaID INT NOT NULL,
+    Comentario TEXT,
+    Puntuacion INT CHECK (Puntuacion BETWEEN 1 AND 5),
+    Fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (UsuarioID) REFERENCES Usuario(UsuarioID) ON DELETE CASCADE,
+    FOREIGN KEY (PeliculaID) REFERENCES Pelicula(PeliculaID) ON DELETE CASCADE
+);
